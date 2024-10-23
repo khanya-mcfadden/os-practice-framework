@@ -1,48 +1,11 @@
 {% extends "base.html" %}
 
 {% block title %}Home{% endblock %}
-
 {% block content %}
-<div class="home">
-    <div class="div">
-        <div class="overlap-group">
-            <div class="rectangle"></div>
-            <div class="rectangle-2"></div>
-            <p class="look-into-our">Look Into Our Amazing Courses</p>
-            <p class="text-wrapper">
-                sample text sample text sample text sample text sample text sample text sample text sample text sample text
-                sample text sample text sample text sample text sample text sample text sample text sample text sample text
-                sample text sample text sample text sample text sample text
-            </p>
-            <div class="rectangle-3"></div>
-            <div class="rectangle-4"></div>
-            <img class="image" src="img/image-20.png" />
-            <img class="img" src="img/image-21.png" />
-        </div>
-        <div class="overlap">
-            <div class="text-wrapper-2">Home</div>
-            <div class="profile">Profile</div>
-            <div class="courses">Courses</div>
-            <div class="about-us">About Us</div>
-        </div>
-        <img class="image-2" src="img/image-19.png" />
-        <div class="overlap-2">
-            <p class="sample-text-sample">
-                sample text sample text sample text sample text sample text sample text sample text sample text sample text
-                sample text sample text sample text sample text sample text sample text sample text sample text sample text
-                sample text sample text sample text sample text sample text sample text sample text sample text sample text
-                sample text sample text sample text&nbsp;&nbsp;sample text sample text sample text
-            </p>
-            <p class="p">
-                sample text sample text sample text sample text sample text sample text sample text sample text sample text
-                sample text sample text sample text sample text sample text sample text sample text sample text sample text
-                sample text sample text sample text sample text sample text sample text sample text sample text sample text
-                sample text sample text sample text&nbsp;&nbsp;sample text sample text sample text
-            </p>
-            <img class="image-3" src="img/image-3.png" />
-            <img class="image-4" src="img/image-2.png" />
-        </div>
-        <div class="why-us">Why Us ?</div>
-    </div>
+<h1>This is the homepage</h1>      
+<div class="date">
+    <h2>The date is: </h2>
+    <p>Date: {{ date }}</p>
+    <p>Time: {{ time }}</p>
 </div>
 {% endblock %}

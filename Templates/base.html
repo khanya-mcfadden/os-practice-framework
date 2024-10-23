@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Bean & Brew{% endblock %}</title>
+    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
     <nav>
@@ -14,7 +16,50 @@
         </ul>
     </nav>
     <div class="content">
-        {% block content %}{% endblock %}
+        {% block content %}
+        <div class="home">
+            <div class="div">
+                <div class="overlap-group">
+                    <div class="rectangle"></div>
+                    <div class="rectangle-2"></div>
+                    <p class="look-into-our">Look Into Our Amazing Coursers</p>
+                    <p class="text-wrapper">
+                        sample text sample text sample text sample text sample text sample text sample text sample text sample text
+                        sample text sample text sample text sample text sample text sample text sample text sample text sample text
+                        sample text sample text sample text sample text sample text
+                    </p>
+                    <div class="rectangle-3"></div>
+                    <div class="rectangle-4"></div>
+                    <img class="image" src="img/image-20.png" />
+                    <img class="img" src="img/image-21.png" />
+                </div>
+                <div class="overlap">
+                    <div class="text-wrapper-2">Home</div>
+                    <div class="profile">Profile</div>
+                    <div class="courses">Courses</div>
+                    <div class="about-us">About Us</div>
+                </div>
+                <img class="image-2" src="img/image-19.png" />
+                <div class="overlap-2">
+                    <p class="sample-text-sample">
+                        sample text sample text sample text sample text sample text sample text sample text sample text sample text
+                        sample text sample text sample text sample text sample text sample text sample text sample text sample text
+                        sample text sample text sample text sample text sample text sample text sample text sample text sample text
+                        sample text sample text sample text&nbsp;&nbsp;sample text sample text sample text
+                    </p>
+                    <p class="p">
+                        sample text sample text sample text sample text sample text sample text sample text sample text sample text
+                        sample text sample text sample text sample text sample text sample text sample text sample text sample text
+                        sample text sample text sample text sample text sample text sample text sample text sample text sample text
+                        sample text sample text sample text&nbsp;&nbsp;sample text sample text sample text
+                    </p>
+                    <img class="image-3" src="img/image-3.png" />
+                    <img class="image-4" src="img/image-2.png" />
+                </div>
+                <div class="why-us">Why Us ?</div>
+            </div>
+        </div>
+        {% endblock %}
     </div>
 </body>
 </html>
