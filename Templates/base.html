@@ -1,12 +1,10 @@
-<!-- Template for header and nav bar for the whole website -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Bean & Brew{% endblock %}</title>
-    <link rel="stylesheet" href="globals.css" />
-    <link rel="stylesheet" href="style.css" />
+    <title>{% block title %}Dojo learning{% endblock %}</title>
+    <link rel="StyleSheets" href="/StyleSheets/StyleMain.css" />
 </head>
 <body>
     <nav>
@@ -59,8 +57,13 @@
                 <div class="why-us">Why Us ?</div>
             </div>
         </div>
-        <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/design/EGAnPIvDP9bDFd2jI2vEzT/Untitled?node-id=1-191&embed-host=share" allowfullscreen></iframe>
+        <!-- <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/design/EGAnPIvDP9bDFd2jI2vEzT/Untitled?node-id=1-191&embed-host=share" allowfullscreen></iframe> -->
         {% endblock %}
     </div>
 </body>
 </html>
+{% block scripts %}
+<script src="/scripts/main.js"></script>
+{% endblock %}
+{% extends "base.html" %}
+
