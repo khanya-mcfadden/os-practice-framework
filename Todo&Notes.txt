@@ -1,1 +1,84 @@
 Youtube Video for EXtending Base \Templates:https://www.youtube.com/watch?v=qDwdMDQ8oX4
+reddit help links
+[https://www.reddit.com/r/django/comments/sws9t6/i_need_help_fixing_a_recursion_error/?rdt=40034
+
+
+
+
+
+
+
+]
+chatbot conversation links:
+[add
+
+
+
+
+
+
+here
+]
+
+
+**Dojo project planing**
+Estimated numbers of pages: 8-9 proper pages and 2 fill/message pages 
+
+
+Planned pages: 
+
+[]Sign up  
+
+[]Login 
+
+[]Booking 
+
+[]courses information  
+
+[]Weather health page 
+
+[]Reviews page 
+
+[]Profile page 
+
+[]About us and contact 
+
+**Tests for basic inputs **
+
+[]Need to make sure that page navigation functions correctly on all pages 
+
+[]Making sure that the ability to type in text into appropriate areas functions  
+
+[]Button functionality  
+
+ 
+
+**Tests for processes**  
+
+[]Need to make sure that page navigation functions correctly on all pages 
+
+[]Making sure that the ability to type in text into appropriate areas functions  
+
+[]Button functionality 
+
+[]Test functionality of the above in live environments 
+
+ 
+
+**Tests for outputs **
+
+[]Test mathmatical outputs to insure correctness 
+
+[]Check that confimation messages display correctly 
+
+[]Making sure that visual aspects of the project function when live 
+
+ 
+
+ 
+
+**Testing for security **
+
+[]Check SQL script insertions in all text-based input on site  
+
+ 
