@@ -1,0 +1,11 @@
+08/11/2024
+currant tasks:
+[1]setting up navigation 
+[2]create a html base design
+[3]start creation of login system(database creation)
+
+currant issues:
+
+[1] currantly i am fighting with flask to be able to link my html pages on both local and live servers, what i suspect is that it uses a linux based system  (compleated)
+    
+[2] the creation of dajango based hmtl design extension is constantly breaking and non fucntinal (compleated)
