@@ -1,7 +1,7 @@
 import sqlite3
 
 # Connect to or create the database
-connection = sqlite3.connect("your_database_name.db")
+connection = sqlite3.connect("users.db")
 
 # Create a cursor object
 cursor = connection.cursor()
