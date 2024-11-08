@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}test{% endblock %}</title>
     <link rel="StyleSheets" href="/StyleSheets/StyleMain.css" />
+{% block content %}
 <nav>
     <a href="/">Home</a>
     <a href="/test-page">Test</a>
@@ -21,7 +22,7 @@
             <h2>The date is: </h2>
             <p>Date: 2021-07-07</p>
             <p>Time: 12:00:00</p>
-            {% endif %} {% endwith %} {% block content %}{% endblock %}
+       {% endblock %}
         </div>
     </body> 
 </html>
