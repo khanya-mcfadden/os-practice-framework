@@ -5,24 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}test{% endblock %}</title>
     <link rel="StyleSheets" href="/StyleSheets/StyleMain.css" />
-{% block content %}
-<nav>
-    <a href="/">Home</a>
-    <a href="/test-page">Test</a>
-    <a href="/about-page">About</a>
-    <a href="/courses-page">Courses</a>
-    <a href="/login-page">Login</a>
-</nav>
+
 </head>
+<div class="welcome">
+    <h1>Welcome to our website!</h1>
+    <p>Explore our offerings and enjoy your stay.</p>
+</div>
+<body>
+    <nav class="topnav">
+            <a href="/"             style="color: black">Home</a>
+            <a href="/test-page"    style="color: black">Test</a>
+            <a href="/about-page"   style="color: black">About</a>
+            <a href="/courses-page" style="color: black">Courses</a>
+            <a href="/login-page"   style="color: black">Login</a>
+       
+        
+
+        <a style="float:right; color: black;" href="/login">Login</a>
+        <a href="/profile" style="color: black; float: right;">Profile</a>
+    </nav>
+
+    <div class="footer">
+        <footer>
+            <h4>Contact Us</h4>
+            <hr>
+            <!-- Only user email address added -->
+            <label>Email: Bean&BrewContant@gmail.com </label>
+            <a href="mailto:Bean&BrewContant@gmail.com"></a><br>
+        </footer>
+    </div>
 
 
-    <body>
-        <h1>This is the homepage</h1>      
-        <div class="date">
-            <h2>The date is: </h2>
-            <p>Date: 2021-07-07</p>
-            <p>Time: 12:00:00</p>
-       {% endblock %}
-        </div>
-    </body> 
+</body>
+
 </html>
