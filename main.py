@@ -9,4 +9,16 @@ def index():
 @app.route('/test')
 def about():
     return render_template('test.html')
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+@app.route('/courses')
+def about():
+    return render_template('courses.html')
+
+@app.route('/login')
+def about():
+    return render_template('login.html')
 app.run(debug=True)
