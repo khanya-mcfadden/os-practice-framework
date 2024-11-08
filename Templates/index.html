@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>template creation</title>
+    <title>{% block title %}test{% endblock %}</title>
     <link rel="StyleSheets" href="/StyleSheets/StyleMain.css" />
-</head>
 <nav>
     <a href="/">Home</a>
     <a href="/test-page">Test</a>
@@ -13,14 +12,16 @@
     <a href="/courses-page">Courses</a>
     <a href="/login-page">Login</a>
 </nav>
+</head>
 
-<body>
-    <h1>This is the homepage</h1>      
-    <div class="date">
-        <h2>The date is: </h2>
-        <p>Date: 2021-07-07</p>
-        <p>Time: 12:00:00</p>
-    </div>
-</body> 
 
+    <body>
+        <h1>This is the homepage</h1>      
+        <div class="date">
+            <h2>The date is: </h2>
+            <p>Date: 2021-07-07</p>
+            <p>Time: 12:00:00</p>
+            {% endif %} {% endwith %} {% block content %}{% endblock %}
+        </div>
+    </body> 
 </html>
