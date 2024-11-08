@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-{% extends "base.html" %}
+{% extends "index.html" %}
+{% block title %}about-page{% endblock %}
+<html lang="en">
+<nav>
+    <a href="/">Home</a>
+    <a href="/test-page">Test</a>
+    <a href="/about-page">About</a>
+    <a href="/courses-page">Courses</a>
+    <a href="/login-page">Login</a>
+</nav>
 
-{% block title %}Home{% endblock %}
-{% block content %}
-<h1>This is the homepage</h1>      
-<div class="date">
-    <h2>The date is: </h2>
-    <p>Date: {{ date }}</p>
-    <p>Time: {{ time }}</p>
-</div>
-{% endblock %}
+</html>
