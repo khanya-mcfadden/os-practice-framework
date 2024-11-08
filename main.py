@@ -21,4 +21,5 @@ def about():
 @app.route('/login')
 def about():
     return render_template('login.html')
+
 app.run(debug=True)
