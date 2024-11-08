@@ -5,35 +5,31 @@ app = Flask(__name__)
 # hello world
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html'),404
 
-@app.route('/test-page')
+@app.route('/test')
 def test_page():
-    return render_template('test.html')
+    return render_template('test.html'),404
 
-@app.route('/about-page')
+@app.route('/about')
 def about_page():
-    return render_template('about.html')
+    return render_template('about.html'),404
 
-@app.route('/courses-page')
+@app.route('/courses')
 def courses_page():
-    return render_template('courses.html')
+    return render_template('courses.html'),404
 
-@app.route('/login-page')
+
+@app.route('/login')
 def login_page():
-    return render_template('login.html')
+    return render_template('login.html'),404
 
 # Error handler for 404
 @app.errorhandler(404)
-def page_not_found(error):
+def page_not_found(_):
     app.logger.error(f"Page not found: {request.url}")
     return render_template('404.html'), 404
 
-
-@app.errorhandler(400)
-def bad_request(error):
-    app.logger.error(f"Bad request: {request.url}")
-    return render_template('400.html'), 400
 
 if __name__ == "__main__":
     app.run(debug=True)
