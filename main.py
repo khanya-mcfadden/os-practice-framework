@@ -20,9 +20,55 @@ def courses_page():
     return render_template('courses.html'),404
 
 
-@app.route('/login')
-def login_page():
-    return render_template('login.html'),404
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        # Get form data
+        username = request.form.get('username')
+        password = request.form.get('password')
+
+        # Check if the user exists in the database
+        connection = sqlite3.connect('users.db')
+        cursor = connection.cursor()
+        cursor.execute("SELECT * FROM users WHERE username = ? AND password = ?", (username, password))
+        user = cursor.fetchone()
+        connection.close()
+
+        if user:
+            session['username'] = username  # Store username in session
+            return redirect(url_for('profile'))
+        else:
+            return "Invalid username or password", 400
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if request.method == 'POST':
+        # Get form data
+        username = request.form.get('username')
+        email = request.form.get('email')
+        password = request.form.get('password')
+
+        if not username or not email or not password:
+            return "Please fill out all fields", 400  # Simple error handling
+
+        # Insert user into database
+        connection = sqlite3.connect('users.db')
+        cursor = connection.cursor()
+
+        try:
+            # Insert the user
+            cursor.execute("INSERT INTO users (username, email, password) VALUES (?, ?, ?)",
+                           (username, email, password))
+            connection.commit()
+        except sqlite3.IntegrityError:
+            return "User already exists or email is already registered.", 400
+        finally:
+            connection.close()
+
+        # Redirect to confirmation page
+        return redirect('/confirm')
+    
+    return render_template('register.html')
 
 # Error handler for 404
 @app.errorhandler(404)
