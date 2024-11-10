@@ -15,8 +15,7 @@ currant issues:
 currant tasks:
 [1] impliment login and registery code for page implimentation futher in the week 
 [2] look into django and render compatibility issues
-[3] currantly having issues with being unable to connect to internet off of main pc, need to look into alternative methods of working on the repo
-
+[3] currantly having issues with being unable to connect to internet off of main pc, need to look into alternative methods of working on the repo, do to this issue i cant effectivy test the website outside of college grounds as laptop is to unstable to run vscoded directly over a peirod greater than 2 hours without leading to further issues.
 currant progress and issues:
 
 [1] 4:44pm the backend code for both of the pages is up and running just need to create front end pages, posablity look into the css ? 
