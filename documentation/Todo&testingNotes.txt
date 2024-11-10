@@ -39,54 +39,55 @@ Estimated numbers of pages: 8-9 proper pages and 2 fill/message pages
 
 
 Planned pages: 
-[]calender of some sort
+[}calender of some sort
 
-[]Sign up  
+[] Sign up , backend has been compleated 
 
-[]Login 
+[] Login , backend has been compleated  
 
-[]Booking 
+[] Booking 
 
-[]courses information  
+[] courses information  
 
-[]Weather health page 
+[] Weather health page 
 
-[]Reviews page 
+[] Reviews page 
 
-[]Profile page 
+[] Profile page 
 
-[]About us and contact 
-
+[] About us and contact 
+[] create feedback page for teachers, and test users 
+  [] Need to add a feedback table to the database for teachers and users
 
 **Tests for basic inputs **
 
-[]Need to make sure that page navigation functions correctly on all pages 
+[] Need to make sure that page navigation functions correctly on all pages 
 
-[]Making sure that the ability to type in text into appropriate areas functions  
+[] Making sure that the ability to type in text into appropriate areas functions  
 
-[]Button functionality  
+[] Button functionality  
 
- 
+[] need to test how many users can use live version of the website without lags or crash, check number of exsepted inputs
 
 **Tests for processes**  
 
-[]Need to make sure that page navigation functions correctly on all pages 
+[] Need to make sure that page navigation functions correctly on all pages 
 
-[]Making sure that the ability to type in text into appropriate areas functions  
+[] Making sure that the ability to type in text into appropriate areas functions  
 
-[]Button functionality 
+[] Button functionality 
 
-[]Test functionality of the above in live environments 
+[] Test functionality of the above in live environments 
 
  
 
 **Tests for outputs **
 
-[]Test mathmatical outputs to insure correctness 
+[] Test mathmatical outputs to insure correctness 
 
-[]Check that confimation messages display correctly 
+[] Check that confimation messages display correctly 
 
-[]Making sure that visual aspects of the project function when live 
+[] Making sure that visual aspects of the project function when live 
 
  
 
@@ -94,6 +95,6 @@ Planned pages:
 
 **Testing for security **
 
-[]Check SQL script insertions in all text-based input on site  
+[] Check SQL script insertions in all text-based input on site  
 
  
