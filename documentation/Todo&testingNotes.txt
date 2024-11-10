@@ -1,0 +1,99 @@
+Youtube Video for EXtending Base \Templates:https://www.youtube.com/watch?v=qDwdMDQ8oX4
+reddit help links
+[https://www.reddit.com/r/django/comments/sws9t6/i_need_help_fixing_a_recursion_error/?rdt=40034
+
+
+                                                exam key dates 
+Overall 10 Mar 2025 – 09 May 2025
+task 1,     dates: 10 Mar – 21 Mar 2025     marks: total 20 hours       dates set           dates due
+    task 1 Aii proposal,    marks: weighting:24, 17% time (4 hours)      dates:05/11/2024	10/11/2024
+    task 1b visual,         marks: weighting:6,  4% time  (4 hours)      dates:11/11/2024	17/11/2024
+    task 1b algorithm,      marks: weighting:10, 7% time  (4 hours)      dates:11/11/2024	17/11/2024
+    task 1b   data,         marks: weighting:6,  4% time  (4 hours)      dates:18/11/2024	24/11/2024	
+    task 1b   test,         marks: weighting:12, 8% time  (4 hours)      dates:18/11/2024	24/11/2024	
+
+24 Mar – 25 Apr 2025: Task 2 (30 hours)task 2, weighting:24, 17%
+    task 2   prototype,     marks: weighting:48, 33% time (30 hours)     dates:05/11/2024	01/12/2024
+
+
+28 Apr – 07 May 2025: Task 3a (15 hours)task 3a, weighting:24, 17%
+    task 3a  prototype,     marks: weighting:24, 17% time (15 hours)     dates:02/12/2024	15/12/2024
+
+
+08 May - 09 May 2025: Task 3b (2 hours)task 3b, weighting:24, 17%
+    task 3B  prototype,     marks: weighting:15, 10% time (2 hours)      dates:16/12/2024	18/12/2024
+
+Task 1 (1 Aii and 1B)	40%	 	 	 	 
+Task 2	                33%	 	 	 	 
+Task 3	                27%				
+
+
+chatbot conversation links:
+[add
+here
+]
+
+
+**Dojo project planing**
+Estimated numbers of pages: 8-9 proper pages and 2 fill/message pages 
+
+
+Planned pages: 
+[]calender of some sort
+
+[]Sign up  
+
+[]Login 
+
+[]Booking 
+
+[]courses information  
+
+[]Weather health page 
+
+[]Reviews page 
+
+[]Profile page 
+
+[]About us and contact 
+
+
+**Tests for basic inputs **
+
+[]Need to make sure that page navigation functions correctly on all pages 
+
+[]Making sure that the ability to type in text into appropriate areas functions  
+
+[]Button functionality  
+
+ 
+
+**Tests for processes**  
+
+[]Need to make sure that page navigation functions correctly on all pages 
+
+[]Making sure that the ability to type in text into appropriate areas functions  
+
+[]Button functionality 
+
+[]Test functionality of the above in live environments 
+
+ 
+
+**Tests for outputs **
+
+[]Test mathmatical outputs to insure correctness 
+
+[]Check that confimation messages display correctly 
+
+[]Making sure that visual aspects of the project function when live 
+
+ 
+
+ 
+
+**Testing for security **
+
+[]Check SQL script insertions in all text-based input on site  
+
+ 

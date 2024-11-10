@@ -1,9 +1,81 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
+# hello world
 @app.route('/')
 def index():
-    return render_template('test.html')
+    return render_template('index.html'),404
 
-app.run(debug=True)
+@app.route('/test')
+def test_page():
+    return render_template('test.html'),404
+
+@app.route('/about')
+def about_page():
+    return render_template('about.html'),404
+
+@app.route('/courses')
+def courses_page():
+    return render_template('courses.html'),404
+
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        # Get form data
+        username = request.form.get('username')
+        password = request.form.get('password')
+
+        # Check if the user exists in the database
+        connection = sqlite3.connect('users.db')
+        cursor = connection.cursor()
+        cursor.execute("SELECT * FROM users WHERE username = ? AND password = ?", (username, password))
+        user = cursor.fetchone()
+        connection.close()
+
+        if user:
+            session['username'] = username  # Store username in session
+            return redirect(url_for('profile'))
+        else:
+            return "Invalid username or password", 400
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if request.method == 'POST':
+        # Get form data
+        username = request.form.get('username')
+        email = request.form.get('email')
+        password = request.form.get('password')
+
+        if not username or not email or not password:
+            return "Please fill out all fields", 400  # Simple error handling
+
+        # Insert user into database
+        connection = sqlite3.connect('users.db')
+        cursor = connection.cursor()
+
+        try:
+            # Insert the user
+            cursor.execute("INSERT INTO users (username, email, password) VALUES (?, ?, ?)",
+                           (username, email, password))
+            connection.commit()
+        except sqlite3.IntegrityError:
+            return "User already exists or email is already registered.", 400
+        finally:
+            connection.close()
+
+        # Redirect to confirmation page
+        return redirect('/confirm')
+    
+    return render_template('register.html')
+
+# Error handler for 404
+@app.errorhandler(404)
+def page_not_found(_):
+    app.logger.error(f"Page not found: {request.url}")
+    return render_template('404.html'), 404
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
