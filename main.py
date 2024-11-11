@@ -1,4 +1,5 @@
-from flask import Flask, render_template, request
+import sqlite3
+from flask import Flask, redirect, render_template, request
 
 app = Flask(__name__)
 
@@ -68,7 +69,7 @@ def register():
         # Redirect to confirmation page
         return redirect('/confirm')
     
-    return render_template('register.html')
+    return render_template('Registration.html')
 
 # Error handler for 404
 @app.errorhandler(404)
