@@ -106,6 +106,38 @@ def page_not_found(_):
     app.logger.error(f"Page not found: {request.url}")
     return render_template('404.html'), 404
 
+@app.route('/admin')
+def admin_dashboard():
+    if 'admin' in session:
+        return render_template('admin_dashboard.html')
+    else:
+        return redirect(url_for('admin_login'))
 
+@app.route('/admin/login', methods=['GET', 'POST'])
+def admin_login():
+    if request.method == 'POST':
+        # Get form data
+        username = request.form.get('username')
+        password = request.form.get('password')
+
+        # Check if the admin exists in the database
+        connection = sqlite3.connect('users.db')
+        cursor = connection.cursor()
+        cursor.execute("SELECT * FROM users WHERE username = ? AND password = ? AND is_admin = 1", (username, password))
+        admin = cursor.fetchone()
+        connection.close()
+
+        if admin:
+            session['admin'] = username  # Store admin username in session
+            return redirect(url_for('admin_dashboard'))
+        else:
+            return "Invalid admin username or password", 400
+
+    return render_template('admin_login.html')
+
+@app.route('/admin/logout')
+def admin_logout():
+    session.pop('admin',)
+    
 if __name__ == "__main__":
     app.run(debug=True)
