@@ -1,9 +1,29 @@
 import sqlite3
-from flask import Flask, redirect, render_template, request
+from flask import Flask, redirect, render_template, request, session, url_for
 
 app = Flask(__name__)
+app.secret  = 'your_secret_key'
 
-# hello world
+# Ensure the table is created when the app starts
+def init_db():
+    connection = sqlite3.connect('users.db')
+    cursor = connection.cursor()
+    # Create the users table if it doesn't exist
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS users (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            username TEXT NOT NULL UNIQUE,
+            email TEXT NOT NULL UNIQUE,
+            password TEXT NOT NULL
+        )
+    ''')
+    connection.commit()
+    connection.close()
+
+# Initialize the database when the app starts
+def initialize():
+    init_db()
+    
 @app.route('/')
 def index():
     return render_template('index.html'),404
@@ -20,6 +40,13 @@ def about_page():
 def courses_page():
     return render_template('courses.html'),404
 
+@app.route('/profile')
+def profile():
+    if 'username' in session:
+        username = session['username']
+        return render_template('profile.html', username=username)
+    else:
+        return redirect(url_for('login'))
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -41,7 +68,9 @@ def login():
         else:
             return "Invalid username or password", 400
 
-@app.route('/register', methods=['GET', 'POST'])
+    return render_template('login.html')
+
+@app.route('/Sign-Up', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
         # Get form data
@@ -69,7 +98,7 @@ def register():
         # Redirect to confirmation page
         return redirect('/confirm')
     
-    return render_template('Registration.html')
+    return render_template('Sign-Up.html')
 
 # Error handler for 404
 @app.errorhandler(404)

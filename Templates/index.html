@@ -77,6 +77,7 @@
         color: #ffffff;
     }
 </style>
+
 <body>
 <div class="welcome">
     <h1>Welcome to my website framework!</h1>
@@ -85,14 +86,14 @@
     <nav class="nav">
             <a href="/"             style="color: #C9C8C8">Home</a>
             <a href="/about"        style="color: #C9C8C8">About</a>
-            <a href="/registration" style="color: #C9C8C8">registraion</a>
-            <a href="/test-page"    style="color: #C9C8C8">test</a>
+            <a href="/Sign-Up" style="color: #C9C8C8">registraion</a>
+            <a href="/test"    style="color: #C9C8C8">test</a>
 
 
         <a style="float:right; color: #C9C8C8;" href="/login-page">Login</a>
         <a href="/profile" style="color: #C9C8C8; float: right;">Profile</a>
     </nav>
-
+{% block content %}  {% endblock %}  
     <div class="footer">
         <footer>
             <h4>Contact Us</h4>
