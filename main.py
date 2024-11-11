@@ -2,7 +2,7 @@ import sqlite3
 from flask import Flask, redirect, render_template, request, session, url_for
 
 app = Flask(__name__)
-app.secret  = 'your_secret_key'
+app.secret_key = 'your_secret_key'
 
 # Ensure the table is created when the app starts
 def init_db():
@@ -23,22 +23,26 @@ def init_db():
 # Initialize the database when the app starts
 def initialize():
     init_db()
-    
+
+@app.context_processor
+def inject_user():
+    return dict(logged_in=('username' in session))
+
 @app.route('/')
 def index():
-    return render_template('index.html'),404
+    return render_template('index.html'), 404
 
 @app.route('/test')
 def test_page():
-    return render_template('test.html'),404
+    return render_template('test.html'), 404
 
 @app.route('/about')
 def about_page():
-    return render_template('about.html'),404
+    return render_template('about.html'), 404
 
 @app.route('/courses')
 def courses_page():
-    return render_template('courses.html'),404
+    return render_template('courses.html'), 404
 
 @app.route('/profile')
 def profile():
@@ -97,7 +101,7 @@ def register():
 
         # Redirect to confirmation page
         return redirect('/confirm')
-    
+
     return render_template('Sign-Up.html')
 
 # Error handler for 404
@@ -138,6 +142,7 @@ def admin_login():
 @app.route('/admin/logout')
 def admin_logout():
     session.pop('admin',)
-    
+
 if __name__ == "__main__":
+    initialize()
     app.run(debug=True)
