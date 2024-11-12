@@ -32,6 +32,14 @@ def inject_user():
 def index():
     return render_template('index.html'), 404
 
+@app.route('/BookingPage')
+def BookingPage_page():
+    return render_template('BookingPage.html'), 404
+
+@app.route('/Orderingpage')
+def Orderingpage_page():
+    return render_template('Orderingpage.html'), 404
+
 @app.route('/test')
 def test_page():
     return render_template('test.html'), 404
