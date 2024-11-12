@@ -13,9 +13,9 @@
                     <input name="username" id="username" type="text" maxlength="15" required>
                 </div>
                 <div class="inputbox">
-                        <label for="email">Email</label>
-                        <input name="email" id="email" type="email" required>
-                    </div>
+                    <label for="email">Email</label>
+                    <input name="email" id="email" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Please enter a valid email address with @ and .com" required>
+                </div>
                 <div class="inputbox">
                     <label for="password">Password</label>
                     <input name="password" id="password" type="password" maxlength="20" required>

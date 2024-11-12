@@ -71,6 +71,10 @@ def login():
         username = request.form.get('username')
         password = request.form.get('password')
 
+        # Validate input lengths
+        if len(username) > 50 or len(password) > 50:
+            return "Input exceeds character limit", 400
+
         # Check if the user exists in the database
         connection = sqlite3.connect('users.db')
         cursor = connection.cursor()
@@ -90,8 +94,12 @@ def login():
 def register():
     if request.method == 'POST':
         # Get form data
-        username = request.form.get('username')
-        email = request.form.get('email')
+        if not username or not email or not password:
+            return "Please fill out all fields", 400  # Simple error handling
+
+        # Validate input lengths
+        if len(username) > 50 or len(email) > 50 or len(password) > 50:
+            return "Input exceeds character limit", 400
         password = request.form.get('password')
 
         if not username or not email or not password:
@@ -139,12 +147,16 @@ def admin_dashboard():
         return render_template('admin_dashboard.html')
     else:
         return redirect(url_for('admin_login'))
+        # Validate input lengths
+        if len(username) > 50 or len(password) > 50:
+            return "Input exceeds character limit", 400
 
-@app.route('/admin/login', methods=['GET', 'POST'])
-def admin_login():
-    if request.method == 'POST':
-        # Get form data
-        username = request.form.get('username')
+        # Check if the admin exists in the database
+        connection = sqlite3.connect('users.db')
+        cursor = connection.cursor()
+        cursor.execute("SELECT * FROM users WHERE username = ? AND password = ? AND is_admin = 1", (username, password))
+        admin = cursor.fetchone()
+        connection.close()
         password = request.form.get('password')
 
         # Check if the admin exists in the database
