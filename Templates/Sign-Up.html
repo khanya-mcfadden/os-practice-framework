@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    {% extends "index.html" %}
+    {% block title %}Sign Up{% endblock %}
+    {% block content %}
+    <body>
+        <div style="display: flex; justify-content: center; align-items: center; height: 50vh;">
+            <form method="POST" action="/Sign-Up">
+                <h2 style="text-align: center;">Register</h2>
+                <div class="inputbox" style="text-align: center;">
+                    <label for="username">Username</label>
+                    <input name="username" id="username" type="text" required>
+                </div>
+                <div class="inputbox">
+                        <label for="email">Email</label>
+                        <input name="email" id="email" type="email" required>
+                    </div>
+                <div class="inputbox">
+                    <label for="password">Password</label>
+                    <input name="password" id="password" type="password" required>
+                </div>
+                <button type="submit">Register</button>
+            </form>
+        </div>
+    </body>
+    {% endblock %}
+</html>

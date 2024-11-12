@@ -1,13 +1,11 @@
 <!DOCTYPE html>
-{% extends "index.html" %}
-{% block title %}about-page{% endblock %}
 <html lang="en">
-<nav>
-    <a href="/">Home</a>
-    <a href="/test-page">Test</a>
-    <a href="/about-page">About</a>
-    <a href="/courses-page">Courses</a>
-    <a href="/login-page">Login</a>
-</nav>
 
+    {% extends "index.html" %}
+    {% block title %}test{% endblock %}
+    {% block content %}
+    <div style="height: 50vh; display: flex; align-items: center; justify-content: center;">
+        hello
+    </div>
+    {% endblock %}
 </html>
