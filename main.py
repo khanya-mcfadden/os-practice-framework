@@ -1,6 +1,7 @@
 import sqlite3
 from flask import Flask, redirect, render_template, request, session, url_for
 from werkzeug.security import generate_password_hash, check_password_hash
+import re
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
@@ -72,7 +73,7 @@ def login():
         password = request.form.get('password')
 
         # Validate input lengths
-        if len(username) > 50 or len(password) > 50:
+        if len(username) > 15 or len(password) > 15:
             return "Input exceeds character limit", 400
 
         # Check if the user exists in the database
@@ -94,16 +95,22 @@ def login():
 def register():
     if request.method == 'POST':
         # Get form data
-        if not username or not email or not password:
-            return "Please fill out all fields", 400  # Simple error handling
-
-        # Validate input lengths
-        if len(username) > 50 or len(email) > 50 or len(password) > 50:
-            return "Input exceeds character limit", 400
+        username = request.form.get('username')
+        email = request.form.get('email')
         password = request.form.get('password')
 
         if not username or not email or not password:
             return "Please fill out all fields", 400  # Simple error handling
+
+        # Validate input lengths
+        if len(username) > 15 or len(email) > 50 or len(password) > 20:
+            return "Input exceeds character limit", 400
+        if len(username) < 3 or len(email) < 3 or len(password) < 8:
+            return "Input is below character limit", 400
+
+        # Validate characters in username and email
+        if not re.match("^[a-zA-Z0-9@._-]+$", username) or not re.match("^[a-zA-Z0-9@._-]+$", email) or not re.match("^[a-zA-Z0-9@._-]+$", password):
+            return "Invalid characters in username or email", 400
 
         # Hash the password
         hashed_password = generate_password_hash(password, method='pbkdf2:sha256')
@@ -135,48 +142,53 @@ def register():
 
     return render_template('Sign-Up.html')
 
+@app.route('/logout', methods=['GET', 'POST'])
+def logout():
+    session.pop('username', None)
+    return redirect(url_for('login'))
+
 # Error handler for 404
 @app.errorhandler(404)
 def page_not_found(_):
     app.logger.error(f"Page not found: {request.url}")
     return render_template('404.html'), 404
 
-@app.route('/admin')
-def admin_dashboard():
-    if 'admin' in session:
-        return render_template('admin_dashboard.html')
-    else:
-        return redirect(url_for('admin_login'))
-        # Validate input lengths
-        if len(username) > 50 or len(password) > 50:
-            return "Input exceeds character limit", 400
+# @app.route('/admin')
+# def admin_dashboard():
+#     if 'admin' in session:
+#         return render_template('admin_dashboard.html')
+#     else:
+#         return redirect(url_for('admin_login'))
+#         # Validate input lengths
+#         if len(username) > 15 or len(password) > 15:
+#             return "Input exceeds character limit", 400
 
-        # Check if the admin exists in the database
-        connection = sqlite3.connect('users.db')
-        cursor = connection.cursor()
-        cursor.execute("SELECT * FROM users WHERE username = ? AND password = ? AND is_admin = 1", (username, password))
-        admin = cursor.fetchone()
-        connection.close()
-        password = request.form.get('password')
+#         # Check if the admin exists in the database
+#         connection = sqlite3.connect('users.db')
+#         cursor = connection.cursor()
+#         cursor.execute("SELECT * FROM users WHERE username = ? AND password = ? AND is_admin = 1", (username, password))
+#         admin = cursor.fetchone()
+#         connection.close()
+#         password = request.form.get('password')
 
-        # Check if the admin exists in the database
-        connection = sqlite3.connect('users.db')
-        cursor = connection.cursor()
-        cursor.execute("SELECT * FROM users WHERE username = ? AND password = ? AND is_admin = 1", (username, password))
-        admin = cursor.fetchone()
-        connection.close()
+#         # Check if the admin exists in the database
+#         connection = sqlite3.connect('users.db')
+#         cursor = connection.cursor()
+#         cursor.execute("SELECT * FROM users WHERE username = ? AND password = ? AND is_admin = 1", (username, password))
+#         admin = cursor.fetchone()
+#         connection.close()
 
-        if admin:
-            session['admin'] = username  # Store admin username in session
-            return redirect(url_for('admin_dashboard'))
-        else:
-            return "Invalid admin username or password", 400
+#         if admin:
+#             session['admin'] = username  # Store admin username in session
+#             return redirect(url_for('admin_dashboard'))
+#         else:
+#             return "Invalid admin username or password", 400
 
-    return render_template('admin_login.html')
+#     return render_template('admin_login.html')
 
-@app.route('/admin/logout')
-def admin_logout():
-    session.pop('admin',)
+# @app.route('/admin/logout')
+# def admin_logout():
+#     session.pop('admin',)
 
 if __name__ == "__main__":
     initialize()

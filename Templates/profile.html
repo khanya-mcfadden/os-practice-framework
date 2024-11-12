@@ -7,18 +7,9 @@
 {% block content %}
     <h1>Welcome, {{ username }}!</h1>
 
-
-
-    <div class="footer">
-        <footer>
-            <h4>Contact Us</h4>
-            <hr>
-            <!-- Only user email address added -->
-            <label>Email: Bean&BrewContant@gmail.com </label>
-            <a href="mailto:Bean&BrewContant@gmail.com"></a><br>
-        </footer>
-    </div>
-</body>
+<form action="/logout" method="post">
+    <button type="submit">Logout</button>
+</form>
 {% endblock %}    
-  
+</body>
 </html>
