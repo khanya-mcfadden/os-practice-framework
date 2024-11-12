@@ -1,5 +1,6 @@
 import sqlite3
 from flask import Flask, redirect, render_template, request, session, url_for
+from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
@@ -73,11 +74,11 @@ def login():
         # Check if the user exists in the database
         connection = sqlite3.connect('users.db')
         cursor = connection.cursor()
-        cursor.execute("SELECT * FROM users WHERE username = ? AND password = ?", (username, password))
+        cursor.execute("SELECT * FROM users WHERE username = ?", (username,))
         user = cursor.fetchone()
         connection.close()
 
-        if user:
+        if user and check_password_hash(user[3], password):  # Assuming password is the 4th column in the users table
             session['username'] = username  # Store username in session
             return redirect(url_for('profile'))
         else:
@@ -96,14 +97,25 @@ def register():
         if not username or not email or not password:
             return "Please fill out all fields", 400  # Simple error handling
 
+        # Hash the password
+        hashed_password = generate_password_hash(password, method='pbkdf2:sha256')
+
         # Insert user into database
         connection = sqlite3.connect('users.db')
         cursor = connection.cursor()
 
+        # Check if the username or email already exists
+        cursor.execute("SELECT * FROM users WHERE username = ? OR email = ?", (username, email))
+        existing_user = cursor.fetchone()
+
+        if existing_user:
+            connection.close()
+            return "Username or email already exists.", 400
+
         try:
             # Insert the user
             cursor.execute("INSERT INTO users (username, email, password) VALUES (?, ?, ?)",
-                           (username, email, password))
+                           (username, email, hashed_password))
             connection.commit()
         except sqlite3.IntegrityError:
             return "User already exists or email is already registered.", 400
