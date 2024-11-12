@@ -7,9 +7,137 @@
 {% block content %}
     <h1>Welcome, {{ username }}!</h1>
 
-<form action="/logout" method="post">
-    <button type="submit">Logout</button>
-</form>
+<div class="sidenav">
+    <div class="sidebar">
+
+        <a href="#home" onclick="showOverlay('Here is where you can change your general settings')">Home</a>
+
+        <div id="overlay" style="display:none; position:fixed; top:0; left:200px; width:calc(100% - 200px); height:100%; background-color:rgba(255, 255, 255, 0); color:black; text-align:center; padding-top:20%;">
+            <div id="overlay-content"></div>
+            <button onclick="hideOverlay()" style="margin-top:20px; padding:10px 20px;">Close</button>
+        </div>
+
+        <script>
+            function showOverlay(message) {
+            document.getElementById('overlay-content').innerText = message;
+            document.getElementById('overlay').style.display = 'block';
+            }
+
+            function hideOverlay() {
+            document.getElementById('overlay').style.display = 'none';
+            }
+
+            // Show base overlay when no other options are clicked
+            document.addEventListener('DOMContentLoaded', (event) => {
+            showOverlay('Here is where you can change your general settings');
+            });
+        </script>
+        
+        
+        <a href="#security" onclick="showOverlay('Here is where you can change your security settings')">security</a>
+
+        <div id="security-overlay" style="display:none; position:fixed; top:0; left:200px; width:calc(100% - 200px); height:100%; background-color:rgba(255, 255, 255, 0); color:black; text-align:center; padding-top:20%;">
+            <div id="security-overlay-content"></div>
+            <button onclick="hideOverlay()" style="margin-top:20px; padding:10px 20px;">Close</button>
+        </div>
+
+        <script>
+            function showOverlay(message) {
+            document.getElementById('overlay-content').innerText = message;
+            document.getElementById('overlay').style.display = 'block';
+            }
+
+            function hideOverlay() {
+            document.getElementById('overlay').style.display = 'none';
+            }
+        </script>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <form action="/logout" method="post" style="display:inline;">
+            <button type="submit" style="background:none; border:none; color:inherit; cursor:pointer; padding:16px; text-align:left; width:100%;">Logout</button>
+        </form>
+    </div>
+</div>
+<style>
+/* The side navigation menu */
+.sidebar {
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #f1f1f1;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+  }
+  
+  /* Sidebar links */
+  .sidebar a {
+    display: block;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
+  }
+  
+  /* Active/current link */
+  .sidebar a.active {
+    background-color: #8f7ad6;
+    color: white;
+  }
+  
+  /* Links on mouse-over */
+  .sidebar a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+  }
+  
+  /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+  div.content {
+    margin-left: 200px;
+    padding: 1px 16px;
+    height: 1000px;
+  }
+  
+  /* On screens that are less than 700px wide, make the sidebar into a topbar */
+  @media screen and (max-width: 700px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+    .sidebar a {float: left;}
+    div.content {margin-left: 0;}
+  }
+  
+  /* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+  @media screen and (max-width: 400px) {
+    .sidebar a {
+      text-align: center;
+      float: none;
+    }
+  }
+</style>
 {% endblock %}    
 </body>
 </html>
