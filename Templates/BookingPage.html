@@ -7,9 +7,7 @@
 {% block content %}
 <body>
     <form class="booking" style="font-family: Arial, sans-serif;
-        margin: 0 auto;
         padding: 100px; 
-        background-color: #7A4B0E;
         box-sizing: border-box;
         min-height: 100px;
         max-width: 100%;
@@ -19,27 +17,26 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        border: 1px solid #b47e00;
         display: flex;
         justify-content: center;
         align-items: center;">
-        <h1 style="color: white;">Book a Table</h1>
-        <p style="color: white;">Welcome to our booking page! Please select a restaurant and date to make a reservation:</p>
+        <h1 style="color: #908E8E;">Book a courses!</h1>
+        <p style="color: #908E8E;">Welcome to our booking page! Please select a course and date to make a reservation:</p>
         <ul>
             <li>
-                <label for="restaurant"  style="color: white;">Select a restaurant:</label>
-                <select id="restaurant" name="restaurant">
-                    <option value="restaurant1">Restaurant 1</option>
-                    <option value="restaurant2">Restaurant 2</option>
-                    <option value="restaurant3">Restaurant 3</option>
+                <label for="courses"  style="color: #908E8E;">Select a course:</label>
+                <select id="courses" name="courses">
+                    <option value="python">Restaurant 1</option>
+                    <option value="java">Restaurant 2</option>
+                    <option value="website design">Restaurant 3</option>
                 </select>
             </li>
             <li>
-                <label for="date"  style="color: white;">Select a date:</label>
+                <label for="date"  style="color: #908E8E;">Select a date:</label>
                 <input type="date" id="date" name="date">
             </li>
         </ul>
-        <button type="submit" style="color: #b47e00;">Book Now</button>
+        <button type="submit" style="color: #8f7ad6;">Book Now</button>
     </form>
 {% endblock %}
 
