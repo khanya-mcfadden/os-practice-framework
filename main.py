@@ -109,8 +109,8 @@ def register():
             return "Input is below character limit", 400
 
         # Validate characters in username and email
-        if not re.match("^[a-zA-Z0-9@._-]+$", username) or not re.match("^[a-zA-Z0-9@._-]+$", email) or not re.match("^[a-zA-Z0-9@._-]+$", password):
-            return "Invalid characters in username or email", 400
+        if not re.match("^[a-zA-Z0-9@._!;#$%&'()*+,-./:;<=>?@[\]^_`{|}~]+$", username) or not re.match("^[a-zA-Z0-9@._!;#$%&'()*+,-./:;<=>?@[\]^_`{|}~]+$", email) or not re.match("^[a-zA-Z0-9@._!;#$%&'()*+,-./:;<=>?@[\]^_`{|}~]+$", password):
+            return "Invalid characters in username, email or password", 400
 
         # Hash the password
         hashed_password = generate_password_hash(password, method='pbkdf2:sha256')
