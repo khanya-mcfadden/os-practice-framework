@@ -73,7 +73,7 @@ def login():
         password = request.form.get('password')
 
         # Validate input lengths
-        if len(username) > 15 or len(password) > 15:
+        if len(username) > 200 or len(password) > 200:
             return "Input exceeds character limit", 400
 
         # Check if the user exists in the database

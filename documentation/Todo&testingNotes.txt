@@ -39,7 +39,7 @@ Estimated numbers of pages: 8-9 proper pages and 2 fill/message pages
 
 
 Planned pages: 
-[}calender of some sort
+[]calender of some sort
 
 [] Sign up , backend has been compleated 
 
