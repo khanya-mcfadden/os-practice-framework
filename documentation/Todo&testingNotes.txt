@@ -3,6 +3,7 @@
 [] from reddit on 8/11/2024 https://www.reddit.com/r/django/comments/sws9t6/i_need_help_fixing_a_recursion_error/?rdt=40034 [Fixing Python recurssion Errors]
 [] from Render Offical Webpage on 10/11/2024 https://community.render.com/t/unable-to-deploy-django-tutorial-app-to-render/13380 [ Render and Django incompatibility fixes]
 [] from Youtube on 8/11/2024 https://www.youtube.com/watch?v=qDwdMDQ8oX4 [how to extended base templates]
+[] from Youtube on 13/11/2024 https://www.youtube.com/watch?v=ayRthgpfy1k&t=3s {how to create a Good Profile page}
                                                 exam key dates 
 Overall 10 Mar 2025 – 09 May 2025
 task 1,     dates: 10 Mar – 21 Mar 2025     marks: total 20 hours       dates set           dates due
