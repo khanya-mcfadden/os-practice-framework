@@ -1,5 +1,5 @@
 import sqlite3
-from flask import Flask, redirect, render_template, request, session, url_for
+from flask import Flask, jsonify, redirect, render_template, request, send_file, session, url_for
 from werkzeug.security import generate_password_hash, check_password_hash
 import re
 
@@ -152,6 +152,29 @@ def logout():
 def page_not_found(_):
     app.logger.error(f"Page not found: {request.url}")
     return render_template('404.html'), 404
+
+@app.route('/update-general-settings', methods=['POST'])
+def update_general_settings():
+    data = request.json
+    # Update SQLite database
+    return jsonify({'message': 'General settings updated successfully!'})
+
+@app.route('/update-security-settings', methods=['POST'])
+def update_security_settings():
+    data = request.json
+    # Handle password change logic
+    return jsonify({'message': 'Password updated successfully!'})
+
+@app.route('/update-theme', methods=['POST'])
+def update_theme():
+    data = request.json
+    # Save theme preference
+    return jsonify({'message': 'Theme updated successfully!'})
+
+@app.route('/download-course-log')
+def download_course_log():
+    # Generate and return the course log as a file
+    return send_file('path/to/log.txt', as_attachment=True)
 
 # @app.route('/admin')
 # def admin_dashboard():
