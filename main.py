@@ -153,42 +153,16 @@ def page_not_found(_):
     app.logger.error(f"Page not found: {request.url}")
     return render_template('404.html'), 404
 
-# @app.route('/admin')
-# def admin_dashboard():
-#     if 'admin' in session:
-#         return render_template('admin_dashboard.html')
-#     else:
-#         return redirect(url_for('admin_login'))
-#         # Validate input lengths
-#         if len(username) > 15 or len(password) > 15:
-#             return "Input exceeds character limit", 400
+@app.route('/theme', methods=['POST'])
+def set_theme():
+    theme = request.form.get('theme')
+    session['theme'] = theme
+    return '', 204
 
-#         # Check if the admin exists in the database
-#         connection = sqlite3.connect('users.db')
-#         cursor = connection.cursor()
-#         cursor.execute("SELECT * FROM users WHERE username = ? AND password = ? AND is_admin = 1", (username, password))
-#         admin = cursor.fetchone()
-#         connection.close()
-#         password = request.form.get('password')
-
-#         # Check if the admin exists in the database
-#         connection = sqlite3.connect('users.db')
-#         cursor = connection.cursor()
-#         cursor.execute("SELECT * FROM users WHERE username = ? AND password = ? AND is_admin = 1", (username, password))
-#         admin = cursor.fetchone()
-#         connection.close()
-
-#         if admin:
-#             session['admin'] = username  # Store admin username in session
-#             return redirect(url_for('admin_dashboard'))
-#         else:
-#             return "Invalid admin username or password", 400
-
-#     return render_template('admin_login.html')
-
-# @app.route('/admin/logout')
-# def admin_logout():
-#     session.pop('admin',)
+@app.context_processor
+def inject_theme():
+    theme = session.get('theme', 'light')
+    return dict(theme=theme)
 
 if __name__ == "__main__":
     initialize()

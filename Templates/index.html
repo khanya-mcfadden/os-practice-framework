@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Home Page{% endblock %}</title>
-
+    <style> </style>
+<link rel="stylesheet" href="/StyleSheets/main.css">
 </head>
 <style>
       .main {
@@ -85,6 +86,19 @@
     .footer a:hover {
         color: #ffffff;
     }
+
+    body.dark-mode {
+        background-color: #121212;
+        color: #ffffff;
+    }
+
+    .sidebar.dark-mode {
+        background-color: #333333;
+    }
+
+    .content.dark-mode {
+        background-color: #444444;
+    }
 </style>
 
 <body>
@@ -95,15 +109,15 @@
     <nav class="nav">
             <a href="/"             style="color: #C9C8C8">Home</a>
             <a href="/about"        style="color: #C9C8C8">About</a>
-            <a href="/Sign-Up" style="color: #C9C8C8">sign up</a>
             <a href="/test"    style="color: #C9C8C8">test</a>
             <a href="/Orderingpage" style="color: #C9C8C8">Ordering</a>
             <a href="/BookingPage" style="color: #C9C8C8">Booking</a>
 
-
-        <a style="float:right; color: #C9C8C8;" href="/login">Login</a>
+        <a href="/Sign-Up" style="color: #C9C8C8; float: right;">sign up</a>
+        <a style="float:right; color: #C9C8C8; float: right;" href="/login">Login</a>
         <a href="/profile" style="color: #C9C8C8; float: right;">Profile</a>
     </nav>
+    
 {% block content %}
 <div style="text-align: center; padding: 20px;">
     <p>We are glad to have you here. Explore and enjoy your stay!</p>
@@ -111,11 +125,40 @@
 {% endblock %}
     <div class="footer">
         <footer>
-            <h4>Contact Us</h4>
-            <hr>
-            <!-- Only user email address added -->
+            <!-- Theme Settings -->
+            <section id="themes">
+                <h4>Contact Us</h4>
+                <hr>
+                <!-- Only user email address added -->
+                
+                <p>Email: <a href="mailto:khanyamcf@gmail.com" style="color: #3f3ffa;;">khanyamcf@gmail.com</a></p><br>
+                <h5>Toggle Dark/Light Mode on all pages</h5>
+                <button onclick="toggleDarkMode()">Toggle dark mode</button>
+            </section>
             
-           <p>Email: <a href="mailto:khanyamcf@gmail.com" style="color: #3f3ffa;;">khanyamcf@gmail.com</a></p><br>
+            <script>
+                function toggleDarkMode() {
+                    var elements = document.querySelectorAll('body, .sidebar, .content');
+                    elements.forEach(element => {
+                        element.classList.toggle("dark-mode");
+                    });
+                
+                    if (elements[0].classList.contains("dark-mode")) {
+                        localStorage.setItem("theme", "dark");
+                    } else {
+                        localStorage.setItem("theme", "light");
+                    }
+                }
+                
+                window.onload = function() {
+                    if (localStorage.getItem("theme") === "dark") {
+                        var elements = document.querySelectorAll('body, .sidebar, .content');
+                        elements.forEach(element => {
+                            element.classList.add("dark-mode");
+                        });
+                    }
+                }
+            </script>
         </footer>
     </div>
 
