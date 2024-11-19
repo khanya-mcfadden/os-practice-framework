@@ -154,7 +154,7 @@ def profile():
         return redirect(url_for('login'))
 
     # Fetch user-specific bookings
-    cursor.execute("SELECT course, date FROM bookings WHERE username = ?", (username,))
+    cursor.execute("SELECT courses, date FROM bookings WHERE username = ?", (username,))
     bookings = cursor.fetchall()
     connection.close()
 
@@ -240,8 +240,7 @@ def register():
 
 @app.route('/logout', methods=['GET', 'POST'])
 def logout():
-    session.pop('username', None)
-    return redirect(url_for('login'))
+    session.clear()
 
 # Error handler for 404
 @app.errorhandler(404)
