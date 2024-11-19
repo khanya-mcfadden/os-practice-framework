@@ -108,11 +108,11 @@ def Order():
                          (item, quantity, session.get('username')))
             connection.commit()
             connection.close()
-            return redirect('/ordering_confirm.html')
+            return redirect('/ordering_confirm')
         except sqlite3.Error:
             connection.close()
             return "Order failed", 400
-    return render_template('Orderingpage.html')
+    return render_template('/Orderingpage')
 
 @app.route('/test')
 def test_page():
@@ -133,6 +133,10 @@ def confirm():
 @app.route('/booking_confirm')
 def booking_confirm():
     return render_template('booking_confirm.html')
+
+@app.route('/ordering_confirm')
+def ordering_confirm():
+    return render_template('ordering_confirm.html')
 
 @app.route('/profile')
 def profile():

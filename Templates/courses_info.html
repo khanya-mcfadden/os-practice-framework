@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "index.html" %}
+{% block title %}profile{% endblock %}
+
+<body>
+    {% block content %}
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codderdojo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <img src="logo.png" alt="Codderdojo Logo">
+            <span>codderdojo</span>
+        </div>
+        <div>
+            <a href="#">Home</a>
+            <a href="#">Courses</a>
+            <a href="#">About Us</a>
+        </div>
+        <div>
+            <a href="#">Login & Sign Up</a>
+        </div>
+    </div>
+    <div class="courses">
+        <div class="course-card" onclick="openOverlay('python')">
+            <h3>PYTHON</h3>
+            <p>sample text sample text</p>
+            <a href="#">edit course...</a>
+        </div>
+        <div class="course-card" onclick="openOverlay('web-design')">
+            <h3>WEB DESIGN</h3>
+            <p>sample text sample text</p>
+            <a href="#">edit course...</a>
+        </div>
+        <div class="course-card" onclick="openOverlay('javascript')">
+            <h3>JavaScript</h3>
+            <p>sample text sample text</p>
+            <a href="#">edit course...</a>
+        </div>
+        <div class="course-card" onclick="openOverlay('add-course')">
+            <h3>Add Course</h3>
+            <a href="#">edit course...</a>
+        </div>
+        <div class="add-course">+</div>
+        <div class="add-course">+</div>
+        <div class="add-course">+</div>
+        <div class="add-course">+</div>
+    </div>
+
+    <div id="overlay" class="overlay">
+        <div class="overlay-content" id="overlay-content">
+            <span class="close" onclick="closeOverlay()">&times;</span>
+            <div id="overlay-inner-content"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+    <style>
+        .signout-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+        }
+
+        .signout-button {
+            padding: 10px 20px;
+            background-color: #ff4444;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .signout-button:hover {
+            background-color: #cc0000;
+        }
+
+        /* General Styles */
+        .settings-container {
+            display: flex;
+        }
+
+        .sidebar {
+            width: 20%;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+        .sidebar h2 {
+            font-size: 18px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin: 10px 0;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #333333;
+        }
+
+        .dark-mode .sidebar ul li a {
+            color: #ffffff;
+        }
+
+        .content {
+            width: 80%;
+            padding: 20px;
+            margin-bottom: 170px;
+        }
+    </style>
+    {% endblock %}
+</body>
+
+</html>
