@@ -62,7 +62,7 @@ def BookingPage_page():
 
         try:
             # Insert the booking
-            cursor.execute("INSERT INTO bookings (course, date, username) VALUES (?, ?, ?)",
+            cursor.execute("INSERT INTO bookings (courses, date, username) VALUES (?, ?, ?)",
                          (course, date, session.get('username')))
             connection.commit()
             connection.close()
