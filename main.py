@@ -34,9 +34,41 @@ def inject_user():
 def index():
     return render_template('index.html'), 404
 
-@app.route('/BookingPage')
+@app.route('/BookingPage', methods=['GET', 'POST'])
 def BookingPage_page():
-    return render_template('BookingPage.html'), 404
+    if request.method == 'POST':
+        course = request.form.get('courses')
+        date = request.form.get('date')
+
+        if not course or not date:
+            return "Please fill out all fields", 400
+
+        connection = sqlite3.connect('users.db')
+        cursor = connection.cursor()
+        
+        # Create bookings table if it doesn't exist
+        cursor.execute('''
+            CREATE TABLE IF NOT EXISTS bookings (
+                booking_id INTEGER PRIMARY KEY,
+                course TEXT NOT NULL,
+                date TEXT NOT NULL,
+                username TEXT NOT NULL,
+                FOREIGN KEY (username) REFERENCES users(username)
+            )
+        ''')
+
+        try:
+            # Insert the booking
+            cursor.execute("INSERT INTO bookings (course, date, username) VALUES (?, ?, ?)",
+                         (course, date, session.get('username')))
+            connection.commit()
+            connection.close()
+            return redirect('/confirm')
+        except sqlite3.Error:
+            connection.close()
+            return "Booking failed", 400
+    
+    return render_template('BookingPage.html')
 
 @app.route('/Orderingpage')
 def Orderingpage_page():
