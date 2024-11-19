@@ -37,13 +37,16 @@
                 <!-- Security Settings -->
                 <section id="security">
                     <h3>Security Settings</h3>
-                    <form>
-                        <label for="current-password">Current Password:</label>
-                        <input type="password" id="current-password" name="current-password" required>
-                        <label for="new-password">New Password:</label>
-                        <input type="password" id="new-password" name="new-password" required>
-                        <label for="confirm-password">Confirm New Password:</label>
-                        <input type="password" id="confirm-password" name="confirm-password" required>
+                    <form action="/change_password" method="POST">
+                        <label for="current_password">Current Password:</label>
+                        <input type="password" id="current_password" name="current_password" required>
+                        
+                        <label for="new_password">New Password:</label>
+                        <input type="password" id="new_password" name="new_password" required>
+                        
+                        <label for="confirm_password">Confirm New Password:</label>
+                        <input type="password" id="confirm_password" name="confirm_password" required>
+                        
                         <button type="submit">Update Password</button>
                     </form>
                 </section>
@@ -89,8 +92,14 @@
                         </div>
                         <div>
                             <label for="text-resize">Text Resize:</label>
-                            <input type="range" id="text-resize" name="text-resize" min="12" max="24" value="16">
+                            <input type="range" id="text-resize" name="text-resize" min="12" max="24" value="16" oninput="updateTextSize(this.value)">
                             <span id="text-size-display">16px</span>
+                            <script>
+                                function updateTextSize(value) {
+                                    document.getElementById('text-size-display').textContent = value + 'px';
+                                }
+                            </script>
+                            currantly non functinal
                         </div>
                         <button type="submit">Save Accessibility Settings</button>
                     </form>
@@ -127,12 +136,6 @@
 
     <style>
         /* General Styles */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
         .settings-container {
             display: flex;
         }
@@ -165,20 +168,6 @@
             width: 80%;
             padding: 20px;
             margin-bottom: 170px;
-        }
-
-        /* Theme Styles */
-        .dark-mode {
-            background-color: black;
-            color: white;
-        }
-
-        .sidebar.dark-mode {
-            background-color: #444;
-        }
-
-        .content.dark-mode {
-            background-color: #222;
         }
     </style>
 {% endblock %}

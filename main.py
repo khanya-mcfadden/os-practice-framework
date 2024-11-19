@@ -141,9 +141,19 @@ def profile():
     
     username = session['username']
 
-    # Fetch user-specific bookings
+    # Verify user exists in database
     connection = sqlite3.connect('users.db')
     cursor = connection.cursor()
+    
+    # Check if user exists in database
+    cursor.execute("SELECT * FROM users WHERE username = ?", (username,))
+    user = cursor.fetchone()
+    if not user:
+        connection.close()
+        session.pop('username', None)  # Clear invalid session
+        return redirect(url_for('login'))
+
+    # Fetch user-specific bookings
     cursor.execute("SELECT course, date FROM bookings WHERE username = ?", (username,))
     bookings = cursor.fetchall()
     connection.close()
@@ -249,6 +259,45 @@ def set_theme():
 def inject_theme():
     theme = session.get('theme', 'light')
     return dict(theme=theme)
+
+@app.route('/change_password', methods=['GET', 'POST'])
+def change_password():
+    if 'username' not in session:
+        return redirect(url_for('login'))
+
+    if request.method == 'POST':
+        current_password = request.form.get('current_password')
+        new_password = request.form.get('new_password')
+        confirm_password = request.form.get('confirm_password')
+
+        if not all([current_password, new_password, confirm_password]):
+            return "Please fill out all fields", 400
+
+        if new_password != confirm_password:
+            return "New passwords do not match", 400
+
+        if len(new_password) < 8 or len(new_password) > 20:
+            return "New password must be between 8 and 20 characters", 400
+
+        connection = sqlite3.connect('users.db')
+        cursor = connection.cursor()
+        
+        cursor.execute("SELECT password FROM users WHERE username = ?", (session['username'],))
+        user = cursor.fetchone()
+
+        if not user or not check_password_hash(user[0], current_password):
+            connection.close()
+            return "Current password is incorrect", 400
+
+        hashed_password = generate_password_hash(new_password, method='pbkdf2:sha256')
+        cursor.execute("UPDATE users SET password = ? WHERE username = ?", 
+                      (hashed_password, session['username']))
+        connection.commit()
+        connection.close()
+
+        return render_template('profile.html')
+
+    return render_template('profile.html')
 
 if __name__ == "__main__":
     initialize()
