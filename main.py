@@ -36,6 +36,9 @@ def index():
 
 @app.route('/BookingPage', methods=['GET', 'POST'])
 def BookingPage_page():
+    if 'username' not in session:
+        return redirect(url_for('login'))
+
     if request.method == 'POST':
         course = request.form.get('courses')
         date = request.form.get('date')
@@ -63,16 +66,53 @@ def BookingPage_page():
                          (course, date, session.get('username')))
             connection.commit()
             connection.close()
-            return redirect('/confirm')
+            return redirect('/booking_confirm')
         except sqlite3.Error:
             connection.close()
             return "Booking failed", 400
     
     return render_template('BookingPage.html')
 
-@app.route('/Orderingpage')
+@app.route('/Orderingpage' , methods=['GET', 'POST'])
 def Orderingpage_page():
-    return render_template('Orderingpage.html'), 404
+        return render_template('Orderingpage.html'), 404
+
+@app.route('/Order' , methods=['GET', 'POST'])
+def Order():
+    if 'username' not in session:
+        return redirect(url_for('login'))
+    if request.method == 'POST':
+        item = request.form.get('product')
+        quantity = request.form.get('quantity')
+
+        if not item or not quantity:
+            return "Please fill out all fields", 400
+
+        connection = sqlite3.connect('users.db')
+        cursor = connection.cursor()
+        
+        # Create orders table if it doesn't exist
+        cursor.execute('''
+            CREATE TABLE IF NOT EXISTS orders (
+                order_id INTEGER PRIMARY KEY,
+                item TEXT NOT NULL,
+                quantity INTEGER NOT NULL,
+                username TEXT NOT NULL,
+                FOREIGN KEY (username) REFERENCES users(username)
+            )
+        ''')
+
+        try:
+            # Insert the order
+            cursor.execute("INSERT INTO orders (item, quantity, username) VALUES (?, ?, ?)",
+                         (item, quantity, session.get('username')))
+            connection.commit()
+            connection.close()
+            return redirect('/ordering_confirm.html')
+        except sqlite3.Error:
+            connection.close()
+            return "Order failed", 400
+    return render_template('Orderingpage.html')
 
 @app.route('/test')
 def test_page():
@@ -85,17 +125,31 @@ def about_page():
 @app.route('/courses')
 def courses_page():
     return render_template('courses.html'), 404
+
 @app.route('/confirm')
 def confirm():
     return render_template('confirm.html')
 
+@app.route('/booking_confirm')
+def booking_confirm():
+    return render_template('booking_confirm.html')
+
 @app.route('/profile')
 def profile():
-    if 'username' in session:
-        username = session['username']
-        return render_template('profile.html', username=username)
-    else:
+    if 'username' not in session:
         return redirect(url_for('login'))
+    
+    username = session['username']
+
+    # Fetch user-specific bookings
+    connection = sqlite3.connect('users.db')
+    cursor = connection.cursor()
+    cursor.execute("SELECT course, date FROM bookings WHERE username = ?", (username,))
+    bookings = cursor.fetchall()
+    connection.close()
+
+    return render_template('profile.html', username=username, bookings=bookings)
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():

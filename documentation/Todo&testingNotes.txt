@@ -39,14 +39,14 @@ here
 Estimated numbers of pages: 8-9 proper pages and 2 fill/message pages 
 
 
-Planned pages: 
-[]calender of some sort
+Planned pages/featrues: 
+[done]calender of some sort
 
-[] Sign up , backend has been compleated 
+[done] Sign up , backend has been compleated 
 
-[] Login , backend has been compleated  
+[done] Login , backend has been compleated  
 
-[] Booking 
+[] Booking , front end finished 
 
 [] courses information  
 
@@ -54,17 +54,18 @@ Planned pages:
 
 [] Reviews page 
 
-[] Profile page 
+[done] Profile page 
 
-[] About us and contact 
-[] create feedback page for teachers, and test users 
-  [] Need to add a feedback table to the database for teachers and users
+[done] About us and contact 
+
+[done] create feedback page for teachers, and test users 
+  [done] Need to add a feedback table to the database for teachers and users
 
 **Tests for basic inputs **
 
-[] Need to make sure that page navigation functions correctly on all pages 
+[done] Need to make sure that page navigation functions correctly on all pages 
 
-[] Making sure that the ability to type in text into appropriate areas functions  
+[done] Making sure that the ability to type in text into appropriate areas functions  
 
 [] Button functionality  
 
@@ -72,13 +73,7 @@ Planned pages:
 
 **Tests for processes**  
 
-[] Need to make sure that page navigation functions correctly on all pages 
-
-[] Making sure that the ability to type in text into appropriate areas functions  
-
-[] Button functionality 
-
-[] Test functionality of the above in live environments 
+[done] Test functionality of the above in live environments 
 
  
 
@@ -96,6 +91,6 @@ Planned pages:
 
 **Testing for security **
 
-[] Check SQL script insertions in all text-based input on site  
+[done] Check SQL script insertions in all text-based input on site  
 
  

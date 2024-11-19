@@ -99,6 +99,44 @@
     .content.dark-mode {
         background-color: #444444;
     }
+
+    .dark-mode .welcome {
+        background-color: #333333;
+    }
+
+    .dark-mode .welcome h1 {
+        color: #ffffff;
+    }
+
+    .dark-mode .welcome p {
+        color: #C9C8C8;
+    }
+
+    .dark-mode .nav {
+        background-color: #1a1a1a;
+    }
+
+    .dark-mode .nav a {
+        color: #C9C8C8;
+    }
+
+    .dark-mode .nav a:hover {
+        background-color: #444444;
+        color: #ffffff;
+    }
+
+    .dark-mode .footer {
+        background-color: #1a1a1a;
+        color: #ffffff;
+    }
+    .dark-mode .h1{
+        color: #ffffff;
+    }
+
+    .h1 {
+        color: #333333;
+    }
+
 </style>
 
 <body>
@@ -125,39 +163,39 @@
 {% endblock %}
     <div class="footer">
         <footer>
-            <!-- Theme Settings -->
-            <section id="themes">
-                <h4>Contact Us</h4>
-                <hr>
-                <!-- Only user email address added -->
-                
-                <p>Email: <a href="mailto:khanyamcf@gmail.com" style="color: #3f3ffa;;">khanyamcf@gmail.com</a></p><br>
-                <h5>Toggle Dark/Light Mode on all pages</h5>
-                <button onclick="toggleDarkMode()">Toggle dark mode</button>
+            <section id="themes" style="padding: 5px;">
+            <h4 style="margin: 5px 0;">Contact Us</h4>
+            <hr style="margin: 5px 0;">
+            <p style="margin: 5px 0;">Email: <a href="mailto:khanyamcf@gmail.com" style="color: #3f3ffa;">khanyamcf@gmail.com</a></p>
+            <h5 style="margin: 5px 0;">Toggle Dark/Light Mode</h5>
+            <button onclick="toggleDarkMode()" style="margin-bottom: 5px;">Toggle dark mode</button>
             </section>
             
             <script>
-                function toggleDarkMode() {
-                    var elements = document.querySelectorAll('body, .sidebar, .content');
-                    elements.forEach(element => {
-                        element.classList.toggle("dark-mode");
-                    });
-                
-                    if (elements[0].classList.contains("dark-mode")) {
-                        localStorage.setItem("theme", "dark");
-                    } else {
-                        localStorage.setItem("theme", "light");
-                    }
+            function toggleDarkMode() {
+                var elements = document.querySelectorAll('body, .sidebar, .content');
+                elements.forEach(element => {
+                element.classList.toggle("dark-mode");
+                });
+            
+                if (elements[0].classList.contains("dark-mode")) {
+                localStorage.setItem("theme", "dark");
+                } else {
+                localStorage.setItem("theme", "light");
                 }
-                
-                window.onload = function() {
-                    if (localStorage.getItem("theme") === "dark") {
-                        var elements = document.querySelectorAll('body, .sidebar, .content');
-                        elements.forEach(element => {
-                            element.classList.add("dark-mode");
-                        });
-                    }
+            }
+            
+            window.onload = function() {
+                if (localStorage.getItem("theme") === "dark") {
+                var elements = document.querySelectorAll('body, .sidebar, .content');
+                elements.forEach(element => {
+                    element.classList.add("dark-mode");
+                });
                 }
+            }
+            document.querySelectorAll('.welcome, .nav, .nav a, .footer, .h1').forEach(element => {
+                element.classList.toggle('dark-mode');
+            });
             </script>
         </footer>
     </div>
