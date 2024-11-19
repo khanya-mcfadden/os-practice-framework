@@ -1,3 +1,91 @@
+.main {
+    margin-left: 160px; 
+    padding: 0px 10px;
+  }
+  
+  
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
 body {
-    background-color: green;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.welcome {
+    text-align: center;
+    padding: 50px;
+    background-color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.welcome h1 {
+    color: #333333;
+}
+
+.welcome p {
+    color: #666666;
+}
+
+.nav {
+    background-color: #333333;
+    overflow: hidden;
+}
+
+.nav a {
+    float: left;
+    display: block;
+    color: #C9C8C8;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.nav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.footer {
+    background-color: #333333;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer h4 {
+    margin: 10px 0;
+}
+
+.footer hr {
+    border: 1px solid #ffffff;
+}
+
+.footer a {
+    color: #C9C8C8;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: #ffffff;
+}
+
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.sidebar.dark-mode {
+    background-color: #333333;
+}
+
+.content.dark-mode {
+    background-color: #444444;
 }

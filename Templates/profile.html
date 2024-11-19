@@ -1,371 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
 {% extends "index.html" %}
-{% block title %}about-page{% endblock %}
+{% block title %}profile{% endblock %}
 
 <body>
-{% block content %}
+    {% block content %}
     <h1>Welcome, {{ username }}!</h1>
-      <div class="settings-container">
-        <!-- Sidebar -->
-        <aside class="sidebar">
-          <h2>Settings</h2>
-          <ul>
-            <li><a href="#general">General</a></li>
-            <li><a href="#security">Security</a></li>
-            <li><a href="#themes">Themes</a></li>
-            <li><a href="#accessibility">Accessibility</a></li>
-            <li><a href="#course-logging">Course Logging</a></li>
-          </ul>
-        </aside>
-    
-        <!-- Main Content -->
-        <main class="content">
-          <!-- General Settings -->
-          <section id="general">
-            <h3>General Settings</h3>
-            <form>
-              <label for="username">Username:</label>
-              <input type="text" id="username" name="username" placeholder="Enter your username" required>
-              
-              <label for="email">Email:</label>
-              <input type="email" id="email" name="email" placeholder="Enter your email" required>
-              
-              <button type="submit">Save Changes</button>
-            </form>
-          </section>
-    
-          <!-- Security Settings -->
-          <section id="security">
-            <h3>Security Settings</h3>
-            <form>
-              <label for="current-password">Current Password:</label>
-              <input type="password" id="current-password" name="current-password" required>
-              
-              <label for="new-password">New Password:</label>
-              <input type="password" id="new-password" name="new-password" required>
-              
-              <label for="confirm-password">Confirm New Password:</label>
-              <input type="password" id="confirm-password" name="confirm-password" required>
-              
-              <button type="submit">Update Password</button>
-            </form>
-          </section>
-    
-          <!-- Theme Settings -->
-          <section id="themes">
-            <h3>Theme Settings</h3>
-            <form>
-              <label>Select a theme:</label>
-              <div>
-                <input type="radio" id="light-theme" name="theme" value="light" checked>
-                <label for="light-theme">Light</label>
-              </div>
-              <div>
-                <input type="radio" id="dark-theme" name="theme" value="dark">
-                <label for="dark-theme">Dark</label>
-              </div>
-              <button type="submit">Apply Theme</button>
-            </form>
-          </section>
-    
-          <!-- Accessibility -->
-          <section id="accessibility">
-            <h3>Accessibility</h3>
-            <form>
-              <div>
-                <label for="high-contrast">High Contrast Mode:</label>
-                <input type="checkbox" id="high-contrast" name="high-contrast">
-              </div>
-              <div>
-                <label for="text-resize">Text Resize:</label>
-                <input type="range" id="text-resize" name="text-resize" min="12" max="24" value="16">
-                <span id="text-size-display">16px</span>
-              </div>
-              <button type="submit">Save Accessibility Settings</button>
-            </form>
-          </section>
-    
-          <!-- Course Logging -->
-          <section id="course-logging">
-            <h3>Course Logging</h3>
-            <div>
-              <p>Here is a log of your recent course activity:</p>
-              <ul>
-                <li>Logged into course "Digital Design" on 15th Nov 2024</li>
-                <li>Completed module "CSS Fundamentals" on 14th Nov 2024</li>
-                <li>Started module "JavaScript Basics" on 13th Nov 2024</li>
-              </ul>
-            </div>
-            <button>Download Activity Log</button>
-          </section>
-        </main>
-      </div>
-    
-      <!-- JavaScript -->
-      <script>
-        // General Settings
-        document.querySelector('#general form').addEventListener('submit', (e) => {
-          e.preventDefault();
-          const username = document.getElementById('username').value;
-          const email = document.getElementById('email').value;
-    
-          // Send data to backend via Fetch or Axios
-          fetch('/update-general-settings', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ username, email })
-          })
-          .then(response => response.json())
-          .then(data => alert(data.message))
-          .catch(error => alert('Error saving changes.'));
-        });
-    
-        // Security Settings
-        document.querySelector('#security form').addEventListener('submit', (e) => {
-          e.preventDefault();
-          const currentPassword = document.getElementById('current-password').value;
-          const newPassword = document.getElementById('new-password').value;
-          const confirmPassword = document.getElementById('confirm-password').value;
-    
-          if (newPassword === confirmPassword) {
-            fetch('/update-security-settings', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ currentPassword, newPassword })
-            })
-            .then(response => response.json())
-            .then(data => alert(data.message))
-            .catch(error => alert('Error updating password.'));
-          } else {
-            alert('Passwords do not match.');
-          }
-        });
-    
-        // Theme Settings
-        <section id="themes">
-            <h3>Theme Settings</h3>
-            <p id="DarkModetext">Dark Mode is OFF</p>
-            <button onclick="darkMode()">Dark Mode</button>
-            <button onclick="lightMode()">Light Mode</button>
-          
-            <style>
-              /* Add dark and light mode styles */
-              .dark-mode {
-                background-color: black;
-                color: white;
-              }
-            
-              .light-mode {
-                background-color: white;
-                color: black;
-              }
-            </style>
-            
-            <script>
-              // JavaScript for Dark Mode Toggle
-              function darkMode() {
-                let element = document.body;
-                let content = document.getElementById("DarkModetext");
-                element.className = "dark-mode";
-                content.innerText = "Dark Mode is ON";
-            
-                // Save dark mode preference to the backend
-                fetch('/update-theme', {
-                  method: 'POST',
-                  headers: { 'Content-Type': 'application/json' },
-                  body: JSON.stringify({ theme: 'dark' })
-                });
-              }
-            
-              function lightMode() {
-                let element = document.body;
-                let content = document.getElementById("DarkModetext");
-                element.className = "light-mode";
-                content.innerText = "Dark Mode is OFF";
-            
-                // Save light mode preference to the backend
-                fetch('/update-theme', {
-                  method: 'POST',
-                  headers: { 'Content-Type': 'application/json' },
-                  body: JSON.stringify({ theme: 'light' })
-                });
-              }
-            </script>
-        </section>
-          
-    
-        // Accessibility Settings
-        document.getElementById('high-contrast').addEventListener('change', (e) => {
-          const highContrast = e.target.checked;
-          document.body.style.filter = highContrast ? 'contrast(1.5)' : 'none';
-    
-          fetch('/update-accessibility', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ highContrast })
-          });
-        });
-    
-        document.getElementById('text-resize').addEventListener('input', (e) => {
-          const textSize = e.target.value;
-          document.body.style.fontSize = `${textSize}px`;
-          document.getElementById('text-size-display').textContent = `${textSize}px`;
-        });
-    
-        // Course Logging
-        document.querySelector('#course-logging button').addEventListener('click', () => {
-          fetch('/download-course-log')
-            .then(response => response.blob())
-            .then(blob => {
-              const link = document.createElement('a');
-              link.href = URL.createObjectURL(blob);
-              link.download = 'Course_Activity_Log.txt';
-              link.click();
-            })
-            .catch(error => alert('Error downloading activity log.'));
-        });
-      </script>
+    <div class="light-mode">
+        <div class="settings-container">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <h2>Settings</h2>
+                <ul>
+                    <li><a href="#general">General</a></li>
+                    <li><a href="#security">Security</a></li>
+                    <li><a href="#themes">Themes</a></li>
+                    <li><a href="#accessibility">Accessibility</a></li>
+                    <li><a href="#course-logging">Course Logging</a></li>
+                </ul>
+            </aside>
 
-    
+            <!-- Main Content -->
+            <main class="content">
+                <!-- General Settings -->
+                <section id="general">
+                    <h3>General Settings</h3>
+                    <form>
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                        <button type="submit">Save Changes</button>
+                    </form>
+                </section>
 
-<style>
-        /* The side navigation menu */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
+                <!-- Security Settings -->
+                <section id="security">
+                    <h3>Security Settings</h3>
+                    <form action="/change_password" method="POST">
+                        <label for="current_password">Current Password:</label>
+                        <input type="password" id="current_password" name="current_password" required>
+
+                        <label for="new_password">New Password:</label>
+                        <input type="password" id="new_password" name="new_password" required>
+
+                        <label for="confirm_password">Confirm New Password:</label>
+                        <input type="password" id="confirm_password" name="confirm_password" required>
+
+                        <button type="submit">Update Password</button>
+                    </form>
+                </section>
+
+                <!-- Theme Settings -->
+                <section id="themes">
+                    <h3>Theme Settings</h3>
+                    <form action="/theme" method="POST"></form>
+                    <h2>Toggle Dark/Light Mode</h2>
+                    <button onclick="toggleDarkMode()">Toggle dark mode</button>
+                </section>
+                <script>
+                    function toggleDarkMode() {
+                        var elements = document.querySelectorAll('body, .sidebar, .content');
+                        elements.forEach(element => {
+                            element.classList.toggle("dark-mode");
+                        });
+
+                        if (elements[0].classList.contains("dark-mode")) {
+                            localStorage.setItem("theme", "dark");
+                        } else {
+                            localStorage.setItem("theme", "light");
+                        }
+                    }
+
+                    window.onload = function () {
+                        if (localStorage.getItem("theme") === "dark") {
+                            var elements = document.querySelectorAll('body, .sidebar, .content');
+                            elements.forEach(element => {
+                                element.classList.add("dark-mode");
+                            });
+                        }
+                    }
+                </script>
+
+                <!-- Accessibility -->
+                <section id="accessibility">
+                    <h3>Accessibility</h3>
+                    <form>
+                        <div>
+                            <label for="high-contrast">High Contrast Mode:</label>
+                            <input type="checkbox" id="high-contrast" name="high-contrast">
+                        </div>
+                        <div>
+                            <label for="text-resize">Text Resize:</label>
+                            <input type="range" id="text-resize" name="text-resize" min="12" max="24" value="16"
+                                oninput="updateTextSize(this.value)">
+                            <span id="text-size-display">16px</span>
+                            <script>
+                                function updateTextSize(value) {
+                                    document.getElementById('text-size-display').textContent = value + 'px';
+                                }
+                            </script>
+                            currantly non functinal
+                        </div>
+                        <button type="submit">Save Accessibility Settings</button>
+                    </form>
+                </section>
+
+                <!-- Course Logging -->
+                <section id="bookings">
+                    <h3>Your Bookings</h3>
+                    {% if bookings %}
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Course</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for booking in bookings %}
+                            <tr>
+                                <td>{{ booking[0] }}</td>
+                                <td>{{ booking[1] }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    {% else %}
+                    <p>No bookings found.</p>
+                    {% endif %}
+                </section>
+
+            </main>
+        </div>
+    </div>
+
+    <div class="signout-container">
+        <form action="/logout" method="POST">
+            <button type="submit" class="signout-button">Sign Out</button>
+        </form>
+    </div>
+
+    <style>
+        .signout-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
         }
-        
+
+        .signout-button {
+            padding: 10px 20px;
+            background-color: #ff4444;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .signout-button:hover {
+            background-color: #cc0000;
+        }
+    </style>
+    <style>
+        /* General Styles */
         .settings-container {
             display: flex;
-            height: 100vh;
         }
-        
+
         .sidebar {
-            width: 250px;
-            background-color: #2c3e50;
-            color: #fff;
+            width: 20%;
+            background-color: #f5f5f5;
             padding: 20px;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
         }
-        
+
         .sidebar h2 {
-            margin-bottom: 20px;
-            font-size: 24px;
+            font-size: 18px;
         }
-        
+
         .sidebar ul {
             list-style: none;
             padding: 0;
         }
-        
+
         .sidebar ul li {
             margin: 10px 0;
         }
-        
+
         .sidebar ul li a {
             text-decoration: none;
-            color: #ecf0f1;
-            font-size: 18px;
+            color: #333333;
         }
-        
-        .sidebar ul li a:hover {
-            color: #8f7ad6;
-        }
-        
-        .content {
-            flex: 1;
-            padding: 20px;
-            overflow-y: auto;
-            background-color: #fff;
-        }
-        
-        .content section {
-            margin-bottom: 30px;
-        }
-        
-        .content h3 {
-            margin-bottom: 10px;
-            font-size: 22px;
-            color: #34495e;
-        }
-        
-        .content p {
-            color: #7f8c8d;
-        }
-        
-        /* General form styles */
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        
-        label {
-            font-size: 16px;
-            color: #34495e;
-        }
-        
-        input, button {
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        
-        input:focus {
-            outline: 2px solid #8f7ad6;
-        }
-        
-        button {
-            background-color: #8f7ad6;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        
-        button:hover {
-            background-color: #8f7ad6;
-        }
-        
-        /* Theme settings */
-        form div {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        /* Accessibility */
-        #text-resize {
-            width: 100%;
-        }
-        
-        #text-size-display {
-            font-weight: bold;
-        }
-        
-        /* Course Logging */
-        section ul {
-            list-style: none;
-            padding: 0;
-        }
-        
-        section ul li {
-            margin-bottom: 10px;
-            padding: 10px;
-            background: #f9f9f9;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        
-        button {
-            margin-top: 10px;
-        }
-</style>
 
-{% endblock %}
+        .dark-mode .sidebar ul li a {
+            color: #ffffff;
+        }
+
+        .content {
+            width: 80%;
+            padding: 20px;
+            margin-bottom: 170px;
+        }
+    </style>
+    {% endblock %}
 </body>
+
 </html>

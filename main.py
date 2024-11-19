@@ -34,13 +34,85 @@ def inject_user():
 def index():
     return render_template('index.html'), 404
 
-@app.route('/BookingPage')
+@app.route('/BookingPage', methods=['GET', 'POST'])
 def BookingPage_page():
-    return render_template('BookingPage.html'), 404
+    if 'username' not in session:
+        return redirect(url_for('login'))
 
-@app.route('/Orderingpage')
+    if request.method == 'POST':
+        course = request.form.get('courses')
+        date = request.form.get('date')
+
+        if not course or not date:
+            return "Please fill out all fields", 400
+
+        connection = sqlite3.connect('users.db')
+        cursor = connection.cursor()
+        
+        # Create bookings table if it doesn't exist
+        cursor.execute('''
+            CREATE TABLE IF NOT EXISTS bookings (
+                booking_id INTEGER PRIMARY KEY,
+                course TEXT NOT NULL,
+                date TEXT NOT NULL,
+                username TEXT NOT NULL,
+                FOREIGN KEY (username) REFERENCES users(username)
+            )
+        ''')
+
+        try:
+            # Insert the booking
+            cursor.execute("INSERT INTO bookings (course, date, username) VALUES (?, ?, ?)",
+                         (course, date, session.get('username')))
+            connection.commit()
+            connection.close()
+            return redirect('/booking_confirm')
+        except sqlite3.Error:
+            connection.close()
+            return "Booking failed", 400
+    
+    return render_template('BookingPage.html')
+
+@app.route('/Orderingpage' , methods=['GET', 'POST'])
 def Orderingpage_page():
-    return render_template('Orderingpage.html'), 404
+        return render_template('Orderingpage.html'), 404
+
+@app.route('/Order' , methods=['GET', 'POST'])
+def Order():
+    if 'username' not in session:
+        return redirect(url_for('login'))
+    if request.method == 'POST':
+        item = request.form.get('product')
+        quantity = request.form.get('quantity')
+
+        if not item or not quantity:
+            return "Please fill out all fields", 400
+
+        connection = sqlite3.connect('users.db')
+        cursor = connection.cursor()
+        
+        # Create orders table if it doesn't exist
+        cursor.execute('''
+            CREATE TABLE IF NOT EXISTS orders (
+                order_id INTEGER PRIMARY KEY,
+                item TEXT NOT NULL,
+                quantity INTEGER NOT NULL,
+                username TEXT NOT NULL,
+                FOREIGN KEY (username) REFERENCES users(username)
+            )
+        ''')
+
+        try:
+            # Insert the order
+            cursor.execute("INSERT INTO orders (item, quantity, username) VALUES (?, ?, ?)",
+                         (item, quantity, session.get('username')))
+            connection.commit()
+            connection.close()
+            return redirect('/ordering_confirm.html')
+        except sqlite3.Error:
+            connection.close()
+            return "Order failed", 400
+    return render_template('Orderingpage.html')
 
 @app.route('/test')
 def test_page():
@@ -53,17 +125,41 @@ def about_page():
 @app.route('/courses')
 def courses_page():
     return render_template('courses.html'), 404
+
 @app.route('/confirm')
 def confirm():
     return render_template('confirm.html')
 
+@app.route('/booking_confirm')
+def booking_confirm():
+    return render_template('booking_confirm.html')
+
 @app.route('/profile')
 def profile():
-    if 'username' in session:
-        username = session['username']
-        return render_template('profile.html', username=username)
-    else:
+    if 'username' not in session:
         return redirect(url_for('login'))
+    
+    username = session['username']
+
+    # Verify user exists in database
+    connection = sqlite3.connect('users.db')
+    cursor = connection.cursor()
+    
+    # Check if user exists in database
+    cursor.execute("SELECT * FROM users WHERE username = ?", (username,))
+    user = cursor.fetchone()
+    if not user:
+        connection.close()
+        session.pop('username', None)  # Clear invalid session
+        return redirect(url_for('login'))
+
+    # Fetch user-specific bookings
+    cursor.execute("SELECT courses, date FROM bookings WHERE username = ?", (username,))
+    bookings = cursor.fetchall()
+    connection.close()
+
+    return render_template('profile.html', username=username, bookings=bookings)
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -144,8 +240,7 @@ def register():
 
 @app.route('/logout', methods=['GET', 'POST'])
 def logout():
-    session.pop('username', None)
-    return redirect(url_for('login'))
+    session.clear()
 
 # Error handler for 404
 @app.errorhandler(404)
@@ -153,65 +248,55 @@ def page_not_found(_):
     app.logger.error(f"Page not found: {request.url}")
     return render_template('404.html'), 404
 
-@app.route('/update-general-settings', methods=['POST'])
-def update_general_settings():
-    data = request.json
-    # Update SQLite database
-    return jsonify({'message': 'General settings updated successfully!'})
+@app.route('/theme', methods=['POST'])
+def set_theme():
+    theme = request.form.get('theme')
+    session['theme'] = theme
+    return '', 204
 
-@app.route('/update-security-settings', methods=['POST'])
-def update_security_settings():
-    data = request.json
-    # Handle password change logic
-    return jsonify({'message': 'Password updated successfully!'})
+@app.context_processor
+def inject_theme():
+    theme = session.get('theme', 'light')
+    return dict(theme=theme)
 
-@app.route('/update-theme', methods=['POST'])
-def update_theme():
-    data = request.json
-    # Save theme preference
-    return jsonify({'message': 'Theme updated successfully!'})
+@app.route('/change_password', methods=['GET', 'POST'])
+def change_password():
+    if 'username' not in session:
+        return redirect(url_for('login'))
 
-@app.route('/download-course-log')
-def download_course_log():
-    # Generate and return the course log as a file
-    return send_file('path/to/log.txt', as_attachment=True)
+    if request.method == 'POST':
+        current_password = request.form.get('current_password')
+        new_password = request.form.get('new_password')
+        confirm_password = request.form.get('confirm_password')
 
-# @app.route('/admin')
-# def admin_dashboard():
-#     if 'admin' in session:
-#         return render_template('admin_dashboard.html')
-#     else:
-#         return redirect(url_for('admin_login'))
-#         # Validate input lengths
-#         if len(username) > 15 or len(password) > 15:
-#             return "Input exceeds character limit", 400
+        if not all([current_password, new_password, confirm_password]):
+            return "Please fill out all fields", 400
 
-#         # Check if the admin exists in the database
-#         connection = sqlite3.connect('users.db')
-#         cursor = connection.cursor()
-#         cursor.execute("SELECT * FROM users WHERE username = ? AND password = ? AND is_admin = 1", (username, password))
-#         admin = cursor.fetchone()
-#         connection.close()
-#         password = request.form.get('password')
+        if new_password != confirm_password:
+            return "New passwords do not match", 400
 
-#         # Check if the admin exists in the database
-#         connection = sqlite3.connect('users.db')
-#         cursor = connection.cursor()
-#         cursor.execute("SELECT * FROM users WHERE username = ? AND password = ? AND is_admin = 1", (username, password))
-#         admin = cursor.fetchone()
-#         connection.close()
+        if len(new_password) < 8 or len(new_password) > 20:
+            return "New password must be between 8 and 20 characters", 400
 
-#         if admin:
-#             session['admin'] = username  # Store admin username in session
-#             return redirect(url_for('admin_dashboard'))
-#         else:
-#             return "Invalid admin username or password", 400
+        connection = sqlite3.connect('users.db')
+        cursor = connection.cursor()
+        
+        cursor.execute("SELECT password FROM users WHERE username = ?", (session['username'],))
+        user = cursor.fetchone()
 
-#     return render_template('admin_login.html')
+        if not user or not check_password_hash(user[0], current_password):
+            connection.close()
+            return "Current password is incorrect", 400
 
-# @app.route('/admin/logout')
-# def admin_logout():
-#     session.pop('admin',)
+        hashed_password = generate_password_hash(new_password, method='pbkdf2:sha256')
+        cursor.execute("UPDATE users SET password = ? WHERE username = ?", 
+                      (hashed_password, session['username']))
+        connection.commit()
+        connection.close()
+
+        return render_template('profile.html')
+
+    return render_template('profile.html')
 
 if __name__ == "__main__":
     initialize()
