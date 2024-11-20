@@ -124,7 +124,7 @@ def about_page():
 
 @app.route('/courses')
 def courses_page():
-    return render_template('courses.html'), 404
+    return render_template('courses_info.html'), 404
 
 @app.route('/confirm')
 def confirm():
