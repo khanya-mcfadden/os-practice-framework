@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Home Page{% endblock %}</title>
+   
     <style> </style>
 <link rel="stylesheet" href="/StyleSheets/main.css">
 </head>
@@ -141,20 +142,26 @@
 
 <body>
 <div class="welcome">
-    <h1>Welcome to my website framework!</h1>
+    <div style="display: flex; align-items: center; justify-content: center;">
+        <h1>Welcome to my website framework!</h1>
+        <img src="/static/image 5(ai main logo).png" alt="Codderdojo Logo" style="margin-left: 20px; width: 100px; height: auto;">
+    </div>
     <p></p>
 </div>
     <nav class="nav">
-            <a href="/"             style="color: #C9C8C8">Home</a>
-            <a href="/about"        style="color: #C9C8C8">About</a>
-            <a href="/courses"      style="color: #C9C8C8">Contact</a>
-            <a href="/test"    style="color:      #C9C8C8">test</a>
-            <a href="/Orderingpage" style="color: #C9C8C8">Ordering</a>
-            <a href="/BookingPage" style="color:  #C9C8C8">Booking</a>
+            <a href="/"                style="color: #C9C8C8">Home</a>
+            <a href="/about"           style="color: #C9C8C8">About</a>
+            <a href="/courses"         style="color: #C9C8C8">courses</a>
+            <a href="/test"            style="color: #C9C8C8">test</a>
+            <a href="/Orderingpage"    style="color: #C9C8C8">Ordering</a>
+            <a href="/weatherPage"     style="color: #C9C8C8">Booking</a>
+            <a href="/healthRec"       style="color: #C9C8C8">Booking</a>
+            <a href="/particpentsPage" style="color: #C9C8C8">Booking</a>
 
-        <a href="/Sign-Up" style="color: #C9C8C8; float: right;">sign up</a>
-        <a style="float:right; color: #C9C8C8; float: right;" href="/login">Login</a>
-        <a href="/profile" style="color: #C9C8C8; float: right;">Profile</a>
+
+        <a href="/Sign-Up"             style="color:              #C9C8C8; float: right;">sign up</a>
+        <a href="/login"               style="float:right; color: #C9C8C8; float: right;">Login</a>
+        <a href="/profile"             style="color:              #C9C8C8; float: right;">Profile</a>
     </nav>
     
 {% block content %}

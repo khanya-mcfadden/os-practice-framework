@@ -1,32 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 {% extends "index.html" %}
-{% block title %}profile{% endblock %}
-
-<body>
-    {% block content %}
-    <!DOCTYPE html>
+{% block title %}Codderdojo page{% endblock %}
+{% block content %}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Codderdojo</title>
-    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="navbar">
-        <div class="logo">
-            <img src="image 1(coding child).png" alt="Codderdojo Logo">
-            <span>codderdojo</span>
-        </div>
-        <div>
-            <a href="#">Home</a>
-            <a href="#">Courses</a>
-            <a href="#">About Us</a>
-        </div>
-        <div>
-            <a href="#">Login & Sign Up</a>
-        </div>
+
     </div>
     <div class="courses">
         <div class="course-card" onclick="openOverlay('python')">
@@ -44,7 +30,7 @@
             <p>sample text sample text</p>
             <a href="#">edit course...</a>
         </div>
-        <div class="course-card" onclick="openOverlay('add-course')">
+        <!-- <div class="course-card" onclick="openOverlay('add-course')">
             <h3>Add Course</h3>
             <a href="#">edit course...</a>
         </div>
@@ -52,6 +38,7 @@
         <div class="add-course">+</div>
         <div class="add-course">+</div>
         <div class="add-course">+</div>
+    </div> -->
     </div>
 
     <div id="overlay" class="overlay">
@@ -60,13 +47,112 @@
             <div id="overlay-inner-content"></div>
         </div>
     </div>
-
-
 </body>
 </html>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+.navbar {
+    background-color: #a8e6b2;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navbar a {
+    text-decoration: none;
+    color: black;
+    margin: 0 15px;
+    font-size: 18px;
+}
+.navbar .logo {
+    display: flex;
+    align-items: center;
+}
+.navbar .logo img {
+    height: 50px;
+    margin-right: 10px;
+}
+.courses {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+.course-card {
+    background-color: #c1edc7;
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    cursor: pointer;
+}
+.course-card h3 {
+    margin: 0;
+    font-size: 20px;
+}
+.course-card p {
+    font-size: 14px;
+    color: #555;
+}
+.course-card a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+.add-course {
+    background-color: #e0e0e0;
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    color: #888;
+    cursor: pointer;
+}
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+.overlay-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    cursor: pointer;
+}
+</style>
 
+<script>function openOverlay(course) {
+    document.getElementById('overlay').style.display = 'flex';
+    document.getElementById('overlay-inner-content').innerHTML = 'Content for ' + course;
+}
 
-    {% endblock %}
-</body>
-
+function closeOverlay() {
+    document.getElementById('overlay').style.display = 'none';
+}
+</script>
+{% endblock %}
 </html>
