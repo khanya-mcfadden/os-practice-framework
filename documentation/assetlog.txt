@@ -1,0 +1,12 @@
+
+1. images:
+    - Stock images from Google
+    - Company logos taken from respective company websites/pages
+
+2. coding:
+    - Some sidebar HTML and CSS code was sourced from W3Schools tutorials link: https://www.w3schools.com/w3css/w3css_sidebar.asp
+    - Some code assistance was provided by GitHub Copilot
+
+
+
+

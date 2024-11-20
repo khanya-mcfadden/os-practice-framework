@@ -21,3 +21,10 @@ currant progress and issues:
 [1] 4:44pm the backend code for both of the pages is up and running just need to create front end pages, posablity look into the css ? 
 [2] 4:44pm not started 
 [3] 4:44pm curanntly working of my laptop that is jury rigged to my other monerters, needs further development if working on pc becoms out of the question
+
+
+11-20/11/2024
+"finished" tasks 
+[] finished creating the booking system
+[] a ordering page has started being made but no backed has been finished 
+[] darkmode toggle has been implimented for the entire website
