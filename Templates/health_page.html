@@ -12,40 +12,42 @@
     </div>
 
     <script>
-        const apiKey = '6675aaef47134e4599390210242111';
-        const apiUrl = `http://api.weatherapi.com/v1/current.json?key=6675aaef47134e4599390210242111&q=London&aqi=no`;
+        const apiKey = '0f98d01acd0e41818d8124023242111';
+        const apiUrl = `http://api.weatherapi.com/v1/forecast.json?key=0f98d01acd0e41818d8124023242111&q=horsham&days=6&aqi=no`;
 
         fetch(apiUrl)
             .then(response => response.json())
             .then(data => {
                 const forecastContainer = document.getElementById('forecast');
-                forecastContainer.innerHTML = `
-                    <div class="weather-card" style="display: flex; justify-content: center; align-items: center; min-height: 100px;">
-                        <h2>${data.location.name}</h2>
-                        <img src="${data.current.condition.icon}" alt="Weather Icon">
-                        <p>${data.current.condition.text}</p>
-                    </div>
-                `;
+                forecastContainer.innerHTML = data.forecast.forecastday.map((day, index) => {
+                    const date = new Date(day.date);
+                    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                    const formattedDate = index === 0 ? 'Today' : date.toLocaleDateString('en-US', options);
+                    return `
+                        <div class="weather-card">
+                            <h2>${data.location.name} - ${formattedDate}</h2>
+                            <img src="${day.day.condition.icon}" alt="Weather Icon">
+                            <p>${day.day.condition.text}</p>
+                            <p>Max Temp: ${day.day.maxtemp_c}°C</p>
+                            <p>Min Temp: ${day.day.mintemp_c}°C</p>
+                        </div>
+                    `;
+                }).join('');
             })
             .catch(error => console.error('Error fetching weather data:', error));
     </script>
-    <script>
-        const apiUrl2 = 'http://api.weatherapi.com/v1/current.json?key=YOUR_API_KEY&q=London&aqi=no';
-    
-        fetch(apiUrl)
-            .then(response => response.json())
-            .then(data => {
-                const forecastContainer = document.getElementById('forecast');
-                forecastContainer.innerHTML = `
-                    <div class="weather-card">
-                        <h2>${data.location.name}</h2>
-                        <img src="${data.current.condition.icon}" alt="Weather Icon">
-                        <p>${data.current.condition.text}</p>
-                    </div>
-                `;
-            })
-            .catch(error => console.error('Error fetching weather data:', error));
-    </script>
+    <style>
+        .forecast {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .weather-card {
+            flex: 1 1 calc(33.333% - 20px);
+            margin-bottom: 200px;
+        }
+    </style>
 {% endblock %}
 </body>
 <style>
