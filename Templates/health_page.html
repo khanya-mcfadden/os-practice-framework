@@ -6,6 +6,7 @@
 </head>
 {% block content %}
 <body>
+    <div class="navbar"></div>
     <div class="container" style="display: flex; justify-content: center; align-items: center; min-height: 50px;">
         <div class="forecast" id="forecast">
         </div>
@@ -46,46 +47,49 @@
         .weather-card {
             flex: 1 1 calc(33.333% - 20px);
             margin-bottom: 200px;
+            margin-left: 10px;
         }
     </style>
 {% endblock %}
 </body>
 <style>
-    .container {
-        width: 100%;
-        max-width: 600px;
-        margin: 20px auto;
-        padding: 20px;
-    }
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+}
 
-    .forecast {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+.forecast {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-    .weather-card {
-        background-color: white;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        text-align: center;
-    }
+.weather-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+}
 
-    .weather-card img {
-        width: 80px;
-        height: 80px;
-        margin: 10px auto;
-    }
+.weather-card img {
+    width: 80px;
+    height: 80px;
+    margin: 10px auto;
+}
 
-    .weather-card h2 {
-        margin: 0;
-        color: #333;
-    }
+.weather-card h2 {
+    margin: 0;
+    color: #333;
+}
 
-    .weather-card p {
-        margin: 10px 0;
-        color: #666;
-    }
+.weather-card p {
+    margin: 10px 0;
+    color: #666;
+}
+
+
 </style>
 </html>
