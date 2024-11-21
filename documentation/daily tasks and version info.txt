@@ -5,26 +5,64 @@ currant tasks:
 [3]start creation of login system(database creation)
 
 currant issues:
-
 [1] currantly i am fighting with flask to be able to link my html pages on both local and live servers, what i suspect is that it uses a linux based system  (compleated)
-    
 [2] the creation of dajango based hmtl design extension is constantly breaking and non fucntinal (compleated)
 
 10/11/2024
-
 currant tasks:
 [1] impliment login and registery code for page implimentation futher in the week 
 [2] look into django and render compatibility issues
 [3] currantly having issues with being unable to connect to internet off of main pc, need to look into alternative methods of working on the repo, do to this issue i cant effectivy test the website outside of college grounds as laptop is to unstable to run vscoded directly over a peirod greater than 2 hours without leading to further issues.
-currant progress and issues:
 
+currant progress and issues:
 [1] 4:44pm the backend code for both of the pages is up and running just need to create front end pages, posablity look into the css ? 
 [2] 4:44pm not started 
 [3] 4:44pm curanntly working of my laptop that is jury rigged to my other monerters, needs further development if working on pc becoms out of the question
 
+11/11/2024
+tasks:
+[✓] Moved registration folder
+[✓] Added profile, login and signup pages
+[✓] Started implementation of admin features
+[✓] Updated navigation links
+[✓] Added Teacher Feedback documentation
 
-11-20/11/2024
-"finished" tasks 
-[] finished creating the booking system
-[] a ordering page has started being made but no backed has been finished 
-[] darkmode toggle has been implimented for the entire website
+12/11/2024
+tasks:
+[✓] Added booking and ordering pages
+[✓] Implemented password hashing
+[✓] Enhanced signup/login validation
+[✓] Added sidebar navigation
+[✓] Updated profile page
+
+13/11/2024
+tasks:
+[✓] Redid users database
+[✓] Added data clear file
+[✓] Refactored overlay styles
+[✓] Updated documentation
+
+17/11/2024
+tasks:
+[✓] Added new routes for settings and course log
+
+18/11/2024
+tasks:
+[✓] Fully implemented dark mode
+
+19/11/2024
+tasks:
+[✓] Implemented booking functionality
+[✓] Added confirmation pages
+[✓] Enhanced profile page features
+[✓] Updated booking table schema
+[✓] Added product options to ordering page
+
+20/11/2024
+tasks:
+[✓] Updated courses_info.html and index.html
+[✓] Enhanced layout and styling
+[✓] Added overlay functionality
+[✓] Improved navigation links
+[✓] Refactored course logo
+[✓] Updated README.md
