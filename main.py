@@ -245,6 +245,11 @@ def register():
 @app.route('/logout', methods=['GET', 'POST'])
 def logout():
     session.clear()
+    
+@app.route('/health_page')
+def health():
+    return render_template('health_page.html')
+
 
 # Error handler for 404
 @app.errorhandler(404)
