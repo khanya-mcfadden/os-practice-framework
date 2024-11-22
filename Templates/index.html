@@ -290,7 +290,9 @@ body.light-mode .overlay-content {
             <a href="/Orderingpage"    style="color: #C9C8C8">Ordering</a>
             <a href="/BookingPage"     style="color: #C9C8C8">Booking</a>
             <a href="/health_page"     style="color: #C9C8C8">weather</a>
-
+            {% if session['admin'] %}
+                <a href="/users" style="color: #C9C8C8">Users</a>
+            {% endif %}
 
             {% if session['username'] %}
                 <a href="/profile" style="float:right; color: #C9C8C8;">Profile</a>
@@ -340,6 +342,32 @@ body.light-mode .overlay-content {
                     document.getElementById('logo').src = "/static/original Logo white.png";
                 }
             }
+                const form = document.querySelector('form');
+                const submitBtn = document.getElementById('submitBtn');
+                
+                form.addEventListener('input', () => {
+                    submitBtn.disabled = !form.checkValidity();
+                });
+
+                form.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    const response = await fetch('/Sign-Up', {
+                        method: 'POST',
+                        body: new FormData(form)
+                    });
+                    
+                    if (!response.ok) {
+                        const message = await response.text();
+                        const overlay = document.createElement('div');
+                        overlay.style.cssText = 'position:fixed; top:20px; left:50%; transform:translateX(-50%); background:rgba(255,0,0,0.8); color:white; padding:15px; border-radius:5px; z-index:1000;';
+                        overlay.textContent = message;
+                        document.body.appendChild(overlay);
+                        setTimeout(() => overlay.remove(), 3000);
+                    } else {
+                        window.location.href = '/';
+                    }
+                });
+
             </script>
         </footer>
     </div>

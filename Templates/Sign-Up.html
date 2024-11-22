@@ -22,16 +22,9 @@
                 </div>
                 <button type="submit" id="submitBtn" disabled>Register</button>
 
-                <script>
-                    const form = document.querySelector('form');
-                    const submitBtn = document.getElementById('submitBtn');
-                    
-                    form.addEventListener('input', () => {
-                        submitBtn.disabled = !form.checkValidity();
-                    });
-                </script>
+
             </form>
         </div>
-    </body>
     {% endblock %}
+    </body>
 </html>
