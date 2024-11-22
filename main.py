@@ -34,6 +34,7 @@ def inject_user():
 def index():
     return render_template('index.html'), 404
 
+
 @app.route('/BookingPage', methods=['GET', 'POST'])
 def BookingPage_page():
     if 'username' not in session:
@@ -168,7 +169,10 @@ def profile():
     connection.close()
 
     return render_template('profile.html', username=username, bookings=bookings)
-
+@app.route('/logout', methods=['GET', 'POST'])
+def logout():
+    session.clear()
+    return redirect(url_for('login'))
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -184,18 +188,30 @@ def login():
         # Check if the user exists in the database
         connection = sqlite3.connect('users.db')
         cursor = connection.cursor()
-        cursor.execute("SELECT * FROM users WHERE username = ?", (username,))
+        
+        # Modified query to include admin column
+        cursor.execute("SELECT username, password, admin FROM users WHERE username = ?", (username,))
         user = cursor.fetchone()
         connection.close()
 
-        if user and check_password_hash(user[3], password):  # Assuming password is the 4th column in the users table
-            session['username'] = username  # Store username in session
-            return redirect(url_for('profile'))
-        else:
-            return "Invalid username or password", 400
+        if user:
+            admin = user[2]  # Get admin status
+            if admin:
+                # For admin accounts, direct password comparison
+                if password == user[1]:  # Direct comparison for admin passwords
+                    session['username'] = username
+                    session['admin'] = True
+                    return redirect(url_for('profile'))
+            else:
+                # For regular users, check hashed password
+                if check_password_hash(user[1], password):
+                    session['username'] = username
+                    session['admin'] = False
+                    return redirect(url_for('profile'))
+        
+        return "Invalid username or password", 400
 
     return render_template('login.html')
-
 @app.route('/Sign-Up', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
@@ -247,9 +263,7 @@ def register():
 
     return render_template('Sign-Up.html')
 
-@app.route('/logout', methods=['GET', 'POST'])
-def logout():
-    session.clear()
+
     
 @app.route('/health_page')
 def health():
@@ -272,6 +286,10 @@ def set_theme():
 def inject_theme():
     theme = session.get('theme', 'light')
     return dict(theme=theme)
+def inject_user():
+    return {
+        'is_authenticated': 'username' in session
+    }
 
 @app.route('/change_password', methods=['GET', 'POST'])
 def change_password():
@@ -311,6 +329,7 @@ def change_password():
         return render_template('profile.html')
 
     return render_template('profile.html')
+
 
 if __name__ == "__main__":
     initialize()

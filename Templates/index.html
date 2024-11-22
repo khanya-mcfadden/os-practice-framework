@@ -292,9 +292,12 @@ body.light-mode .overlay-content {
             <a href="/health_page"     style="color: #C9C8C8">weather</a>
 
 
-        <a href="/Sign-Up"             style="color:              #C9C8C8; float: right;">sign up</a>
-        <a href="/login"               style="float:right; color: #C9C8C8; float: right;">Login</a>
-        <a href="/profile"             style="color:              #C9C8C8; float: right;">Profile</a>
+            {% if session['username'] %}
+                <a href="/profile" style="float:right; color: #C9C8C8;">Profile</a>
+            {% else %}
+                <a href="/Sign-Up" style="color: #C9C8C8; float: right;">Sign Up</a>
+                <a href="/login" style="color: #C9C8C8; float: right;">Login</a>
+            {% endif %}
     </nav>
 <div class="navbar"></div>   
 {% block content %}
@@ -304,7 +307,7 @@ body.light-mode .overlay-content {
 {% endblock %}
     <div class="footer">
         <footer>
-            <section id="themes" style="padding: 5px;"></section>
+            <section id="themes" style="padding: 5px;">
             <h4 style="margin: 5px 0;">Contact Us</h4>
             <hr style="margin: 5px 0;">
             <p style="margin: 5px 0;">Email: <a href="mailto:khanyamcf@gmail.com" style="color: #3f3ffa;">khanyamcf@gmail.com</a></p>

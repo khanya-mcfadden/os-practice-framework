@@ -4,8 +4,10 @@
     {% extends "index.html" %}
     {% block title %}test{% endblock %}
     {% block content %}
-    <div style="height: 50vh; display: flex; align-items: center; justify-content: center;">
-        hello 
-    </div>
+    <section class="logout">
+        <form action="/logout" method="POST">
+            <button type="submit">Sign Out</button>
+        </form>
+    </section>
     {% endblock %}
 </html>
