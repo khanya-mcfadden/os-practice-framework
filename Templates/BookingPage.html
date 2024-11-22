@@ -6,7 +6,7 @@
 
 {% block content %}
 <body>
-    <form class="booking" style="font-family: Arial, sans-serif;
+    <form method="POST" action="/BookingPage" style="font-family: Arial, sans-serif;
         padding: 100px; 
         box-sizing: border-box;
         min-height: 100px;
@@ -24,11 +24,12 @@
         <p style="color: #908E8E;">Welcome to our booking page! Please select a course and date to make a reservation:</p>
         <ul>
             <li>
+                
                 <label for="courses"  style="color: #908E8E;">Select a course:</label>
                 <select id="courses" name="courses">
-                    <option value="python">Restaurant 1</option>
-                    <option value="java">Restaurant 2</option>
-                    <option value="website design">Restaurant 3</option>
+                    <option value="python">python</option>
+                    <option value="java">java</option>
+                    <option value="website design">website design </option>
                 </select>
             </li>
             <li>

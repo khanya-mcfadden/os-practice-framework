@@ -1,0 +1,16 @@
+
+1. images:
+    - Stock images from Google
+    - Company logos taken from respective company websites/pages
+    -personal logo was made with ai logomaker 
+
+2. coding:
+    - Some sidebar HTML and CSS code was sourced from W3Schools tutorials link: https://www.w3schools.com/w3css/w3css_sidebar.asp
+    - Some code assistance was provided by GitHub Copilot
+    - i am using the weatheapi.com api for forcasting
+    - was allowed use of about us css from fellow student raheesh
+
+
+
+
+

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% extends "index.html" %}
+    <title>{% block title %}Health Page{% endblock %}</title>
+</head>
+{% block content %}
+<body>
+    <div class="navbar"></div>
+    <div class="container1" style="display: flex; justify-content: center; align-items: center; min-height: 50px;">
+        <div class="forecast" id="forecast">
+        </div>
+    </div>
+
+    <script>
+        const apiKey = '0f98d01acd0e41818d8124023242111';
+        const apiUrl = `http://api.weatherapi.com/v1/forecast.json?key=0f98d01acd0e41818d8124023242111&q=horsham&days=6&aqi=no`;
+
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                const forecastContainer = document.getElementById('forecast');
+                forecastContainer.innerHTML = data.forecast.forecastday.map((day, index) => {
+                    const date = new Date(day.date);
+                    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                    const formattedDate = index === 0 ? 'Today' : date.toLocaleDateString('en-US', options);
+                    return `
+                        <div class="weather-card">
+                            <h2>${data.location.name} - ${formattedDate}</h2>
+                            <img src="${day.day.condition.icon}" alt="Weather Icon">
+                            <p>${day.day.condition.text}</p>
+                            <p>Max Temp: ${day.day.maxtemp_c}°C</p>
+                            <p>Min Temp: ${day.day.mintemp_c}°C</p>
+                        </div>
+                    `;
+                }).join('');
+            })
+            .catch(error => console.error('Error fetching weather data:', error));
+    </script>
+    <style>
+        .forecast {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .weather-card {
+            flex: 1 1 calc(33.333% - 20px);
+            margin-bottom: 200px;
+            margin-left: 10px;
+        }
+    </style>
+{% endblock %}
+</body>
+<style>
+
+
+.forecast {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.weather-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.weather-card img {
+    width: 80px;
+    height: 80px;
+    margin: 10px auto;
+}
+
+.weather-card h2 {
+    margin: 0;
+    color: #333;
+}
+
+.weather-card p {
+    margin: 10px 0;
+    color: #666;
+}
+
+.container1 {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+}
+</style>
+</html>
