@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     {% extends "index.html" %}
     <title>{% block title %}Health Page{% endblock %}</title>
 </head>
 {% block content %}
+
 <body>
     <div class="navbar"></div>
     <div class="container1" style="display: flex; justify-content: center; align-items: center; min-height: 50px;">
@@ -50,46 +52,45 @@
             margin-left: 10px;
         }
     </style>
-{% endblock %}
+    {% endblock %}
 </body>
 <style>
+    .forecast {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
+    .weather-card {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
 
-.forecast {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+    .weather-card img {
+        width: 80px;
+        height: 80px;
+        margin: 10px auto;
+    }
 
-.weather-card {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    text-align: center;
-}
+    .weather-card h2 {
+        margin: 0;
+        color: #333;
+    }
 
-.weather-card img {
-    width: 80px;
-    height: 80px;
-    margin: 10px auto;
-}
+    .weather-card p {
+        margin: 10px 0;
+        color: #666;
+    }
 
-.weather-card h2 {
-    margin: 0;
-    color: #333;
-}
-
-.weather-card p {
-    margin: 10px 0;
-    color: #666;
-}
-
-.container1 {
-    width: 100%;
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 20px;
-}
+    .container1 {
+        width: 100%;
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+    }
 </style>
+
 </html>

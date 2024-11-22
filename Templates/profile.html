@@ -29,7 +29,7 @@
                 </div>
             </aside>
 
-        <main class="content">
+            <main class="content">
                 <!-- General Settings -->
                 <section id="general">
                     <h3>General Settings</h3>
@@ -114,104 +114,105 @@
             </main>
         </div>
     </div>
-<style>
-.signout-container {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-}
-
-.signout-button {
-    padding: 10px 20px;
-    background-color: #ff4444;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.signout-button:hover {
-    background-color: #cc0000;
-}
-</style>
-<style>
-/* General Styles */
-.settings-container {
-    display: flex;
-}
-
-.sidebar {
-    width: 20%;
-    background-color: #f5f5f5;
-    padding: 20px;
-}
-
-.sidebar h2 {
-    font-size: 18px;
-}
-
-.sidebar ul {
-    list-style: none;
-    padding: 0;
-}
-
-.sidebar ul li {
-    margin: 10px 0;
-}
-
-.sidebar ul li a {
-    text-decoration: none;
-    color: #333333;
-}
-
-.dark-mode .sidebar ul li a {
-    color: #ffffff;
-}
-
-.content {
-    width: 80%;
-    padding: 20px;
-    margin-bottom: 170px;
-}
-</style>
-<script>
-    function showSignOutOverlay() {
-        document.getElementById('signOutOverlay').style.display = 'block';
-    }
-
-    function hideSignOutOverlay() {
-        document.getElementById('signOutOverlay').style.display = 'none';
-    }
-
-    function confirmSignOut() {
-        window.location.href = '/logout';
-    }
- 
-    function updateTextSize(value) {
-        document.getElementById('text-size-display').textContent = value + 'px';
-    }
-    function toggleDarkMode() {
-        var elements = document.querySelectorAll('body, .sidebar, .content');
-        elements.forEach(element => {
-            element.classList.toggle("dark-mode");
-        });
-
-        if (elements[0].classList.contains("dark-mode")) {
-            localStorage.setItem("theme", "dark");
-        } else {
-            localStorage.setItem("theme", "light");
+    <style>
+        .signout-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
         }
-    }
 
-    window.onload = function () {
-        if (localStorage.getItem("theme") === "dark") {
+        .signout-button {
+            padding: 10px 20px;
+            background-color: #ff4444;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .signout-button:hover {
+            background-color: #cc0000;
+        }
+    </style>
+    <style>
+        /* General Styles */
+        .settings-container {
+            display: flex;
+        }
+
+        .sidebar {
+            width: 20%;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+        .sidebar h2 {
+            font-size: 18px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin: 10px 0;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #333333;
+        }
+
+        .dark-mode .sidebar ul li a {
+            color: #ffffff;
+        }
+
+        .content {
+            width: 80%;
+            padding: 20px;
+            margin-bottom: 170px;
+        }
+    </style>
+    <script>
+        function showSignOutOverlay() {
+            document.getElementById('signOutOverlay').style.display = 'block';
+        }
+
+        function hideSignOutOverlay() {
+            document.getElementById('signOutOverlay').style.display = 'none';
+        }
+
+        function confirmSignOut() {
+            window.location.href = '/logout';
+        }
+
+        function updateTextSize(value) {
+            document.getElementById('text-size-display').textContent = value + 'px';
+        }
+        function toggleDarkMode() {
             var elements = document.querySelectorAll('body, .sidebar, .content');
             elements.forEach(element => {
-                element.classList.add("dark-mode");
+                element.classList.toggle("dark-mode");
             });
+
+            if (elements[0].classList.contains("dark-mode")) {
+                localStorage.setItem("theme", "dark");
+            } else {
+                localStorage.setItem("theme", "light");
+            }
         }
-    }
-</script>
-{% endblock %}
+
+        window.onload = function () {
+            if (localStorage.getItem("theme") === "dark") {
+                var elements = document.querySelectorAll('body, .sidebar, .content');
+                elements.forEach(element => {
+                    element.classList.add("dark-mode");
+                });
+            }
+        }
+    </script>
+    {% endblock %}
 </body>
+
 </html>

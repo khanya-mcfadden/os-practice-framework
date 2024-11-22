@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    {% extends "index.html" %}
-    {% block title %}test{% endblock %}
-    {% block content %}
-    <section class="logout">
-        <form action="/logout" method="POST">
-            <button type="submit">Sign Out</button>
-        </form>
-    </section>
-    {% endblock %}
+{% extends "index.html" %}
+{% block title %}test{% endblock %}
+{% block content %}
+<section class="logout">
+    <form action="/logout" method="POST">
+        <button type="submit">Sign Out</button>
+    </form>
+</section>
+{% endblock %}
+
 </html>

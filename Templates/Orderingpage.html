@@ -6,6 +6,7 @@
 {% block content %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -40,58 +41,59 @@
         .sidebar ul li {
             margin: 10px 0;
         }
-    /* Light Mode (Default) */
-    .container {
-        background-color: #ffffff;
-        color: #333333;
-    }
 
-    .form-group {
-        margin-bottom: 20px;
-    }
-
-    .form-group label {
-        display: block;
-        margin-bottom: 5px;
-        color: #333333;
-    }
-
-    .form-group input, 
-    .form-group select {
-        width: 100%;
-        padding: 8px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        background-color: #ffffff;
-        color: #333333;
-    }
-
-    /* Dark Mode */
-    @media (prefers-color-scheme: dark) {
+        /* Light Mode (Default) */
         .container {
-            background-color: #333333;
-            color: #ffffff;
+            background-color: #ffffff;
+            color: #333333;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
         }
 
         .form-group label {
-            color: #ffffff;
+            display: block;
+            margin-bottom: 5px;
+            color: #333333;
         }
 
         .form-group input,
         .form-group select {
-            background-color: #444444;
-            border-color: #555555;
-            color: #ffffff;
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #ffffff;
+            color: #333333;
         }
 
-        .form-group input::placeholder {
-            color: #aaaaaa;
+        /* Dark Mode */
+        @media (prefers-color-scheme: dark) {
+            .container {
+                background-color: #333333;
+                color: #ffffff;
+            }
+
+            .form-group label {
+                color: #ffffff;
+            }
+
+            .form-group input,
+            .form-group select {
+                background-color: #444444;
+                border-color: #555555;
+                color: #ffffff;
+            }
+
+            .form-group input::placeholder {
+                color: #aaaaaa;
+            }
         }
-    }
-        
     </style>
 
 </head>
+
 <body>
     <div class="container">
         <h1>Place Your Order</h1>
@@ -127,9 +129,11 @@
         </form>
     </div>
 </body>
+
 </html>
 
 
 
 {% endblock %}
+
 </html>

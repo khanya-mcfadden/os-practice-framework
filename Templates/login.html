@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    {% extends "index.html" %}
-    {% block title %}Login{% endblock %}
-    {% block content %}
+{% extends "index.html" %}
+{% block title %}Login{% endblock %}
+{% block content %}
 
-    <div>
-        <div class="container" style="display: flex; justify-content: center; align-items: center; height: 50vh;">
+<div>
+    <div class="container" style="display: flex; justify-content: center; align-items: center; height: 50vh;">
         <form action="/login" method="POST">
             <h1>Login</h1>
             <div class="textboxdiv input">
@@ -21,7 +21,8 @@
                 <a href="/Sign-Up" style="color: #907AD6;">Don't have an account? Register</a>
             </div>
         </form>
-        </div>
     </div>
-    {% endblock %}
+</div>
+{% endblock %}
+
 </html>
