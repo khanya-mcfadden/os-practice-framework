@@ -123,8 +123,13 @@ def about_page():
     return render_template('about.html'), 404
 
 @app.route('/courses')
-def courses_page():
-    return render_template('courses_info.html'), 404
+def get_courses():
+    conn = sqlite3.connect('users.db')
+    cursor = conn.cursor()
+    cursor.execute("SELECT course_id, course_name, course_description FROM courses")
+    courses = cursor.fetchall()
+    conn.close()
+    return render_template('courses_info.html', courses=courses)
 
 @app.route('/confirm')
 def confirm():

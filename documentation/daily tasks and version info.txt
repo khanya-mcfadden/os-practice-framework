@@ -66,3 +66,7 @@ tasks:
 [✓] Improved navigation links
 [✓] Refactored course logo
 [✓] Updated README.md
+
+22/11/2024
+tasks:
+[✓] Updated templates and asset log; enhance styling, modify layout, and improve navigation links
