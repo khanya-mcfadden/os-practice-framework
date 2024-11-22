@@ -158,6 +158,85 @@ body.dark-mode {
 .h1 {
     color: #333333;
 }
+.navbar {
+    background-color: #907ad6;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navbar a {
+    text-decoration: none;
+    color: black;
+    margin: 0 15px;
+    font-size: 18px;
+}
+.navbar .logo {
+    display: flex;
+    align-items: center;
+}
+.navbar .logo img {
+    height: 50px;
+    margin-right: 10px;
+}
+    /* Light Mode (Default) */
+    .container {
+        background-color: #ffffff;
+        color: #333333;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        color: #333333;
+    }
+
+    .form-group input, 
+    .form-group select {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        background-color: #ffffff;
+        color: #333333;
+    }
+
+
+@media (prefers-color-scheme: dark) {
+    .container {
+        max-width: 450px;
+        margin: auto;
+        padding: 20px;
+        margin-top: 20px;
+        margin-bottom: 200px;
+        background: #fff;
+        border-radius: 5px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    .container {
+        background-color: #333333;
+        color: #ffffff;
+    }
+
+    .form-group label {
+        color: #ffffff;
+    }
+
+    .form-group input,
+    .form-group select {
+        background-color: #444444;
+        border-color: #555555;
+        color: #ffffff;
+    }
+
+    .form-group input::placeholder {
+        color: #aaaaaa;
+    }
+}
 
 </style>
 
@@ -165,10 +244,10 @@ body.dark-mode {
 <div class="welcome">
     <div style="display: flex; align-items: center; justify-content: center;">
         <h1>Welcome to my website framework!</h1>
-        <img src="/static/image 5(ai main logo).png" alt="Codderdojo Logo" style="margin-left: 20px; width: 100px; height: auto;">
+        <img id="logo" src="/static/original Logo.png" alt="Codderdojo Logo" style="margin-left: 20px; width: 100px; height: auto;">
     </div>
-<div class="navbar"></div>
 </div>
+
     <nav class="nav">
             <a href="/"                style="color: #C9C8C8">Home</a>
             <a href="/about"           style="color: #C9C8C8">About</a>
@@ -176,14 +255,14 @@ body.dark-mode {
             <a href="/test"            style="color: #C9C8C8">test</a>
             <a href="/Orderingpage"    style="color: #C9C8C8">Ordering</a>
             <a href="/BookingPage"     style="color: #C9C8C8">Booking</a>
-            <a href="/health_page" style="color: #C9C8C8">weather</a>
+            <a href="/health_page"     style="color: #C9C8C8">weather</a>
 
 
         <a href="/Sign-Up"             style="color:              #C9C8C8; float: right;">sign up</a>
         <a href="/login"               style="float:right; color: #C9C8C8; float: right;">Login</a>
         <a href="/profile"             style="color:              #C9C8C8; float: right;">Profile</a>
     </nav>
-    
+<div class="navbar"></div>   
 {% block content %}
 <div style="text-align: center; padding: 20px;">
     <p>We are glad to have you here. Explore and enjoy your stay!</p>
@@ -198,32 +277,32 @@ body.dark-mode {
             <h5 style="margin: 5px 0;">Toggle Dark/Light Mode</h5>
             <button onclick="toggleDarkMode()" style="margin-bottom: 5px;">Toggle dark mode</button>
             </section>
-            
             <script>
             function toggleDarkMode() {
                 var elements = document.querySelectorAll('body, .sidebar, .content');
                 elements.forEach(element => {
-                element.classList.toggle("dark-mode");
+                    element.classList.toggle("dark-mode");
                 });
-            
+
+                var logo = document.getElementById('logo');
                 if (elements[0].classList.contains("dark-mode")) {
-                localStorage.setItem("theme", "dark");
+                    localStorage.setItem("theme", "dark");
+                    logo.src = "/static/original Logo white.png";
                 } else {
-                localStorage.setItem("theme", "light");
+                    localStorage.setItem("theme", "light");
+                    logo.src = "/static/original Logo.png";
                 }
             }
-            
+
             window.onload = function() {
                 if (localStorage.getItem("theme") === "dark") {
-                var elements = document.querySelectorAll('body, .sidebar, .content');
-                elements.forEach(element => {
-                    element.classList.add("dark-mode");
-                });
+                    var elements = document.querySelectorAll('body, .sidebar, .content');
+                    elements.forEach(element => {
+                        element.classList.add("dark-mode");
+                    });
+                    document.getElementById('logo').src = "/static/original Logo white.png";
                 }
             }
-            document.querySelectorAll('.welcome, .nav, .nav a, .footer, .h1').forEach(element => {
-                element.classList.toggle('dark-mode');
-            });
             </script>
         </footer>
     </div>
