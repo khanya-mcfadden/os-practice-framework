@@ -5,281 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Home Page{% endblock %}</title>
-
-    <style> </style>
-    <link rel="stylesheet" href="/StyleSheets/main.css">
+    <link rel="stylesheet" href="/static/main.css">
 </head>
-<style>
-    .advice {
-        margin: 0 auto;
-        text-align: center;
-        width: 18%;
-    }
 
-    body {
-        background-color: #f4f4f4;
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-    }
-
-    body.dark-mode {
-        background-color: #121212;
-        color: #ffffff;
-    }
-
-    .container {
-        background-color: #ffffff;
-        color: #333333;
-    }
-
-    .container {
-        background: #fff;
-        border-radius: 5px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        margin: auto;
-        margin-bottom: 200px;
-        margin-top: 20px;
-        max-width: 450px;
-        padding: 20px;
-    }
-
-    .content.dark-mode {
-        background-color: #444444;
-    }
-
-    .day {
-        text-align: center;
-        width: 18%;
-    }
-
-    .day img {
-        height: 50px;
-        width: 50px;
-    }
-
-    .footer {
-        background-color: #333333;
-        bottom: 0;
-        color: #ffffff;
-        left: 0;
-        padding: 10px;
-        position: fixed;
-        text-align: center;
-        width: 100%;
-    }
-
-    .footer a {
-        color: #C9C8C8;
-        text-decoration: none;
-    }
-
-    .footer a:hover {
-        color: #ffffff;
-    }
-
-    .footer h4 {
-        margin: 10px 0;
-    }
-
-    .footer hr {
-        border: 1px solid #ffffff;
-    }
-
-    .form-group {
-        margin-bottom: 20px;
-    }
-
-    .form-group input,
-    .form-group select {
-        background-color: #ffffff;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        color: #333333;
-        padding: 8px;
-        width: 100%;
-    }
-
-    .form-group input::placeholder {
-        color: #aaaaaa;
-    }
-
-    .form-group label {
-        color: #333333;
-        display: block;
-        margin-bottom: 5px;
-    }
-
-    .health-advice {
-        border-top: 1px solid #ccc;
-        padding-top: 20px;
-    }
-
-    .h1 {
-        color: #333333;
-    }
-
-    .main {
-        margin-left: 160px;
-        padding: 0px 10px;
-    }
-
-    .nav {
-        background-color: #333333;
-        overflow: hidden;
-    }
-
-    .nav a {
-        color: #C9C8C8;
-        display: block;
-        float: left;
-        padding: 14px 16px;
-        text-align: center;
-        text-decoration: none;
-    }
-
-    .nav a:hover {
-        background-color: #ddd;
-        color: black;
-    }
-
-    .navbar {
-        align-items: center;
-        background-color: #907ad6;
-        display: flex;
-        justify-content: space-between;
-        padding: 10px;
-    }
-
-    .navbar a {
-        color: black;
-        font-size: 18px;
-        margin: 0 15px;
-        text-decoration: none;
-    }
-
-    .navbar .logo {
-        align-items: center;
-        display: flex;
-    }
-
-    .navbar .logo img {
-        height: 50px;
-        margin-right: 10px;
-    }
-
-    .overlay-content {
-        background-color: #fff;
-        border-radius: 5px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-        position: relative;
-        width: 500px;
-    }
-
-    body.dark-mode .overlay-content {
-        background-color: #333;
-        color: #fff;
-    }
-
-    body.light-mode .overlay-content {
-        background-color: #fff;
-        color: #000;
-    }
-
-    .sidebar.dark-mode {
-        background-color: #333333;
-    }
-
-    .welcome {
-        background-color: #ffffff;
-        margin-bottom: 20px;
-        padding: 50px;
-        text-align: center;
-    }
-
-    .welcome h1 {
-        color: #333333;
-    }
-
-    .welcome p {
-        color: #666666;
-    }
-
-    @media (prefers-color-scheme: dark) {
-        .container {
-            background-color: #333333;
-            color: #ffffff;
-        }
-
-        .form-group input,
-        .form-group select {
-            background-color: #444444;
-            border-color: #555555;
-            color: #ffffff;
-        }
-
-        .form-group label {
-            color: #ffffff;
-        }
-    }
-
-    @media screen and (max-height: 450px) {
-        .sidenav {
-            padding-top: 15px;
-        }
-
-        .sidenav a {
-            font-size: 18px;
-        }
-    }
-
-    .dark-mode .footer {
-        background-color: #1a1a1a;
-        color: #ffffff;
-    }
-
-    .dark-mode .h1 {
-        color: #ffffff;
-    }
-
-    .dark-mode .nav {
-        background-color: #1a1a1a;
-    }
-
-    .dark-mode .nav a {
-        color: #C9C8C8;
-    }
-
-    .dark-mode .nav a:hover {
-        background-color: #444444;
-        color: #ffffff;
-    }
-
-    .dark-mode .welcome {
-        background-color: #333333;
-    }
-
-    .dark-mode .welcome h1 {
-        color: #ffffff;
-    }
-
-    .dark-mode .welcome p {
-        color: #C9C8C8;
-    }
-
-    .forecast {
-        display: flex;
-        justify-content: space-between;
-        padding: 20px 0;
-    }
-</style>
 
 <body>
     <div class="welcome">
         <div style="display: flex; align-items: center; justify-content: center;">
             <h1>Welcome to my website framework!</h1>
-            <img id="logo" src="/static/original Logo.png" alt="Codderdojo Logo"
+            <img id="logo" src="/static/original Logo.png" alt="comp website Logo"
                 style="margin-left: 20px; width: 100px; height: auto;">
         </div>
     </div>
@@ -288,20 +22,21 @@
         <a href="/"             style="color: #C9C8C8">Home</a>
         <a href="/about"        style="color: #C9C8C8">About</a>
         <a href="/courses"      style="color: #C9C8C8">courses</a>
-        <a href="/test"         style="color: #C9C8C8">test</a>
+        
+        {% if session['username'] %}
         <a href="/Orderingpage" style="color: #C9C8C8">Ordering</a>
         <a href="/BookingPage"  style="color: #C9C8C8">Booking</a>
         <a href="/health_page"  style="color: #C9C8C8">weather</a>
-        {% if session['admin'] %}
-        <a href="/users_info"   style="color: #C9C8C8">Users</a>
-        {% endif %}
-
-        {% if session['username'] %}
-        <a href="/profile"  style="color: #C9C8C8; float:right;">Profile</a>
+        <a href="/profile"      style="color: #C9C8C8; float:right;">Profile</a>
         {% else %}
-        <a href="/Sign-Up"  style="color: #C9C8C8; float: right;">Sign Up</a>
-        <a href="/login"    style="color: #C9C8C8; float: right;">Login</a>
+        <a href="/Sign-Up"      style="color: #C9C8C8; float: right;">Sign Up</a>
+        <a href="/login"        style="color: #C9C8C8; float: right;">Login</a>
         {% endif %}
+        {% if session['admin'] %}
+        <a href="/user_info"    style="color: #C9C8C8; float: right;">user info</a>
+        <a href="/test"         style="color: #C9C8C8; float: right;">test</a>
+        {% endif %}
+        
     </nav>
     <div class="navbar"></div>
     {% block content %}
