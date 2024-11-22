@@ -4,11 +4,97 @@
 {% extends "index.html" %}
 {% block title %}test{% endblock %}
 {% block content %}
-<section class="logout">
-    <form action="/logout" method="POST">
-        <button type="submit">Sign Out</button>
-    </form>
-</section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seasonal Health Advice</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+        }
+        .navbar a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .container {
+            padding: 20px;
+        }
+        .advice-box {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="#home">Home</a>
+        <a href="#weather">Weather</a>
+        <a href="#about">About Us</a>
+        <a href="#login">Login & Sign Up</a>
+    </div>
+    <div class="container">
+        <h1>How to deal with the season: <span id="season"></span></h1>
+        <div class="advice-box" id="advice-box">
+            <!-- Advice will be displayed here -->
+        </div>
+    </div>
+
+    <script>
+        const advice = {
+            winter: [
+                "Stay Warm: Dress in layers to keep warm and protect against the cold. Wear hats, gloves, and scarves to cover exposed skin.",
+                "Hydrate: Drink plenty of water to stay hydrated, as indoor heating can cause dehydration.",
+                "Moisturize: Use moisturizers to prevent dry skin caused by cold weather and indoor heating.",
+                "Eat Nutritiously: Consume a balanced diet rich in vitamins and minerals to boost your immune system.",
+                "Exercise Indoors: Engage in indoor physical activities to stay active and maintain fitness.",
+                "Get Vaccinated: Ensure you are up-to-date with flu vaccinations to protect against seasonal flu.",
+                "Wash Hands: Practice good hygiene by washing hands frequently to prevent the spread of germs.",
+                "Use a Humidifier: Use a humidifier to add moisture to the air and prevent dry skin and respiratory issues.",
+                "Stay Connected: Maintain social connections to combat winter blues and seasonal affective disorder (SAD).",
+                "Monitor Health: Keep an eye on any symptoms of cold or flu and seek medical advice if necessary."
+            ],
+            // Add advice for other seasons here
+        };
+
+        function getSeason() {
+            const month = new Date().getMonth();
+            if (month >= 2 && month <= 4) return 'spring';
+            if (month >= 5 && month <= 7) return 'summer';
+            if (month >= 8 && month <= 10) return 'autumn';
+            return 'winter';
+        }
+
+        function displayAdvice() {
+            const season = getSeason();
+            document.getElementById('season').textContent = season;
+            const dailyAdvice = advice[season][new Date().getDate() % advice[season].length];
+            document.getElementById('advice-box').textContent = dailyAdvice;
+        }
+
+        displayAdvice();
+    </script>
+</body>
+</html>
+
 {% endblock %}
 
 </html>
