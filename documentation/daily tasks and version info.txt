@@ -70,3 +70,9 @@ tasks:
 22/11/2024
 tasks:
 [✓] Updated templates and asset log; enhance styling, modify layout, and improve navigation links
+
+
+23/11/2020
+tasks: 
+[✓] implimented admin systems
+ - during inmplimentation of admin system had to return to a previous version due to mass website issues occuring

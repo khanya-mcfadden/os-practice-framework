@@ -3,7 +3,8 @@
 [✓] from reddit on 8/11/2024 https://www.reddit.com/r/django/comments/sws9t6/i_need_help_fixing_a_recursion_error/?rdt=40034 [Fixing Python recurssion Errors]
 [✓] from Render Offical Webpage on 10/11/2024 https://community.render.com/t/unable-to-deploy-django-tutorial-app-to-render/13380 [ Render and Django incompatibility fixes]
 [✓] from Youtube on 8/11/2024 https://www.youtube.com/watch?v=qDwdMDQ8oX4 [how to extended base templates]
-[✓] from Youtube on 13/11/2024 https://www.youtube.com/watch?v=ayRthgpfy1k&t=3s {how to create a Good Profile page}
+[✓] from Youtube on 13/11/2024 https://www.youtube.com/watch?v=ayRthgpfy1k&t=3s [how to create a Good Profile page]
+[ ] from youtube on 25/11/2024 https://www.youtube.com/watch?v=BHq8ut1PzF4 [test strategies]
                                                 exam key dates 
 Overall 10 Mar 2025 – 09 May 2025
 task 1,     dates: 10 Mar – 21 Mar 2025     marks: total 20 hours       dates set           dates due
@@ -101,9 +102,9 @@ Planned pages/featrues:
 
 · Develop program code as a prototype that
 
-☐ Is written in at least two different programming languages.
+[✓] Is written in at least two different programming languages.
 
-☐ Is mostly efficient, with only minor errors.
+[✓] Is mostly efficient, with only minor errors.
 
 ☐ Implements consistently efficient functional code throughout.
 
@@ -113,11 +114,11 @@ Program Documentation
 
 · Produce a README file that includes
 
-☐ An overview of the program's purpose and functionality.
+[✓] An overview of the program's purpose and functionality.
 
-☐ Clear instructions on how to run the program.
+[✓] Clear instructions on how to run the program.
 
-☐ A summary of dependencies and system requirements.
+[✓] A summary of dependencies and system requirements.
 
 ☐ Notes on any known limitations or areas for improvement.
 
@@ -131,19 +132,19 @@ Code Maintainability
 
 ☐ Informative comments explaining key sections of code.
 
-User Experience
 
+User Experience
 · Create a program with a good user experience, including
 
-☐ Effective input handling.
+[✓] Effective input handling.
 
-☐ Clear user guidance and error messages.
+[✓] Clear user guidance and error messages.
 
-☐ Meaningful outputs.
+[✓] Meaningful outputs.
+
 
 Ensure the program is
-
-☐ Largely robust, handling most common and unexpected errors.
+[✓] Largely robust, handling most common and unexpected errors.
 
 ☐ Fully robust, handling all common and unexpected errors effectively.
 
@@ -156,7 +157,7 @@ Standards and Guidelines
 
 · Text and Contrast
 
-☐ Ensure readable text with high contrast using basic colour schemes. Example, use black text on a white background for clarity.
+[✓] Ensure readable text with high contrast using basic colour schemes. Example, use black text on a white background for clarity.
 
 · Keyboard Navigation
 
@@ -164,7 +165,7 @@ Standards and Guidelines
 
 · Alt Text for Images
 
-☐ Add descriptive alt text for any images in the prototype.
+[✓] Add descriptive alt text for any images in the prototype.
 
 ☐ Compatibility.
 
@@ -174,15 +175,15 @@ Standards and Guidelines
 
 · Browser Testing
 
-☐Test the prototype in at least two common browsers (e.g., Chrome and Edge).
+☐ Test the prototype in at least two common browsers (e.g., Chrome and Edge).
 
-☐Document any issues or ensure that the prototype runs as expected.
+[✓] Document any issues or ensure that the prototype runs as expected.
 
 · Device Testing
 
-☐Ensure the interface works on both desktop and mobile devices.
+☐ Ensure the interface works on both desktop and mobile devices.
 
-☐Test by resizing the browser window.
+☐ Test by resizing the browser window.
 
 ☐ Legal and ethical considerations.
 
@@ -195,7 +196,7 @@ Standards and Guidelines
 · Copyright Compliance
 
 
-☐ Use royalty-free assets or clearly document the source of all external resources in an asset log.
+[✓] Use royalty-free assets or clearly document the source of all external resources in an asset log.
 
 Example of an asset log entry
 
@@ -208,15 +209,15 @@ Image: "example.jpg" – Source: Unsplash (License: Free to Use).
 
 · Data Encryption
 
-☐ Encrypt sensitive data stored within the application (e.g., passwords, user information).
+[✓] Encrypt sensitive data stored within the application (e.g., passwords, user information).
 
-☐ Use HTTPS for secure communication between the application and server.
+[✓] Use HTTPS for secure communication between the application and server.
 
 · Access Control
 
-☐ Implement user authentication (e.g., username and password or multi-factor authentication).
+[✓] Implement user authentication (e.g., username and password or multi-factor authentication).
 
-☐ Restrict access to certain program features or data based on user roles (e.g., admin vs. user).
+[✓] Restrict access to certain program features or data based on user roles (e.g., admin vs. user).
 
 · Data Masking
 
@@ -226,23 +227,23 @@ Image: "example.jpg" – Source: Unsplash (License: Free to Use).
 
 · Input Validation
 
-☐ Validate all user inputs to prevent incorrect or malicious data from being entered.
+[✓] Validate all user inputs to prevent incorrect or malicious data from being entered.
 
-☐ Use data type checks, length validation, and pattern matching for inputs.
+[✓] Use data type checks, length validation, and pattern matching for inputs.
 
 · Error Handling
 
 ☐ Implement error-handling routines that log issues without exposing sensitive information.
 
-☐ Avoid application crashes caused by unexpected inputs or events.
+[✓] Avoid application crashes caused by unexpected inputs or events.
 
 · Hashing
 
-☐ Hash sensitive data (e.g., passwords) before storing them in the database. Use strong algorithms like SHA-256 or bcrypt.
+[✓] Hash sensitive data (e.g., passwords) before storing them in the database. Use strong algorithms like SHA-256 or bcrypt.
 
 · Database Constraints
 
-☐ Use primary keys, foreign keys, and other database constraints to ensure data relationships remain intact.
+[✓] Use primary keys, foreign keys, and other database constraints to ensure data relationships remain intact.
 
 ☐ Availability.
 
@@ -305,7 +306,7 @@ Additional Documentation
 
 · Maintain an asset log that includes
 
-☐ A list of all assets used in the program (e.g., images, libraries, datasets).
+[✓] A list of all assets used in the program (e.g., images, libraries, datasets).
 
 ☐ Sources and licensing information for each asset.
 
@@ -315,15 +316,15 @@ Final Deliverables
 
 · Ensure the following are submitted
 
-☐ Program code (prototype).
+[✓] Program code (prototype).
 
-☐ README file with clear documentation.
+[✓] README file with clear documentation.
 
 ☐ Testing log with detailed test cases and results.
 
-☐ Evidence of version control, including version history and notes on changes.
+[✓] Evidence of version control, including version history and notes on changes.
 
-☐ Asset log documenting all external resources.
+[✓] Asset log documenting all external resources.
 
 ☐ Annotation/Report. This needs to provide evidence of the requirements of the brief and the aspects above. This could be a powerpoint, a video walkthrough, or a document (with screenshots!) to highlight how and where you’ve met the mark criteria.
 
