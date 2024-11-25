@@ -1,4 +1,4 @@
-Decomposition and algorithgm notes :
+##Decomposition and algorithgm notes##:
 genral not about algorithm designs, needs anotation (goses for whole class)
 
 
@@ -42,3 +42,241 @@ Provide a more detailed justification of how the solution meets client needs and
 
 Regulatory Compliance 
 Ensure the solution complies with GDPR and other legal requirements. Provide a clear plan for handling minors’ data and implementing parental controls. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##GENERAL TASK 1B NOTES##:
+Decomposition of Problem 
+
+Your flowcharts outline general steps for the algorithms but lack critical details for a full-stack approach, specifically with database interaction and error handling. For instance, the User Registration algorithm has input validations (like username and password length checks) but misses clear steps for connecting to a database, querying to check if a username or email already exists, and managing the database connection securely. 
+
+ 
+
+Application of Logical Thinking and Conventions 
+
+The algorithms follow a basic logical structure and attempt to cover input validation, especially for username and password creation. However, there is a lack of error handling for database connectivity or response if a query fails affects the robustness of the solution. Additionally, certain logical flows, like the registration and course booking steps, could be improved by adding specific details for database management, input sanitisation, and validation. 
+
+ 
+
+Your algorithms outline the core steps for User Registration and Booking but need to be enhanced to meet full-stack requirements.  
+
+ 
+
+Include steps for database connectivity, querying for existing usernames or emails, and inserting new records. Database actions (connect, query, insert) are essential for managing user data in a full-stack application. 
+
+Add error handling (e.g., try-except blocks) to manage potential database issues. This will make the system more robust and reliable. 
+
+Use consistent naming and formatting conventions and include comprehensive input validation to ensure the program handles different types of user input and errors gracefully. 
+
+Ensure all critical validation checks, such as matching passwords and validating email formats, are clearly presented. 
+
+ 
+
+Example of an improved version. 
+
+FUNCTION register_user 
+
+ 
+
+    DISPLAY "Please enter a username for your new account" 
+
+    RECEIVE username input 
+
+ 
+
+    IF length of username < 3 
+
+        DISPLAY "Error: Username must be at least 3 characters" 
+
+        RETURN to username input 
+
+ 
+
+    DISPLAY "Please enter a password for your new account" 
+
+    RECEIVE password input 
+
+ 
+
+    IF length of password < 8 OR password does not contain special character 
+
+        DISPLAY "Error: Password must be at least 8 characters and contain a special character" 
+
+        RETURN to password input 
+
+ 
+
+    DISPLAY "Please confirm your password" 
+
+    RECEIVE password_confirm input 
+
+ 
+
+    IF password != password_confirm 
+
+        DISPLAY "Error: Passwords do not match" 
+
+        RETURN to password input 
+
+ 
+
+    DISPLAY "Please enter your email address" 
+
+    RECEIVE email input 
+
+ 
+
+    IF email does not contain "@" OR email already exists in user_database 
+
+        DISPLAY "Error: Invalid email format or email already in use" 
+
+        RETURN to email input 
+
+ 
+
+    TRY 
+
+        CONNECT to user_database 
+
+ 
+
+        # Check if username is already taken 
+
+        QUERY "SELECT * FROM users WHERE username = ?", username 
+
+        IF username exists in database 
+
+            DISPLAY "Error: Username already exists" 
+
+            RETURN to username input 
+
+ 
+
+        # Secure password hashing 
+
+        CREATE salt 
+
+        HASH password with salt 
+
+ 
+
+        # Insert new user into database 
+
+        INSERT username, hashed password, and email into user_database 
+
+        COMMIT changes to save the new account 
+
+ 
+
+        DISPLAY "Account successfully created. Please log in." 
+
+ 
+
+    CATCH database errors 
+
+        DISPLAY "Database error occurred. Please try again." 
+
+ 
+
+    FINALLY 
+
+        CLOSE database connection 
+
+ 
+
+    RETURN to login page 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##DATA DESIGNS##:
+Foreign key names are not consistently descriptive, e.g., User_id and Staff_id in different tables. 
+
+ 
+
+Error Handling -
+Limited validation constraints for critical fields 
+email lacks format validation. 
+No constraints for phone numbers to ensure valid formatting. 
+No checks for logical consistency, e.g., ensuring number_of_freeslots doesn’t exceed number_of_slots. 
+
+Data Types-
+Inappropriate use of VARCHAR for fields like salary and hourly_pay, which should be numeric types (DECIMAL). 
+User_id is listed as VARCHAR in some tables, but it should match the data type of the userId in the Users table (i.e., INT). 
+
+ 
+
+Age Validation -
+The Age field lacks constraints to ensure it falls within a valid range for the application (e.g., between 5 and 100).
+
+Example or Improved Users Table-
+
+Field Name       | Data Type  | Length/Size | Special Requirements / Constraints                              | Description
+-----------------|------------|-------------|----------------------------------------------------------------|------------------------------------------------------------
+userId           | INT        | -           | Primary Key, Auto-increment                                   | Unique identifier for each user.
+username         | VARCHAR    | 20          | NOT NULL, UNIQUE, No spaces allowed (CHECK username NOT LIKE '% %') | User-defined identifier for login.
+email            | VARCHAR    | 100         | NOT NULL, UNIQUE, Must match format (CHECK email LIKE '%@%.%') | Email address for login and communication.
+
+Field Name       | Data Type  | Length/Size | Special Requirements / Constraints                              | Description
+-----------------|------------|-------------|----------------------------------------------------------------|------------------------------------------------------------
+passwordHash     | VARCHAR    | 255         | NOT NULL, Minimum length of 8 (CHECK LENGTH(passwordHash) >= 8) | Hashed password for secure login.
+firstName        | VARCHAR    | 50          | NOT NULL                                                     | User's first name.
+lastName         | VARCHAR    | 50          | NOT NULL                                                     | User's last name.
+phoneNumber      | VARCHAR    | 15          | Must be digits only (CHECK phoneNumber ~ '^0-9]{10,15}$')     | User's contact number.
+studentId        | INT        | -           | Foreign Key (REFERENCES Students(student_id)), Optional       | Links to the Students table if the user is a parent of a student.
+createdAt        | TIMESTAMP  | -           | Default: Current timestamp                                    | Automatically records when the user account is created.
+updatedAt        | TIMESTAMP  | -           | Default: Updates with each modification                       | Automatically records when the user account is updated.
+
+##TEST STRATEGY##:
+need to submit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
