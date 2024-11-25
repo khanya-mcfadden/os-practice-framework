@@ -1,6 +1,6 @@
+help links 
+[✓]fromredditon8/11/2024https: //www.reddit.com/r/django/comments/sws9t6/i_need_help_fixing_a_recursion_error/?rdt=40034 [Fixing Python recurssion Errors]
 
- help links
-[✓] from reddit on 8/11/2024 https://www.reddit.com/r/django/comments/sws9t6/i_need_help_fixing_a_recursion_error/?rdt=40034 [Fixing Python recurssion Errors]
 [✓] from Render Offical Webpage on 10/11/2024 https://community.render.com/t/unable-to-deploy-django-tutorial-app-to-render/13380 [ Render and Django incompatibility fixes]
 [✓] from Youtube on 8/11/2024 https://www.youtube.com/watch?v=qDwdMDQ8oX4 [how to extended base templates]
 [✓] from Youtube on 13/11/2024 https://www.youtube.com/watch?v=ayRthgpfy1k&t=3s [how to create a Good Profile page]
@@ -106,9 +106,9 @@ Planned pages/featrues:
 
 [✓] Is mostly efficient, with only minor errors.
 
-☐ Implements consistently efficient functional code throughout.
+[✓] Implements consistently efficient functional code throughout.
 
-☐ Uses precise logic and programming structures to produce mostly or consistently correct outcomes.
+[✓] Uses precise logic and programming structures to produce mostly or consistently correct outcomes.
 
 Program Documentation
 
@@ -120,7 +120,7 @@ Program Documentation
 
 [✓] A summary of dependencies and system requirements.
 
-☐ Notes on any known limitations or areas for improvement.
+[✓] Notes on any known limitations or areas for improvement.
 
 Code Maintainability
 
@@ -205,7 +205,7 @@ Image: "example.jpg" – Source: Unsplash (License: Free to Use).
 
 · Implement procedures and security controls to ensure
 
-☐ Confidentiality.
+[✓] Confidentiality.
 
 · Data Encryption
 
@@ -223,7 +223,7 @@ Image: "example.jpg" – Source: Unsplash (License: Free to Use).
 
 ☐ Mask sensitive information in user interfaces (e.g., show only the last 4 digits of a credit card).
 
-☐ Integrity.
+[✓] Integrity.
 
 · Input Validation
 
@@ -266,7 +266,7 @@ Image: "example.jpg" – Source: Unsplash (License: Free to Use).
 
 · Prevent Crashes
 
-☐ Use basic validation to ensure the prototype can handle invalid user inputs or unexpected conditions. Example, check for null or empty inputs before processing.
+[✓] Use basic validation to ensure the prototype can handle invalid user inputs or unexpected conditions. Example, check for null or empty inputs before processing.
 
 Testing
 
@@ -286,21 +286,21 @@ Error Identification and Resolution
 
 · Provide comments that explain
 
-☐ How errors/problems were identified.
+[✓] How errors/problems were identified.
 
-☐ How errors were rectified for inputs, calculations, validation, and processes.
+[✓] How errors were rectified for inputs, calculations, validation, and processes.
 
-☐ Include evidence of an iterative development process.
+[✓] Include evidence of an iterative development process.
 
 Iterative Development Process
 
 · Provide thorough documentation of development, including
 
-☐ Notable changes made throughout the process.
+[✓] Notable changes made throughout the process.
 
-☐ Rationales for notable changes.
+[✓] Rationales for notable changes.
 
-☐ Evidence of fully effective version control.
+[✓] Evidence of fully effective version control.
 
 Additional Documentation
 
@@ -310,7 +310,7 @@ Additional Documentation
 
 ☐ Sources and licensing information for each asset.
 
-☐ Any modifications made to the assets.
+[✓] Any modifications made to the assets.
 
 Final Deliverables
 
@@ -320,7 +320,7 @@ Final Deliverables
 
 [✓] README file with clear documentation.
 
-☐ Testing log with detailed test cases and results.
+[✓] Testing log with detailed test cases and results.
 
 [✓] Evidence of version control, including version history and notes on changes.
 
