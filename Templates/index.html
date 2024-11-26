@@ -19,24 +19,23 @@
     </div>
 
     <nav class="nav">
-        <a href="/"             style="color: #C9C8C8">Home</a>
-        <a href="/about"        style="color: #C9C8C8">About</a>
-        <a href="/courses"      style="color: #C9C8C8">courses</a>
-        <a href="/health_page"  style="color: #C9C8C8">weather</a>        
-        {% if session['username'] %}
+        <a href="/" style="color: #C9C8C8">Home</a>
+        <a href="/about" style="color: #C9C8C8">About</a>
+        <a href="/courses" style="color: #C9C8C8">courses</a>
+        <a href="/health_page" style="color: #C9C8C8">weather</a>
+        {% if authenticated %}
         <a href="/Orderingpage" style="color: #C9C8C8">Ordering</a>
-        <a href="/BookingPage"  style="color: #C9C8C8">Booking</a>
+        <a href="/BookingPage" style="color: #C9C8C8">Booking</a>
+        <a href="/profile" style="color: #C9C8C8; float:right;">Profile</a>
 
-        <a href="/profile"      style="color: #C9C8C8; float:right;">Profile</a>
+        {% if admin %}
+        <a href="/user_info" style="color: #C9C8C8; float: right;">User Info</a>
+        <a href="/test" style="color: #C9C8C8; float: right;">Test</a>
+        {% endif %}
         {% else %}
-        <a href="/Sign-Up"      style="color: #C9C8C8; float: right;">Sign Up</a>
-        <a href="/login"        style="color: #C9C8C8; float: right;">Login</a>
+        <a href="/Sign-Up" style="color: #C9C8C8; float: right;">Sign Up</a>
+        <a href="/login" style="color: #C9C8C8; float: right;">Login</a>
         {% endif %}
-        {% if session['admin'] %}
-        <a href="/user_info"    style="color: #C9C8C8; float: right;">user info</a>
-        <a href="/test"         style="color: #C9C8C8; float: right;">test</a>
-        {% endif %}
-        
     </nav>
     <div class="navbar"></div>
     {% block content %}
@@ -81,7 +80,16 @@
                     }
                 }
                 const form = document.querySelector('form');
+                const submitBtn = document.getElementById('submitBtn');
+
                 if (form) {
+                    form.addEventListener('input', () => {
+                        const isValid = form.checkValidity();
+                        if (submitBtn) {
+                            submitBtn.disabled = !isValid;
+                        }
+                    });
+
                     form.addEventListener('submit', async (e) => {
                         e.preventDefault();
                         const formAction = form.getAttribute('action');

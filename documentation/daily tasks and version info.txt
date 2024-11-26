@@ -116,7 +116,7 @@ currant issues:
 [2] Asset log updates not reflecting correctly (completed)
     - Fixed by ensuring the asset log was correctly updated and referenced.
 
-23/11/2020
+23/11/2024
 tasks: 
 [✓] implimented admin systems
  - during inmplimentation of admin system had to return to a previous version due to mass website issues occuring
@@ -124,3 +124,10 @@ tasks:
 currant issues:
 [1] Admin system implementation causing mass website issues (completed)
     - Fixed by rolling back to a previous version and carefully re-implementing the admin system with thorough testing.
+
+26/11/2024
+tasks:
+[] test all features to make sure of functionality
+
+currant issuse: 
+    - had to fix nav bar issues as they were not loading properly when a norm user is logged 

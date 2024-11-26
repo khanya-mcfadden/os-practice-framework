@@ -42,8 +42,13 @@ def initialize():
 
 @app.context_processor
 def inject_user():
-    return dict(logged_in=("username" in session))
-
+    user_data = {
+        'authenticated': "username" in session,
+        'admin': session.get("admin", False)
+    }
+    if "username" in session:
+        session["admin"] = bool(session.get("admin", False))  # Ensure admin status is boolean
+    return user_data
 
 @app.route("/")
 def index():
@@ -339,8 +344,6 @@ def inject_theme():
     return dict(theme=theme)
 
 
-def inject_user():
-    return {"is_authenticated": "username" in session}
 
 
 @app.route("/change_password", methods=["GET", "POST"])
