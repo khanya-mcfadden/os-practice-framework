@@ -1,121 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %}Home Page{% endblock %}</title>
-    <link rel="stylesheet" href="/static/main.css">
-</head>
+    <link rel="stylesheet" href="/static/main.css" />
+  </head>
 
-
-<body>
+  <body>
     <div class="welcome">
-        <div style="display: flex; align-items: center; justify-content: center;">
-            <h1>Welcome to my website framework!</h1>
-            <img id="logo" src="/static/original Logo.png" alt="comp website Logo"
-                style="margin-left: 20px; width: 100px; height: auto;">
-        </div>
+      <div style="display: flex; align-items: center; justify-content: center">
+        <h1>Welcome to my website framework!</h1>
+        <img
+          id="logo"
+          src="/static/original Logo.png"
+          alt="comp website Logo"
+          style="margin-left: 20px; width: 100px; height: auto"
+        />
+      </div>
     </div>
 
     <nav class="nav">
-        <a href="/" style="color: #C9C8C8">Home</a>
-        <a href="/about" style="color: #C9C8C8">About</a>
-        <a href="/courses" style="color: #C9C8C8">courses</a>
-        <a href="/health_page" style="color: #C9C8C8">weather</a>
-        {% if authenticated %}
-        <a href="/Orderingpage" style="color: #C9C8C8">Ordering</a>
-        <a href="/BookingPage" style="color: #C9C8C8">Booking</a>
-        <a href="/profile" style="color: #C9C8C8; float:right;">Profile</a>
+      <a href="/" style="color: #c9c8c8">Home</a>
+      <a href="/about" style="color: #c9c8c8">About</a>
+      <a href="/courses" style="color: #c9c8c8">courses</a>
+      <a href="/health_page" style="color: #c9c8c8">weather</a>
+      {% if authenticated %}
+      <a href="/Orderingpage" style="color: #c9c8c8">Ordering</a>
+      <a href="/BookingPage" style="color: #c9c8c8">Booking</a>
+      <a href="/profile" style="color: #c9c8c8; float: right">Profile</a>
 
-        {% if admin %}
-        <a href="/userinfo" style="color: #C9C8C8; float: right;">User Info</a>
-        <a href="/test" style="color: #C9C8C8; float: right;">Test</a>
-        {% endif %}
-        {% else %}
-        <a href="/Sign-Up" style="color: #C9C8C8; float: right;">Sign Up</a>
-        <a href="/login" style="color: #C9C8C8; float: right;">Login</a>
-        {% endif %}
+      {% if admin %}
+      <a href="/userinfo" style="color: #c9c8c8; float: right">User Info</a>
+      <a href="/test" style="color: #c9c8c8; float: right">Test</a>
+      {% endif %} {% else %}
+      <a href="/Sign-Up" style="color: #c9c8c8; float: right">Sign Up</a>
+      <a href="/login" style="color: #c9c8c8; float: right">Login</a>
+      {% endif %}
     </nav>
     <div class="navbar"></div>
     {% block content %}
-    <div style="text-align: center; padding: 20px;">
-        <p>We are glad to have you here. Explore and enjoy your stay!</p>
+    <div style="text-align: center; padding: 20px">
+      <p>We are glad to have you here. Explore and enjoy your stay!</p>
     </div>
-    {% endblock %}
+
+    {% if not request.cookies.get('cookie_consent') %}
+    <div
+      id="cookie-consent"
+      class="cookie-consent"
+      style="
+        text-align: center;
+        position: fixed;
+        top: 0;
+        left: -50%;
+        width: 200%;
+        height: 100%;
+        display: flex;
+        backdrop-filter: blur(10px);
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+
+      "
+    >
+      <div style="border-radius: 20px">
+        <p>
+          We use cookies to improve your experience. 
+          <br>
+          By using our site, you
+          agree to our use of cookies.
+        </p>
+        <form method="post" action="/set_cookie">
+          <button type="submit" class="btn">Accept</button>
+        </form>
+      </div>
+    </div>
+    {% endif %} {% endblock %}
     <div class="footer">
-        <footer>
-            <section id="themes" style="padding: 5px;">
-                <h4 style="margin: 5px 0;">Contact Us</h4>
-                <hr style="margin: 5px 0;">
-                <p style="margin: 5px 0;">Email: <a href="mailto:khanyamcf@gmail.com"
-                        style="color: #3f3ffa;">khanyamcf@gmail.com</a></p>
-                <h5 style="margin: 5px 0;">Toggle Dark/Light Mode</h5>
-                <button  calss = "toggle style" onclick="toggleDarkMode()" style="margin-bottom: 5px;">Toggle dark mode</button>
-            </section>
-            <script>
-                function toggleDarkMode() {
-                    var elements = document.querySelectorAll('body, .sidebar, .content');
-                    elements.forEach(element => {
-                        element.classList.toggle("dark-mode");
-                    });
+      <footer>
+        <section id="themes" style="padding: 5px">
+          <h4 style="margin: 5px 0">Contact Us</h4>
+          <hr style="margin: 5px 0" />
+          <p style="margin: 5px 0">
+            Email:
+            <a href="mailto:khanyamcf@gmail.com" style="color: #3f3ffa"
+              >khanyamcf@gmail.com</a
+            >
+          </p>
+          <h5 style="margin: 5px 0">Toggle Dark/Light Mode</h5>
+          <button
+            calss="toggle style"
+            onclick="toggleDarkMode()"
+            style="margin-bottom: 5px"
+          >
+            Toggle dark mode
+          </button>
+        </section>
+        <script>
+          function toggleDarkMode() {
+            var elements = document.querySelectorAll(
+              "body, .sidebar, .content, .cookie-consent, .container, .footer, .form-group, .h1, .nav, .navbar, .overlay-content, .welcome"
+            );
+            elements.forEach((element) => {
+              element.classList.toggle("dark-mode");
+            });
 
-                    var logo = document.getElementById('logo');
-                    if (elements[0].classList.contains("dark-mode")) {
-                        localStorage.setItem("theme", "dark");
-                        logo.src = "/static/original Logo white.png";
-                    } else {
-                        localStorage.setItem("theme", "light");
-                        logo.src = "/static/original Logo.png";
-                    }
-                }
+            var logo = document.getElementById("logo");
+            if (elements[0].classList.contains("dark-mode")) {
+              localStorage.setItem("theme", "dark");
+              logo.src = "/static/original Logo white.png";
+            } else {
+              localStorage.setItem("theme", "light");
+              logo.src = "/static/original Logo.png";
+            }
+          }
 
-                window.onload = function () {
-                    if (localStorage.getItem("theme") === "dark") {
-                        var elements = document.querySelectorAll('body, .sidebar, .content');
-                        elements.forEach(element => {
-                            element.classList.add("dark-mode");
-                        });
-                        document.getElementById('logo').src = "/static/original Logo white.png";
-                    }
-                }
-                const form = document.querySelector('form');
-                const submitBtn = document.getElementById('submitBtn');
+          window.onload = function () {
+            if (localStorage.getItem("theme") === "dark") {
+              var elements = document.querySelectorAll(
+                "body, .sidebar, .content, .cookie-consent, .container, .footer, .form-group, .h1, .nav, .navbar, .overlay-content, .welcome"
+              );
+              elements.forEach((element) => {
+                element.classList.add("dark-mode");
+              });
+              document.getElementById("logo").src =
+                "/static/original Logo white.png";
+            }
+          };
+          const form = document.querySelector("form");
+          const submitBtn = document.getElementById("submitBtn");
 
-                if (form) {
-                    form.addEventListener('input', () => {
-                        const isValid = form.checkValidity();
-                        if (submitBtn) {
-                            submitBtn.disabled = !isValid;
-                        }
-                    });
+          if (form) {
+            form.addEventListener("input", () => {
+              const isValid = form.checkValidity();
+              if (submitBtn) {
+                submitBtn.disabled = !isValid;
+              }
+            });
 
-                    form.addEventListener('submit', async (e) => {
-                        e.preventDefault();
-                        const formAction = form.getAttribute('action');
-                        const response = await fetch(formAction, {
-                            method: 'POST',
-                            body: new FormData(form)
-                        });
+            form.addEventListener("submit", async (e) => {
+              e.preventDefault();
+              const formAction = form.getAttribute("action");
+              const response = await fetch(formAction, {
+                method: "POST",
+                body: new FormData(form),
+              });
 
-                        if (!response.ok) {
-                            const message = await response.text();
-                            const overlay = document.createElement('div');
-                            overlay.style.cssText = 'position:fixed; top:20px; left:50%; transform:translateX(-50%); background:rgba(255,0,0,0.8); color:white; padding:15px; border-radius:5px; z-index:1000;';
-                            overlay.textContent = message;
-                            document.body.appendChild(overlay);
-                            setTimeout(() => overlay.remove(), 3000);
-                        } else {
-                            window.location.href = '/';
-                        }
-                    });
-                }
-
-            </script>
-        </footer>
+              if (!response.ok) {
+                const message = await response.text();
+                const overlay = document.createElement("div");
+                overlay.style.cssText =
+                  "position:fixed; top:20px; left:50%; transform:translateX(-50%); background:rgba(255,0,0,0.8); color:white; padding:15px; border-radius:5px; z-index:1000;";
+                overlay.textContent = message;
+                document.body.appendChild(overlay);
+                setTimeout(() => overlay.remove(), 3000);
+              } else {
+                window.location.href = "/";
+              }
+            });
+          }
+        </script>
+      </footer>
     </div>
-
-
-</body>
-
+  </body>
 </html>

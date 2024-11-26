@@ -66,7 +66,11 @@
                     <h2>Toggle Dark/Light Mode</h2>
                     <button onclick="toggleDarkMode()">Toggle dark mode</button>
                 </section>
-
+                <!-- Clear Cookies -->
+                <section id="clear-cookies">
+                    <h3>Clear Cookies</h3>
+                    <button onclick="clearCookies()">Clear Cookies</button>
+                </section>
                 <!-- Accessibility -->
                 <!-- <section id="accessibility">
                     <h3>Accessibility</h3>
@@ -210,6 +214,18 @@
                     element.classList.add("dark-mode");
                 });
             }
+        }
+        function clearCookies() {
+            var cookies = document.cookie.split(";");
+    
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i];
+                var eqPos = cookie.indexOf("=");
+                var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+                document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/";
+            }
+    
+            alert("Cookies have been cleared.");
         }
     </script>
     {% endblock %}
