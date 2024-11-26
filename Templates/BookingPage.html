@@ -5,6 +5,7 @@
 {% block title %}Booking page{% endblock %}
 
 {% block content %}
+
 <body>
     <form method="POST" action="/BookingPage" style="font-family: Arial, sans-serif;
         padding: 100px; 
@@ -21,28 +22,60 @@
         justify-content: center;
         align-items: center;">
         <h1 style="color: #908E8E;">Book a courses!</h1>
-        <p style="color: #908E8E;">Welcome to our booking page! Please select a course and date to make a reservation:</p>
+        <p style="color: #908E8E;">Welcome to our booking page! Please select a course and date to make a reservation:
+        </p>
         <ul>
             <li>
-                
-                <label for="courses"  style="color: #908E8E;">Select a course:</label>
-                <select id="courses" name="courses">
+                <label for="courses" style="color: #908E8E;">Select a course:</label>
+                <select id="courses" name="courses" required>
+                    <option value="">Select a course</option>
                     <option value="python">python</option>
                     <option value="java">java</option>
                     <option value="website design">website design </option>
                 </select>
             </li>
             <li>
-                <label for="date"  style="color: #908E8E;">Select a date:</label>
-                <input type="date" id="date" name="date">
+                <label for="date" style="color: #908E8E;">Select a date:</label>
+                <input type="date" id="date" name="date" required>
             </li>
         </ul>
         <button type="submit" style="color: #8f7ad6;">Book Now</button>
     </form>
-{% endblock %}
+    {% endblock %}
 
+<script>
+    const form = document.querySelector('form');
 
+    if (form) {
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const course = document.getElementById('courses').value;
+            const date = document.getElementById('date').value;
 
+            if (!course || !date) {
+                alert('Please fill in all fields before submitting.');
+                return;
+            }
+
+            const formAction = form.getAttribute('action');
+            const response = await fetch(formAction, {
+                method: 'POST',
+                body: new FormData(form)
+            });
+
+            if (!response.ok) {
+                const message = await response.text();
+                const overlay = document.createElement('div');
+                overlay.style.cssText = 'position:fixed; top:20px; left:50%; transform:translateX(-50%); background:rgba(255,0,0,0.8); color:white; padding:15px; border-radius:5px; z-index:1000;';
+                overlay.textContent = message;
+                document.body.appendChild(overlay);
+                setTimeout(() => overlay.remove(), 3000);
+            } else {
+                window.location.href = '/ordering_confirm';
+            }
+        });
+    }
+</script>
 </body>
 
 </html>

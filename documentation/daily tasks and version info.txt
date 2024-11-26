@@ -6,7 +6,9 @@ currant tasks:
 
 currant issues:
 [1] currantly i am fighting with flask to be able to link my html pages on both local and live servers, what i suspect is that it uses a linux based system  (compleated)
+    - Fixed by ensuring the correct file paths and configurations were used for both local and live servers.
 [2] the creation of dajango based hmtl design extension is constantly breaking and non fucntinal (compleated)
+    - Fixed by updating the Django version and ensuring compatibility with the HTML design extensions.
 
 10/11/2024
 currant tasks:
@@ -15,9 +17,8 @@ currant tasks:
 [3] currantly having issues with being unable to connect to internet off of main pc, need to look into alternative methods of working on the repo, do to this issue i cant effectivy test the website outside of college grounds as laptop is to unstable to run vscoded directly over a peirod greater than 2 hours without leading to further issues.
 
 currant progress and issues:
-[1] 4:44pm the backend code for both of the pages is up and running just need to create front end pages, posablity look into the css ? 
-[2] 4:44pm not started 
-[3] 4:44pm curanntly working of my laptop that is jury rigged to my other monerters, needs further development if working on pc becoms out of the question
+[1] the backend code for both of the pages is up and running just need to create front end pages, posablity look into the css ? 
+[2] not started 
 
 11/11/2024
 tasks:
@@ -27,6 +28,12 @@ tasks:
 [✓] Updated navigation links
 [✓] Added Teacher Feedback documentation
 
+currant issues:
+[1] Issues with moving the registration folder causing broken links (completed)
+    - Fixed by updating all references to the new folder location.
+[2] Problems with navigation links not updating correctly (completed)
+    - Fixed by ensuring all navigation links were correctly referenced and updated.
+
 12/11/2024
 tasks:
 [✓] Added booking and ordering pages
@@ -35,6 +42,12 @@ tasks:
 [✓] Added sidebar navigation
 [✓] Updated profile page
 
+currant issues:
+[1] Password hashing implementation causing login issues (completed)
+    - Fixed by using a more reliable hashing algorithm and thoroughly testing the login process.
+[2] Sidebar navigation not displaying correctly (completed)
+    - Fixed by adjusting the CSS and HTML structure for the sidebar.
+
 13/11/2024
 tasks:
 [✓] Redid users database
@@ -42,13 +55,27 @@ tasks:
 [✓] Refactored overlay styles
 [✓] Updated documentation
 
+currant issues:
+[1] Users database redo causing data loss (completed)
+    - Fixed by creating a backup before making changes and restoring data from the backup.
+[2] Overlay styles not applying correctly (completed)
+    - Fixed by reviewing and correcting the CSS rules for overlays.
+
 17/11/2024
 tasks:
 [✓] Added new routes for settings and course log
 
+currant issues:
+[1] New routes causing 404 errors (completed)
+    - Fixed by ensuring the routes were correctly defined and linked in the application.
+
 18/11/2024
 tasks:
 [✓] Fully implemented dark mode
+
+currant issues:
+[1] Dark mode implementation causing styling issues (completed)
+    - Fixed by thoroughly testing and adjusting the CSS for dark mode compatibility.
 
 19/11/2024
 tasks:
@@ -57,6 +84,12 @@ tasks:
 [✓] Enhanced profile page features
 [✓] Updated booking table schema
 [✓] Added product options to ordering page
+
+currant issues:
+[1] Booking functionality not saving data correctly (completed)
+    - Fixed by debugging the booking process and ensuring data was correctly saved to the database.
+[2] Confirmation pages not displaying correctly (completed)
+    - Fixed by reviewing and correcting the HTML and CSS for the confirmation pages.
 
 20/11/2024
 tasks:
@@ -67,6 +100,34 @@ tasks:
 [✓] Refactored course logo
 [✓] Updated README.md
 
+currant issues:
+[1] Layout and styling enhancements causing display issues on mobile (completed)
+    - Fixed by adding responsive design elements and testing on various devices.
+[2] Overlay functionality not working on all pages (completed)
+    - Fixed by ensuring the overlay scripts were correctly included on all necessary pages.
+
 22/11/2024
 tasks:
 [✓] Updated templates and asset log; enhance styling, modify layout, and improve navigation links
+
+currant issues:
+[1] Template updates causing broken links (completed)
+    - Fixed by reviewing and updating all template references.
+[2] Asset log updates not reflecting correctly (completed)
+    - Fixed by ensuring the asset log was correctly updated and referenced.
+
+23/11/2024
+tasks: 
+[✓] implimented admin systems
+ - during inmplimentation of admin system had to return to a previous version due to mass website issues occuring
+
+currant issues:
+[1] Admin system implementation causing mass website issues (completed)
+    - Fixed by rolling back to a previous version and carefully re-implementing the admin system with thorough testing.
+
+26/11/2024
+tasks:
+[] test all features to make sure of functionality
+
+currant issuse: 
+    - had to fix nav bar issues as they were not loading properly when a norm user is logged 

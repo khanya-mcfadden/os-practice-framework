@@ -17,10 +17,18 @@
                     <li><a href="#themes">Themes</a></li>
                     <li><a href="#accessibility">Accessibility</a></li>
                     <li><a href="#course-logging">Course Logging</a></li>
+                    <li><a href="#" onclick="showSignOutOverlay()">Sign Out</a></li>
                 </ul>
+                <div id="signOutOverlay" class="overlay" style="display: none; ">
+                    <div class="overlay-content">
+                        <h2>Confirm Sign Out</h2>
+                        <p>Are you sure you want to sign out?</p>
+                        <button onclick="confirmSignOut()">Yes</button>
+                        <button onclick="hideSignOutOverlay()">No</button>
+                    </div>
+                </div>
             </aside>
 
-            <!-- Main Content -->
             <main class="content">
                 <!-- General Settings -->
                 <section id="general">
@@ -58,32 +66,13 @@
                     <h2>Toggle Dark/Light Mode</h2>
                     <button onclick="toggleDarkMode()">Toggle dark mode</button>
                 </section>
-                <script>
-                    function toggleDarkMode() {
-                        var elements = document.querySelectorAll('body, .sidebar, .content');
-                        elements.forEach(element => {
-                            element.classList.toggle("dark-mode");
-                        });
-
-                        if (elements[0].classList.contains("dark-mode")) {
-                            localStorage.setItem("theme", "dark");
-                        } else {
-                            localStorage.setItem("theme", "light");
-                        }
-                    }
-
-                    window.onload = function () {
-                        if (localStorage.getItem("theme") === "dark") {
-                            var elements = document.querySelectorAll('body, .sidebar, .content');
-                            elements.forEach(element => {
-                                element.classList.add("dark-mode");
-                            });
-                        }
-                    }
-                </script>
-
+                <!-- Clear Cookies -->
+                <section id="clear-cookies">
+                    <h3>Clear Cookies</h3>
+                    <button onclick="clearCookies()">Clear Cookies</button>
+                </section>
                 <!-- Accessibility -->
-                <section id="accessibility">
+                <!-- <section id="accessibility">
                     <h3>Accessibility</h3>
                     <form>
                         <div>
@@ -95,16 +84,11 @@
                             <input type="range" id="text-resize" name="text-resize" min="12" max="24" value="16"
                                 oninput="updateTextSize(this.value)">
                             <span id="text-size-display">16px</span>
-                            <script>
-                                function updateTextSize(value) {
-                                    document.getElementById('text-size-display').textContent = value + 'px';
-                                }
-                            </script>
                             currantly non functinal
                         </div>
                         <button type="submit">Save Accessibility Settings</button>
                     </form>
-                </section>
+                </section> -->
 
                 <!-- Course Logging -->
                 <section id="bookings">
@@ -134,13 +118,6 @@
             </main>
         </div>
     </div>
-
-    <div class="signout-container">
-        <form action="/logout" method="POST">
-            <button type="submit" class="signout-button">Sign Out</button>
-        </form>
-    </div>
-
     <style>
         .signout-container {
             position: fixed;
@@ -201,6 +178,56 @@
             margin-bottom: 170px;
         }
     </style>
+    <script>
+        function showSignOutOverlay() {
+            document.getElementById('signOutOverlay').style.display = 'block';
+        }
+
+        function hideSignOutOverlay() {
+            document.getElementById('signOutOverlay').style.display = 'none';
+        }
+
+        function confirmSignOut() {
+            window.location.href = '/logout';
+        }
+
+        function updateTextSize(value) {
+            document.getElementById('text-size-display').textContent = value + 'px';
+        }
+        function toggleDarkMode() {
+            var elements = document.querySelectorAll('body, .sidebar, .content');
+            elements.forEach(element => {
+                element.classList.toggle("dark-mode");
+            });
+
+            if (elements[0].classList.contains("dark-mode")) {
+                localStorage.setItem("theme", "dark");
+            } else {
+                localStorage.setItem("theme", "light");
+            }
+        }
+
+        window.onload = function () {
+            if (localStorage.getItem("theme") === "dark") {
+                var elements = document.querySelectorAll('body, .sidebar, .content');
+                elements.forEach(element => {
+                    element.classList.add("dark-mode");
+                });
+            }
+        }
+        function clearCookies() {
+            var cookies = document.cookie.split(";");
+    
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i];
+                var eqPos = cookie.indexOf("=");
+                var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+                document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/";
+            }
+    
+            alert("Cookies have been cleared.");
+        }
+    </script>
     {% endblock %}
 </body>
 

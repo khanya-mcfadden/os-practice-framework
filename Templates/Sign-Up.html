@@ -1,37 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    {% extends "index.html" %}
-    {% block title %}Sign Up{% endblock %}
-    {% block content %}
-    <body>
-        <div class="container" style="display: flex; justify-content: center; align-items: center; height: 50vh;">
-            <form method="POST" action="/Sign-Up">
-                <h2 style="text-align: center;">sign up</h2>
-                <div class="inputbox" style="text-align: center;">
-                    <label for="username">Username</label>
-                    <input name="username" id="username" type="text" maxlength="15" minlength="3" required>
-                </div>
-                <div class="inputbox">
-                    <label for="email">Email</label>
-                    <input name="email" id="email" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Please enter a valid email address with @ and .com" minlength="7" maxlength="50" required>
-                </div>
-                <div class="inputbox">
-                    <label for="password">Password</label>
-                    <input name="password" id="password" type="password" maxlength="20" minlength="8" required>
-                </div>
-                <button type="submit" id="submitBtn" disabled>Register</button>
+{% extends "index.html" %}
+{% block title %}Sign Up{% endblock %}
+{% block content %}
 
-                <script>
-                    const form = document.querySelector('form');
-                    const submitBtn = document.getElementById('submitBtn');
-                    
-                    form.addEventListener('input', () => {
-                        submitBtn.disabled = !form.checkValidity();
+<body>
+    <div class="container" style="display: flex; justify-content: center; align-items: center; height: 50vh;">
+        <form method="POST" action="/Sign-Up">
+            <h2 style="text-align: center;">sign up</h2>
+            <div class="inputbox" style="text-align: center;">
+                <label for="username">Username</label>
+                <input name="username" id="username" type="text" maxlength="15" minlength="3" required>
+            </div>
+            <div class="inputbox">
+                <label for="email">Email</label>
+                <input name="email" id="email" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                    title="Please enter a valid email address with @ and .com" minlength="7" maxlength="50" required>
+            </div>
+            <div class="inputbox">
+                <label for="password">Password</label>
+                <input name="password" id="password" type="password" maxlength="20" minlength="8" required>
+            </div>
+            <button type="submit" id="submitBtn" >Register</button>
+        <script>
+            const form = document.querySelector('form');
+            const submitBtn = document.getElementById('submitBtn');
+
+            if (form) {
+                form.addEventListener('input', () => {
+                    const isValid = form.checkValidity();
+                    if (submitBtn) {
+                        submitBtn.disabled = !isValid;
+                    }
+                });
+
+                form.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    const formAction = form.getAttribute('action');
+                    const response = await fetch(formAction, {
+                        method: 'POST',
+                        body: new FormData(form)
                     });
-                </script>
-            </form>
-        </div>
-    </body>
+
+                    if (!response.ok) {
+                        const message = await response.text();
+                        const overlay = document.createElement('div');
+                        overlay.style.cssText = 'position:fixed; top:20px; left:50%; transform:translateX(-50%); background:rgba(255,0,0,0.8); color:white; padding:15px; border-radius:5px; z-index:1000;';
+                        overlay.textContent = message;
+                        document.body.appendChild(overlay);
+                        setTimeout(() => overlay.remove(), 3000);
+                    } else {
+                        window.location.href = '/confirm';
+                    }
+                });
+            }
+        </script>
+
+        </form>
+    </div>
     {% endblock %}
+</body>
+
 </html>
