@@ -1,3 +1,5 @@
+plan:
+
 Date        | Test Name                      | Test Type                        | Description
 ------------|--------------------------------|----------------------------------|---------------------------------------
 26/11/2024  | Page Navigation                | Functional Test                  | All pages linked correctly in the backend.
@@ -20,3 +22,10 @@ Date        | Test Name                      | Test Type                        
 13/12/2024  | Accessibility for Screen Readers| Usability Test                  | Ensure the website is fully accessible using screen readers.
 14/12/2024  | Email Notifications            | Functional Test                  | Verify email notifications are sent and received correctly.
 15/12/2024  | Captcha Implementation         | Security Test                    | Test captcha functionality to prevent automated spam submissions.
+
+
+currant test status:
+
+Date        | Test Name                      | test type                           | Comments                 | test results              | status
+------------|--------------------------------|-------------------------------------|--------------------------|---------------------------|-------------------------------
+26/11/2024  | Page Navigation                | Passed
