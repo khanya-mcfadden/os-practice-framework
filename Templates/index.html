@@ -23,19 +23,16 @@
         <a href="/about" style="color: #C9C8C8">About</a>
         <a href="/courses" style="color: #C9C8C8">courses</a>
         <a href="/health_page" style="color: #C9C8C8">weather</a>
-        {% if authenticated %}
         <a href="/Orderingpage" style="color: #C9C8C8">Ordering</a>
         <a href="/BookingPage" style="color: #C9C8C8">Booking</a>
         <a href="/profile" style="color: #C9C8C8; float:right;">Profile</a>
 
-        {% if admin %}
         <a href="/user_info" style="color: #C9C8C8; float: right;">User Info</a>
         <a href="/test" style="color: #C9C8C8; float: right;">Test</a>
-        {% endif %}
-        {% else %}
+
         <a href="/Sign-Up" style="color: #C9C8C8; float: right;">Sign Up</a>
         <a href="/login" style="color: #C9C8C8; float: right;">Login</a>
-        {% endif %}
+
     </nav>
     <div class="navbar"></div>
     {% block content %}
@@ -43,6 +40,7 @@
         <p>We are glad to have you here. Explore and enjoy your stay!</p>
     </div>
     {% endblock %}
+    
     <div class="footer">
         <footer>
             <section id="themes" style="padding: 5px;">

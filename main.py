@@ -49,7 +49,10 @@ def inject_user():
         session["admin"] = bool(
             session.get("admin", False)
         )  # Ensure admin status is boolean
-    return user_data
+    return dict(user=user_data)
+def inject_theme():
+    theme = session.get("theme", "light")
+    return dict(theme=theme)
 
 
 @app.route("/")
@@ -140,11 +143,12 @@ def Order():
                 (item, quantity, session.get("username")),
             )
             connection.commit()
-            connection.close()
-            return redirect("/ordering_confirm")
+   
+            return redirect(url_for("ordering_confirm"))
         except sqlite3.Error:
+            connection.close()
             return "Order failed", 400
-    return redirect("Orderingpage.html")
+    return render_template("Orderingpage.html")
 
 
 @app.route("/test")
@@ -339,10 +343,7 @@ def set_theme():
     return "", 204
 
 
-@app.context_processor
-def inject_theme():
-    theme = session.get("theme", "light")
-    return dict(theme=theme)
+
 
 
 @app.route("/change_password", methods=["GET", "POST"])
