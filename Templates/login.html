@@ -24,36 +24,66 @@
     </div>
 </div>
 <script>
-    const form = document.querySelector('form');
-    const submitBtn = document.getElementById('submitBtn');
-
-    if (form) {
-        form.addEventListener('input', () => {
-            const isValid = form.checkValidity();
-            if (submitBtn) {
-                submitBtn.disabled = !isValid;
-            }
+    // Dark mode functionality
+    function toggleDarkMode() {
+        var elements = document.querySelectorAll('body, .sidebar, .content');
+        elements.forEach(element => {
+            element.classList.toggle("dark-mode");
         });
 
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const formAction = form.getAttribute('action');
-            const response = await fetch(formAction, {
-                method: 'POST',
-                body: new FormData(form)
+        var logo = document.getElementById('logo');
+        if (elements[0].classList.contains("dark-mode")) {
+            localStorage.setItem("theme", "dark");
+            logo.src = "/static/original Logo white.png";
+        } else {
+            localStorage.setItem("theme", "light");
+            logo.src = "/static/original Logo.png";
+        }
+    }
+
+    // Form handling and dark mode initialization
+    window.onload = function() {
+        // Dark mode initialization
+        if (localStorage.getItem("theme") === "dark") {
+            var elements = document.querySelectorAll('body, .sidebar, .content');
+            elements.forEach(element => {
+                element.classList.add("dark-mode");
+            });
+            document.getElementById('logo').src = "/static/original Logo white.png";
+        }
+
+        // Form handling
+        const form = document.querySelector('form');
+        const submitBtn = document.getElementById('submitBtn');
+
+        if (form) {
+            form.addEventListener('input', () => {
+                const isValid = form.checkValidity();
+                if (submitBtn) {
+                    submitBtn.disabled = !isValid;
+                }
             });
 
-            if (!response.ok) {
-                const message = await response.text();
-                const overlay = document.createElement('div');
-                overlay.style.cssText = 'position:fixed; top:20px; left:50%; transform:translateX(-50%); background:rgba(255,0,0,0.8); color:white; padding:15px; border-radius:5px; z-index:1000;';
-                overlay.textContent = message;
-                document.body.appendChild(overlay);
-                setTimeout(() => overlay.remove(), 3000);
-            } else {
-                window.location.href = '/';
-            }
-        });
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const formAction = form.getAttribute('action');
+                const response = await fetch(formAction, {
+                    method: 'POST',
+                    body: new FormData(form)
+                });
+
+                if (!response.ok) {
+                    const message = await response.text();
+                    const overlay = document.createElement('div');
+                    overlay.style.cssText = 'position:fixed; top:20px; left:50%; transform:translateX(-50%); background:rgba(255,0,0,0.8); color:white; padding:15px; border-radius:5px; z-index:1000;';
+                    overlay.textContent = message;
+                    document.body.appendChild(overlay);
+                    setTimeout(() => overlay.remove(), 3000);
+                } else {
+                    window.location.href = '/';
+                }
+            });
+        }
     }
 </script>
 {% endblock %}

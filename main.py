@@ -333,16 +333,23 @@ def change_password():
 
     return render_template('profile.html')
 
-@app.route('/users_info')
+@app.route('/usersinfo')
 def users_info():
     if 'username' not in session or not session.get('admin'):
         return redirect(url_for('login'))
-    connection = sqlite3.connect('users.db')
-    cursor = connection.cursor()
-    cursor.execute("SELECT username, email FROM users")
-    users = cursor.fetchall()
-    connection.close()
-    return render_template('users_info.html', users=users)
+    
+    try:
+        connection = sqlite3.connect('users.db')
+        cursor = connection.cursor()
+        cursor.execute("SELECT username, email FROM users")
+        users = cursor.fetchall()
+        return render_template('users_info.html', users=users)
+    except sqlite3.Error as e:
+        return f"Database error: {str(e)}", 500
+    finally:
+        if connection:
+            connection.close()
+
 if __name__ == "__main__":
     initialize()
     app.run(debug=True)
