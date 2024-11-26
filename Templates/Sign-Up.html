@@ -22,8 +22,40 @@
                 <label for="password">Password</label>
                 <input name="password" id="password" type="password" maxlength="20" minlength="8" required>
             </div>
-            <button type="submit" id="submitBtn" disabled>Register</button>
+            <button type="submit" id="submitBtn" >Register</button>
+        <script>
+            const form = document.querySelector('form');
+            const submitBtn = document.getElementById('submitBtn');
 
+            if (form) {
+                form.addEventListener('input', () => {
+                    const isValid = form.checkValidity();
+                    if (submitBtn) {
+                        submitBtn.disabled = !isValid;
+                    }
+                });
+
+                form.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    const formAction = form.getAttribute('action');
+                    const response = await fetch(formAction, {
+                        method: 'POST',
+                        body: new FormData(form)
+                    });
+
+                    if (!response.ok) {
+                        const message = await response.text();
+                        const overlay = document.createElement('div');
+                        overlay.style.cssText = 'position:fixed; top:20px; left:50%; transform:translateX(-50%); background:rgba(255,0,0,0.8); color:white; padding:15px; border-radius:5px; z-index:1000;';
+                        overlay.textContent = message;
+                        document.body.appendChild(overlay);
+                        setTimeout(() => overlay.remove(), 3000);
+                    } else {
+                        window.location.href = '/confirm';
+                    }
+                });
+            }
+        </script>
 
         </form>
     </div>

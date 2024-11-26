@@ -1,5 +1,5 @@
 import sqlite3
-from flask import Flask, jsonify, redirect, render_template, request, send_file, session, url_for
+from flask import Flask, redirect, render_template, request, session, url_for
 from werkzeug.security import generate_password_hash, check_password_hash
 import re
 
@@ -28,11 +28,14 @@ def initialize():
 
 @app.context_processor
 def inject_user():
-    return dict(logged_in=('username' in session))
+        return {
+            'authenticated': 'username' in session,
+            'admin': session.get('admin', False)
+        }
 
 @app.route('/')
 def index():
-    return render_template('index.html'), 404
+    return render_template('index.html')
 
 
 @app.route('/BookingPage', methods=['GET', 'POST'])
@@ -45,7 +48,7 @@ def BookingPage_page():
         date = request.form.get('date')
 
         if not course or not date:
-            return "Please fill out all fields", 
+            return "Please fill out all fields", 400
 
         connection = sqlite3.connect('users.db')
         cursor = connection.cursor()
@@ -70,13 +73,13 @@ def BookingPage_page():
             return redirect('/booking_confirm')
         except sqlite3.Error:
             connection.close()
-            return "Booking failed", 
+            return "Booking failed", 500
     
     return render_template('BookingPage.html')
 
 @app.route('/Orderingpage' , methods=['GET', 'POST'])
 def Orderingpage_page():
-        return render_template('Orderingpage.html'), 404
+        return render_template('Orderingpage.html')
 
 @app.route('/Order' , methods=['GET', 'POST'])
 def Order():
@@ -112,16 +115,16 @@ def Order():
             return redirect('/ordering_confirm')
         except sqlite3.Error:
             connection.close()
-            return "Order failed", 
-    return render_template('/Orderingpage')
+            return "Order failed", 500
+    return render_template('Orderingpage.html')
 
 @app.route('/test')
 def test_page():
-    return render_template('test.html'), 404
+    return render_template('test.html')
 
 @app.route('/about')
 def about_page():
-    return render_template('about.html'), 404
+    return render_template('about.html')
 
 @app.route('/courses')
 def get_courses():
@@ -183,7 +186,7 @@ def login():
 
         # Validate input lengths
         if len(username) > 200 or len(password) > 200:
-            return "Input exceeds character limit", 
+            return "Input exceeds character limit", 400
 
         # Check if the user exists in the database
         connection = sqlite3.connect('users.db')
@@ -209,7 +212,7 @@ def login():
                     session['admin'] = False
                     return redirect(url_for('profile'))
         
-        return "Invalid username or password", 
+        return "Invalid username or password", 400
 
     return render_template('login.html')
 @app.route('/Sign-Up', methods=['GET', 'POST'])
@@ -221,17 +224,17 @@ def register():
         password = request.form.get('password')
 
         if not username or not email or not password:
-            return "Please fill out all fields",   # Simple error handling
+            return "Please fill out all fields", 400   # Simple error handling
 
         # Validate input lengths
         if len(username) > 15 or len(email) > 50 or len(password) > 20:
-            return "Input exceeds character limit", 
+            return "Input exceeds character limit", 400
         if len(username) < 3 or len(email) < 3 or len(password) < 8:
-            return "Input is below character limit", 
+            return "Input is below character limit", 400
 
         # Validate characters in username and email
         if not re.match("^[a-zA-Z0-9@._!;#$%&'()*+,-./:;<=>?@[\]^_`{|}~]+$", username) or not re.match("^[a-zA-Z0-9@._!;#$%&'()*+,-./:;<=>?@[\]^_`{|}~]+$", email) or not re.match("^[a-zA-Z0-9@._!;#$%&'()*+,-./:;<=>?@[\]^_`{|}~]+$", password):
-            return "Invalid characters in username, email or password", 
+            return "Invalid characters in username, email or password", 400
 
         # Hash the password
         hashed_password = generate_password_hash(password, method='pbkdf2:sha256')
@@ -246,7 +249,7 @@ def register():
 
         if existing_user:
             connection.close()
-            return "Username or email already exists.", 
+            return "Username or email already exists.", 400
 
         try:
             # Insert the user
@@ -254,7 +257,7 @@ def register():
                            (username, email, hashed_password))
             connection.commit()
         except sqlite3.IntegrityError:
-            return "User already exists or email is already registered.", 
+            return "User already exists or email is already registered.", 400
         finally:
             connection.close()
 
@@ -305,10 +308,10 @@ def change_password():
             return "Please fill out all fields", 
 
         if new_password != confirm_password:
-            return "New passwords do not match", 
+            return "New passwords do not match", 400
 
         if len(new_password) < 8 or len(new_password) > 20:
-            return "New password must be between 8 and 20 characters", 
+            return "New password must be between 8 and 20 characters", 400
 
         connection = sqlite3.connect('users.db')
         cursor = connection.cursor()
@@ -318,7 +321,7 @@ def change_password():
 
         if not user or not check_password_hash(user[0], current_password):
             connection.close()
-            return "Current password is incorrect", 
+            return "Current password is incorrect", 400
 
         hashed_password = generate_password_hash(new_password, method='pbkdf2:sha256')
         cursor.execute("UPDATE users SET password = ? WHERE username = ?", 
