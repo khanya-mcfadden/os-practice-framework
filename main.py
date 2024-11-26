@@ -1,13 +1,12 @@
 import sqlite3
 from flask import (
     Flask,
-    jsonify,
     redirect,
     render_template,
     request,
     send_file,
-    session,
     url_for,
+    session,
 )
 from werkzeug.security import generate_password_hash, check_password_hash
 import re
@@ -43,16 +42,19 @@ def initialize():
 @app.context_processor
 def inject_user():
     user_data = {
-        'authenticated': "username" in session,
-        'admin': session.get("admin", False)
+        "authenticated": "username" in session,
+        "admin": session.get("admin", False),
     }
     if "username" in session:
-        session["admin"] = bool(session.get("admin", False))  # Ensure admin status is boolean
+        session["admin"] = bool(
+            session.get("admin", False)
+        )  # Ensure admin status is boolean
     return user_data
+
 
 @app.route("/")
 def index():
-    return render_template("index.html"), 404
+    return render_template("index.html")
 
 
 @app.route("/BookingPage", methods=["GET", "POST"])
@@ -101,7 +103,7 @@ def BookingPage_page():
 
 @app.route("/Orderingpage", methods=["GET", "POST"])
 def Orderingpage_page():
-    return render_template("Orderingpage.html"), 404
+    return render_template("Orderingpage.html")
 
 
 @app.route("/Order", methods=["GET", "POST"])
@@ -141,19 +143,18 @@ def Order():
             connection.close()
             return redirect("/ordering_confirm")
         except sqlite3.Error:
-            connection.close()
             return "Order failed", 400
-    return render_template("/Orderingpage")
+    return redirect("Orderingpage.html")
 
 
 @app.route("/test")
 def test_page():
-    return render_template("test.html"), 404
+    return render_template("test.html")
 
 
 @app.route("/about")
 def about_page():
-    return render_template("about.html"), 404
+    return render_template("about.html")
 
 
 @app.route("/courses")
@@ -314,7 +315,7 @@ def register():
             connection.close()
 
         # Redirect to confirmation page
-        return redirect("/confirm")
+        return redirect("confirm")
 
     return render_template("Sign-Up.html")
 
@@ -342,8 +343,6 @@ def set_theme():
 def inject_theme():
     theme = session.get("theme", "light")
     return dict(theme=theme)
-
-
 
 
 @app.route("/change_password", methods=["GET", "POST"])
@@ -397,7 +396,7 @@ def users_info():
 
     connection = sqlite3.connect("users.db")
     cursor = connection.cursor()
-    
+
     cursor.execute("SELECT id,username, email, admin FROM users")
     users = cursor.fetchall()
     connection.close()
