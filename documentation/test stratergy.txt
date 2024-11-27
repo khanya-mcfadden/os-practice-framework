@@ -2,24 +2,20 @@ plan:
 
 Date        | Test Name                      | Test Type                        | Description
 ------------|--------------------------------|----------------------------------|---------------------------------------
-| Text Input Fields              |Input Validation Test            | Ensure form fields accept and validate data correctly in all pages.
-| Feedback Form                  |Functional and Usability Test    | Database setup with feedback table and connections established.
-| Booking Feature                |End-to-End Functional Test       | Backend API and database operational; frontend integration complete.
-| Reviews Page                   |Functional and Load Test         | Frontend ready; review data populated for testing.
-| User Login and Signup          |Security and Authentication Test | Database configured for storing hashed passwords and user roles defined.
-| Live Environment Performance   |Stress/Load Test                 | Fully deployed application on staging server; set up with test users.
-| SQL Injection Prevention       |Security Test                    | All input fields must be checked for parameterized queries and sanitized inputs.
-| Visual Design and Accessibility|Usability Test                   | Pages styled; accessibility features like alt text and high contrast implemented.
-| Multi-Browser Compatibility    |Compatibility Test               | Ensure the website is ready for testing in Chrome, Firefox, and Edge.
-| Mobile Responsiveness          |Device Compatibility Test        | Responsive design implemented in CSS for mobile devices.
-| Error Recovery and Logging     |Recovery and Error Logging Test  | Error-handling mechanisms implemented and logs configured to track issues without exposing details.
-| Session Timeout Handling       |Security Test                    | Verify the session timeout functionality and ensure it protects user data.
-| Password Strength              |Security Test                    | Ensure password strength requirements are enforced.
-| API Rate Limiting              |Performance Test                 | Test API rate limiting to prevent abuse and maintain performance.
-| Data Backup and Recovery       |Recovery Test                    | Test the data backup and recovery process to ensure data integrity.
-| Accessibility for Screen Readers|Usability Test                  | Ensure the website is fully accessible using screen readers.
-| Email Notifications            |Functional Test                  | Verify email notifications are sent and received correctly.
-| Captcha Implementation         |Security Test                    | Test captcha functionality to prevent automated spam submissions.
+
+|Live Environment Performance   |Stress/Load Test                 |Fully deployed application on staging server; set up with test users.
+|SQL Injection Prevention       |Security Test                    |All input fields must be checked for parameterized queries and sanitized inputs.
+|Visual Design and Accessibility|Usability Test                   |Pages styled; accessibility features like alt text and high contrast implemented.
+|Multi-Browser Compatibility    |Compatibility Test               |Ensure the website is ready for testing in Chrome, Firefox, and Edge.
+|Mobile Responsiveness          |Device Compatibility Test        |Responsive design implemented in CSS for mobile devices.
+|Error Recovery and Logging     |Recovery and Error Logging Test  |Error-handling mechanisms implemented and logs configured to track issues without exposing details.
+|Session Timeout Handling       |Security Test                    |Verify the session timeout functionality and ensure it protects user data.
+|Password Strength              |Security Test                    |Ensure password strength requirements are enforced.
+|API Rate Limiting              |Performance Test                 |Test API rate limiting to prevent abuse and maintain performance.
+|Data Backup and Recovery       |Recovery Test                    |Test the data backup and recovery process to ensure data integrity.
+|Accessibility for Screen Readers|Usability Test                  |Ensure the website is fully accessible using screen readers.
+|Email Notifications            |Functional Test                  |Verify email notifications are sent and received correctly.
+|Captcha Implementation         |Security Test                    |Test captcha functionality to prevent automated spam submissions.
 
 
 layout
@@ -43,9 +39,9 @@ Date        | Test Name                      | Browser | Test type              
 27/11/2024  |all Page Navigation(booking)    |edge     |Functional test                   |sucsess        |all of the Navigation links on the booking  page  is Functional
 27/11/2024  |all Page Navigation(profile)    |edge     |Functional test                   |sucsess        |all of the Navigation links on the profile  page  is Functional
 27/11/2024  |Button Functionality            |edge     |Functional Test                   |               |Buttons correctly implemented and mapped to their functions.
-27/11/2024  | Text Input Fields              |edge     |Input Validation Test             |               |Ensured form fields accept and validate data correctly in all pages. 
-27/11/2024  |                                |edge     |                                  |               | 
-27/11/2024  |                                |edge     |                                  |               | 
+27/11/2024  |Text Input Fields               |edge     |Input Validation Test             |               |Ensured form fields accept and validate data correctly in all pages. 
+27/11/2024  |Booking Feature                 |edge     |End-to-End Functional Test        |               |Backend API and database operational; frontend integration complete.
+27/11/2024  |User Login and Signup           |edge     |Security and Authentication Test  |               |Database configured for storing hashed passwords and user roles defined.
 27/11/2024  |                                |edge     |                                  |               | 
 27/11/2024  |                                |edge     |                                  |               | 
 27/11/2024  |                                |edge     |                                  |               | 
