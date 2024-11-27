@@ -2,30 +2,83 @@ plan:
 
 Date        | Test Name                      | Test Type                        | Description
 ------------|--------------------------------|----------------------------------|---------------------------------------
-26/11/2024  | Page Navigation                | Functional Test                  | All pages linked correctly in the backend.
-27/11/2024  | Button Functionality           | Functional Test                  | Buttons correctly implemented and mapped to their functions.
-28/11/2024  | Text Input Fields              | Input Validation Test            | Ensure form fields accept and validate data correctly in all pages.
-29/11/2024  | Feedback Form                  | Functional and Usability Test    | Database setup with feedback table and connections established.
-30/11/2024  | Booking Feature                | End-to-End Functional Test       | Backend API and database operational; frontend integration complete.
-01/12/2024  | Reviews Page                   | Functional and Load Test         | Frontend ready; review data populated for testing.
-02/12/2024  | User Login and Signup          | Security and Authentication Test | Database configured for storing hashed passwords and user roles defined.
-03/12/2024  | Live Environment Performance   | Stress/Load Test                 | Fully deployed application on staging server; set up with test users.
-04/12/2024  | SQL Injection Prevention       | Security Test                    | All input fields must be checked for parameterized queries and sanitized inputs.
-05/12/2024  | Visual Design and Accessibility| Usability Test                   | Pages styled; accessibility features like alt text and high contrast implemented.
-06/12/2024  | Multi-Browser Compatibility    | Compatibility Test               | Ensure the website is ready for testing in Chrome, Firefox, and Edge.
-07/12/2024  | Mobile Responsiveness          | Device Compatibility Test        | Responsive design implemented in CSS for mobile devices.
-08/12/2024  | Error Recovery and Logging     | Recovery and Error Logging Test  | Error-handling mechanisms implemented and logs configured to track issues without exposing details.
-09/12/2024  | Session Timeout Handling       | Security Test                    | Verify the session timeout functionality and ensure it protects user data.
-10/12/2024  | Password Strength              | Security Test                    | Ensure password strength requirements are enforced.
-11/12/2024  | API Rate Limiting              | Performance Test                 | Test API rate limiting to prevent abuse and maintain performance.
-12/12/2024  | Data Backup and Recovery       | Recovery Test                    | Test the data backup and recovery process to ensure data integrity.
-13/12/2024  | Accessibility for Screen Readers| Usability Test                  | Ensure the website is fully accessible using screen readers.
-14/12/2024  | Email Notifications            | Functional Test                  | Verify email notifications are sent and received correctly.
-15/12/2024  | Captcha Implementation         | Security Test                    | Test captcha functionality to prevent automated spam submissions.
+| Text Input Fields              |Input Validation Test            | Ensure form fields accept and validate data correctly in all pages.
+| Feedback Form                  |Functional and Usability Test    | Database setup with feedback table and connections established.
+| Booking Feature                |End-to-End Functional Test       | Backend API and database operational; frontend integration complete.
+| Reviews Page                   |Functional and Load Test         | Frontend ready; review data populated for testing.
+| User Login and Signup          |Security and Authentication Test | Database configured for storing hashed passwords and user roles defined.
+| Live Environment Performance   |Stress/Load Test                 | Fully deployed application on staging server; set up with test users.
+| SQL Injection Prevention       |Security Test                    | All input fields must be checked for parameterized queries and sanitized inputs.
+| Visual Design and Accessibility|Usability Test                   | Pages styled; accessibility features like alt text and high contrast implemented.
+| Multi-Browser Compatibility    |Compatibility Test               | Ensure the website is ready for testing in Chrome, Firefox, and Edge.
+| Mobile Responsiveness          |Device Compatibility Test        | Responsive design implemented in CSS for mobile devices.
+| Error Recovery and Logging     |Recovery and Error Logging Test  | Error-handling mechanisms implemented and logs configured to track issues without exposing details.
+| Session Timeout Handling       |Security Test                    | Verify the session timeout functionality and ensure it protects user data.
+| Password Strength              |Security Test                    | Ensure password strength requirements are enforced.
+| API Rate Limiting              |Performance Test                 | Test API rate limiting to prevent abuse and maintain performance.
+| Data Backup and Recovery       |Recovery Test                    | Test the data backup and recovery process to ensure data integrity.
+| Accessibility for Screen Readers|Usability Test                  | Ensure the website is fully accessible using screen readers.
+| Email Notifications            |Functional Test                  | Verify email notifications are sent and received correctly.
+| Captcha Implementation         |Security Test                    | Test captcha functionality to prevent automated spam submissions.
 
+
+layout
+            |                                |edge     | Input Validation Test            |sucsess        |
+            |                                |opera    |                                  |failular       |    
 
 currant test status:
 
-Date        | Test Name                      | test type                           | Comments                 | test results              | status
-------------|--------------------------------|-------------------------------------|--------------------------|---------------------------|-------------------------------
-26/11/2024  | Page Navigation                | Passed
+Date        | Test Name                      | Browser | Test type                        | test results  | Comments
+------------|--------------------------------|---------|----------------------------------|---------------|-------------------------------
+27/11/2024  |cookie functionality            |edge     |Functional test                   |sucsess        |cookie pop up appears on both light and dark mode sucsessfully and cookie is logged correctly
+27/11/2024  |sign up functionality           |edge     |Functional test                   |sucsess        |the sign  up page sucsessfully logs users to database and the styling is good
+27/11/2024  |login  functionality(user)      |edge     |Functional test                   |sucsess        |the login up page allows for login and the styling is good 
+27/11/2024  |login  functionality(admin)     |edge     |Functional test                   |sucsess        |the login up page allows for login and the styling is good    
+27/11/2024  |all Page Navigation(home)       |edge     |Functional test                   |sucsess        |all of the Navigation links on the home     page is Functional
+27/11/2024  |                                |edge     |                                  |               | 
+27/11/2024  |all Page Navigation(about)      |edge     |Functional test                   |sucsess        |all of the Navigation links on the about    page  is Functional
+27/11/2024  |all Page Navigation(courses)    |edge     |Functional test                   |sucsess        |all of the Navigation links on the courses  page  is Functional
+27/11/2024  |all Page Navigation(weather)    |edge     |Functional test                   |sucsess        |all of the Navigation links on the weather  page  is Functional
+27/11/2024  |all Page Navigation(ordering)   |edge     |Functional test                   |sucsess        |all of the Navigation links on the ordering page  is Functional
+27/11/2024  |all Page Navigation(booking)    |edge     |Functional test                   |sucsess        |all of the Navigation links on the booking  page  is Functional
+27/11/2024  |all Page Navigation(profile)    |edge     |Functional test                   |sucsess        |all of the Navigation links on the profile  page  is Functional
+27/11/2024  |Button Functionality            |edge     |Functional Test                   |               |Buttons correctly implemented and mapped to their functions.
+27/11/2024  | Text Input Fields              |edge     |Input Validation Test             |               |Ensured form fields accept and validate data correctly in all pages. 
+27/11/2024  |                                |edge     |                                  |               | 
+27/11/2024  |                                |edge     |                                  |               | 
+27/11/2024  |                                |edge     |                                  |               | 
+27/11/2024  |                                |edge     |                                  |               | 
+27/11/2024  |                                |edge     |                                  |               | 
+27/11/2024  |                                |edge     |                                  |               | 
+27/11/2024  |                                |edge     |                                  |               | 
+27/11/2024  |                                |edge     |                                  |               | 
+27/11/2024  |                                |edge     |                                  |               | 
+27/11/2024  |                                |edge     |                                  |               | 
+27/11/2024  |                                |edge     |                                  |               | 
+27/11/2024  |                                |edge     |                                  |               | 
+27/11/2024  |                                |edge     |                                  |               | 
+27/11/2024  |                                |edge     |                                  |               | 
+27/11/2024  |                                |edge     |                                  |               | 
+27/11/2024  |                                |edge     |                                  |               | 
+27/11/2024  |                                |edge     |                                  |               | 
+27/11/2024  |                                |edge     |                                  |               | 
+27/11/2024  |                                |edge     |                                  |               | 
+27/11/2024  |                                |edge     |                                  |               | 
+
+
+
+
+
+
+
+
+27/11/2024  |                                |opera    |                                  |               |
+
+27/11/2024  |cookie functionality            |opera    |Functional test                   |sucsess        |cookie pop up appears on both light and dark mode sucsessfully and cookie is logged correctly
+27/11/2024  |sign up functionality           |opera    |Functional test                   |sucsess        |the sign  up page sucsessfully logs users to database and the styling is good
+27/11/2024  |login  functionality(user)      |opera    |Functional test                   |sucsess        |the login up page allows for login and the styling is good 
+27/11/2024  |login  functionality(admin)     |edge     |Functional test                   |sucsess        |the login up page allows for login and the styling is good         
+            |                                |         |                                  |               | 
+            |                                |         |                                  |               | 
+            |                                |         |                                  |               | 
+            |                                |         |                                  |               |
