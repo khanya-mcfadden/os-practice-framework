@@ -11,6 +11,7 @@ from flask import (
 from werkzeug.security import generate_password_hash, check_password_hash
 import re
 
+
 app = Flask(__name__)
 app.secret_key = "your_secret_key"
 
@@ -275,12 +276,15 @@ def register():
         if (
             not re.match("^[a-zA-Z0-9@._!;#$%&'()*+,-./:;<=>?@[\]^_`{|}~]+$", username)
             or not re.match("^[a-zA-Z0-9@._!;#$%&'()*+,-./:;<=>?@[\]^_`{|}~]+$", email)
-            or not re.match(
-                "^[a-zA-Z0-9@._!;#$%&'()*+,-./:;<=>?@[\]^_`{|}~]+$", password
-            )
+            or not re.match("^[a-zA-Z0-9@._!;#$%&'()*+,-./:;<=>?@[\]^_`{|}~]+$", password)
         ):
             return "Invalid characters in username, email or password", 400
-
+        # Validate password strength
+        if not re.match(
+            r"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$",
+            password
+        ):
+            return "Password must contain at least 8 characters, including uppercase, lowercase, digits, and special characters.", 400
         # Hash the password
         hashed_password = generate_password_hash(password, method="pbkdf2:sha256")
 
