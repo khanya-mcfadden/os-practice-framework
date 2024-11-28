@@ -34,10 +34,9 @@ Date        | Test Name                      | Browser | Test type              
 28/11/2024  |SQL Injection Prevention        |edge     |Security Test                     |sucsess        |All input fields must be checked for parameterized queries and sanitized inputs.
 28/11/2024  |Visual Design and Accessibility |edge     |Usability Test                    |sucsess        |Pages styled; accessibility features like alt text and high contrast implemented.
 28/11/2024  |Password Strength               |edge     |Security Test                     |sucsess        |Ensure password strength requirements are enforced.
-28/11/2024  |Mobile Responsiveness           |edge     |Device Compatibility Test         |pending        |Responsive design implemented in CSS for mobile devices.
+28/11/2024  |Mobile Responsiveness           |edge     |Device Compatibility Test         |sucsess        |Responsive design implemented in CSS for mobile devices.
 28/11/2024  |Error Recovery and Logging      |edge     |Recovery and Error Logging Test   |pending        |Error-handling mechanisms implemented and logs configured to track issues without exposing details.
 28/11/2024  |Session Timeout Handling        |edge     |Security Test                     |pending        |Verify the session timeout functionality and ensure it protects user data.
-28/11/2024  |API Rate Limiting               |edge     |Performance Test                  |pending        |Test API rate limiting to prevent abuse and maintain performance.
 28/11/2024  |Data Backup and Recovery        |edge     |Recovery Test                     |pending        |Test the data backup and recovery process to ensure data integrity. 
 28/11/2024  |Multi-Browser Compatibility     |edge     |Compatibility Test                |pending        |Ensure the website is ready for testing in  Edge and opera.
 
