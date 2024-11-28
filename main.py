@@ -1,3 +1,4 @@
+from datetime import datetime, timedelta
 import sqlite3
 from flask import (
     Flask,
@@ -39,6 +40,23 @@ def init_db():
 def initialize():
     init_db()
 
+@app.before_request
+def manage_session():
+    session.permanent = True
+    app.permanent_session_lifetime = timedelta(minutes=30)
+
+    if "username" in session:
+        # Check if session has expired
+        last_activity = session.get("last_activity")
+        if last_activity:
+            current_time = datetime.now()
+            time_difference = current_time - last_activity.replace(tzinfo=None)
+            if time_difference.total_seconds() > 60:  # 1 minute
+                session.clear()
+                return redirect(url_for("login"))
+
+    # Update the last activity timestamp for the session
+    session["last_activity"] = datetime.now()
 
 @app.context_processor
 def inject_user():
