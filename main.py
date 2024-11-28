@@ -421,13 +421,11 @@ def users_info():
         cursor = connection.cursor()
         cursor.execute("SELECT username, email FROM users")
         users = cursor.fetchall()
+        connection.close()
         return render_template("users_info.html", users=users)
     except sqlite3.Error as e:
         return f"Database error: {str(e)}", 500
-    finally:
-        if connection:
-            connection.close()
-
+    return render_template("users_info.html")
 
 @app.route("/set_cookie", methods=["POST"])
 def set_cookie():
