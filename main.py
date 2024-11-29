@@ -494,7 +494,50 @@ def add_course():
         connection.close()
         return f"Failed to add course: {e}", 500  
 
+@app.route("/delete_course", methods=["POST"])
+def delete_course():
+    if "username" not in session or not session.get("admin"):
+        return redirect(url_for("login"))
 
+    course_id = request.form.get("course_id")
+
+    if not course_id:
+        return "Please provide a course ID", 400
+
+    connection = sqlite3.connect("users.db")
+    cursor = connection.cursor()
+
+    try:
+        cursor.execute("DELETE FROM courses WHERE course_id = ?", (course_id,))
+        connection.commit()
+        connection.close()
+        return redirect("/usersinfo")
+    except sqlite3.Error as e:
+        connection.close()
+        return f"Failed to delete course: {e}", 500
+    
+@app.route("/delete_user", methods=["POST"])
+def delete_user():
+    if "username" not in session or not session.get("admin"):
+        return redirect(url_for("login"))
+
+    user_id = request.form.get("user_id")
+
+    if not user_id:
+        return "Please provide a user ID", 400
+
+    connection = sqlite3.connect("users.db")
+    cursor = connection.cursor()
+
+    try:
+        cursor.execute("DELETE FROM users WHERE id = ?", (user_id,))
+        connection.commit()
+        connection.close()
+        return redirect("/usersinfo")
+    except sqlite3.Error as e:
+        connection.close()
+        return f"Failed to delete user: {e}", 500
+    
 @app.route("/set_cookie", methods=["POST"])
 def set_cookie():
     response = make_response(redirect(url_for("index")))

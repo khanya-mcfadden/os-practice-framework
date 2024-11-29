@@ -35,7 +35,11 @@
     .container {
       text-align: center;
       margin-left: auto;
-      margin-bottom: 500px;
+      margin-bottom: auto;
+      margin-right: auto;
+    }
+    .add_course {
+      margin-bottom: 200px;
     }
   </style>
 
@@ -88,10 +92,28 @@
         </tbody>
       </table>
     </div>
-    <div class="container course_from">
+    <div class="container remove_courses">
+      <h2>Remove Course</h2>
+      <form action="/delete_course" method="post">
+        <label for="course_id">Course ID:</label><br />
+        <input type="text" id="course_id" name="course_id" required /><br />
+        <button type="submit" style="color: #8f7ad6">Remove Course</button>
+      </form>
+    </div>
+
+    <div class="container remove_users">
+      <h2>Remove User</h2>
+      <form action="/delete_user" method="post">
+        <label for="user_id">User ID:</label><br />
+        <input type="text" id="user_id" name="user_id" required /><br />
+        <button type="submit" style="color: #8f7ad6">Remove User</button>
+      </form>
+    </div>
+
+    <div class="container course_from" style="margin-bottom: 250px">
       <h2>Add New Course</h2>
       <form action="/add_course" method="post">
-        <label for="course_name">Course Name:</label><br/>
+        <label for="course_name">Course Name:</label><br />
         <input type="text" id="course_name" name="course_name" /><br />
         <label for="course_description">Course Description:</label><br />
         <input
@@ -102,7 +124,7 @@
         <label for="course_duration">Course Duration:</label>
         <li>
           <label for="courses">Select a course length:</label>
-          <br>
+          <br />
           <select id="courses" name="courses" required>
             <option value="">Select a length</option>
             <option value="1">1</option>
@@ -119,12 +141,9 @@
             <option value="12">12</option>
           </select>
         </li>
-        <button type="submit" style="color: #8f7ad6;">Book Now</button>
-
+        <button type="submit" style="color: #8f7ad6">Book Now</button>
       </form>
     </div>
-
-
   </body>
 
   {% endblock %}
