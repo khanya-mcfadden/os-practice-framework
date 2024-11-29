@@ -1,3 +1,4 @@
+from datetime import datetime, timedelta
 import sqlite3
 from flask import (
     Flask,
@@ -10,6 +11,7 @@ from flask import (
 )
 from werkzeug.security import generate_password_hash, check_password_hash
 import re
+
 
 app = Flask(__name__)
 app.secret_key = "your_secret_key"
@@ -39,6 +41,25 @@ def initialize():
     init_db()
 
 
+@app.before_request
+def manage_session():
+    session.permanent = True
+    app.permanent_session_lifetime = timedelta(minutes=30)
+
+    if "username" in session:
+        # Check if session has expired
+        last_activity = session.get("last_activity")
+        if last_activity:
+            current_time = datetime.now()
+            time_difference = current_time - last_activity.replace(tzinfo=None)
+            if time_difference.total_seconds() > 1800:  # 30 minute
+                session.clear()
+                return redirect(url_for("login"))
+
+    # Update the last activity timestamp for the session
+    session["last_activity"] = datetime.now()
+
+
 @app.context_processor
 def inject_user():
     return {
@@ -60,8 +81,9 @@ def BookingPage_page():
     if request.method == "POST":
         course = request.form.get("courses")
         date = request.form.get("date")
+        time = request.form.get("time")
 
-        if not course or not date:
+        if not course or not date or not time:
             return "Please fill out all fields", 400
 
         connection = sqlite3.connect("users.db")
@@ -72,8 +94,9 @@ def BookingPage_page():
             """
             CREATE TABLE IF NOT EXISTS bookings (
                 booking_id INTEGER PRIMARY KEY,
-                course TEXT NOT NULL,
+                courses TEXT NOT NULL,
                 date TEXT NOT NULL,
+                time TEXT NOT NULL,
                 username TEXT NOT NULL,
                 FOREIGN KEY (username) REFERENCES users(username)
             )
@@ -83,17 +106,29 @@ def BookingPage_page():
         try:
             # Insert the booking
             cursor.execute(
-                "INSERT INTO bookings (courses, date, username) VALUES (?, ?, ?)",
-                (course, date, session.get("username")),
+                "INSERT INTO bookings (courses, date, time, username) VALUES (?, ?, ?, ?)",
+                (course, date, time, session.get("username")),
             )
             connection.commit()
             connection.close()
             return redirect("/booking_confirm")
-        except sqlite3.Error:
+        except sqlite3.Error as e:
             connection.close()
-            return "Booking failed", 500
+            return f"Booking failed: {e}", 500
 
-    return render_template("BookingPage.html")
+    # Fetch available courses from the database
+    connection = sqlite3.connect("users.db")
+    cursor = connection.cursor()
+    cursor.execute(
+        "SELECT course_name FROM courses"
+    )  # Adjust table/column names as needed
+    courses = cursor.fetchall()
+    connection.close()
+
+    # Pass courses to the template
+    return render_template(
+        "BookingPage.html", courses=[course[0] for course in courses]
+    )
 
 
 @app.route("/Orderingpage", methods=["GET", "POST"])
@@ -280,7 +315,15 @@ def register():
             )
         ):
             return "Invalid characters in username, email or password", 400
-
+        # Validate password strength
+        if not re.match(
+            r"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$",
+            password,
+        ):
+            return (
+                "Password must contain at least 8 characters, including uppercase, lowercase, digits, and special characters.",
+                400,
+            )
         # Hash the password
         hashed_password = generate_password_hash(password, method="pbkdf2:sha256")
 
@@ -397,16 +440,104 @@ def users_info():
     try:
         connection = sqlite3.connect("users.db")
         cursor = connection.cursor()
-        cursor.execute("SELECT username, email FROM users")
+        cursor.execute("SELECT id, username, email, admin FROM users")
         users = cursor.fetchall()
-        return render_template("users_info.html", users=users)
+
+        cursor.execute(
+            "SELECT course_id, course_name, course_description, course_duration FROM courses"
+        )
+        courses = cursor.fetchall()
+
+        connection.close()
+        return render_template("users_info.html", users=users, courses=courses)
     except sqlite3.Error as e:
         return f"Database error: {str(e)}", 500
-    finally:
-        if connection:
-            connection.close()
 
 
+@app.route("/add_course", methods=["POST"])
+def add_course():
+    if "username" not in session or not session.get("admin"):
+        return redirect(url_for("login"))
+
+    course_name = request.form.get("course_name")
+    course_description = request.form.get("course_description")
+    course_duration = request.form.get("courses")
+
+    if not course_name or not course_description or not course_duration:
+        return "Please fill out all fields", 400
+
+    connection = sqlite3.connect("users.db")
+    cursor = connection.cursor()
+
+    # Create courses table if it doesn't exist
+    cursor.execute(
+        """
+        CREATE TABLE IF NOT EXISTS courses (
+            course_id INTEGER PRIMARY KEY AUTOINCREMENT,
+            course_name TEXT NOT NULL,
+            course_description TEXT NOT NULL,
+            course_duration INTEGER NOT NULL
+        )
+    """
+    )
+
+    try:
+        # Insert the new course
+        cursor.execute(
+            "INSERT INTO courses (course_name, course_description, course_duration) VALUES (?, ?, ?)",
+            (course_name, course_description, course_duration),
+        )
+        connection.commit()
+        connection.close()
+        return redirect("/usersinfo")
+    except sqlite3.Error as e:
+        connection.close()
+        return f"Failed to add course: {e}", 500  
+
+@app.route("/delete_course", methods=["POST"])
+def delete_course():
+    if "username" not in session or not session.get("admin"):
+        return redirect(url_for("login"))
+
+    course_id = request.form.get("course_id")
+
+    if not course_id:
+        return "Please provide a course ID", 400
+
+    connection = sqlite3.connect("users.db")
+    cursor = connection.cursor()
+
+    try:
+        cursor.execute("DELETE FROM courses WHERE course_id = ?", (course_id,))
+        connection.commit()
+        connection.close()
+        return redirect("/usersinfo")
+    except sqlite3.Error as e:
+        connection.close()
+        return f"Failed to delete course: {e}", 500
+    
+@app.route("/delete_user", methods=["POST"])
+def delete_user():
+    if "username" not in session or not session.get("admin"):
+        return redirect(url_for("login"))
+
+    user_id = request.form.get("user_id")
+
+    if not user_id:
+        return "Please provide a user ID", 400
+
+    connection = sqlite3.connect("users.db")
+    cursor = connection.cursor()
+
+    try:
+        cursor.execute("DELETE FROM users WHERE id = ?", (user_id,))
+        connection.commit()
+        connection.close()
+        return redirect("/usersinfo")
+    except sqlite3.Error as e:
+        connection.close()
+        return f"Failed to delete user: {e}", 500
+    
 @app.route("/set_cookie", methods=["POST"])
 def set_cookie():
     response = make_response(redirect(url_for("index")))

@@ -126,9 +126,9 @@ Code Maintainability
 
 · Ensure the program code is easily maintainable by providing
 
-☐ Appropriate naming conventions.
+[✓] Appropriate naming conventions.
 
-☐ Logical organisation of code.
+[✓] Logical organisation of code.
 
 ☐ Informative comments explaining key sections of code.
 
@@ -153,7 +153,7 @@ Standards and Guidelines
 
 · Apply standards and guidelines consistently and effectively for
 
-☐ Accessibility.
+[✓] Accessibility.
 
 · Text and Contrast
 
@@ -161,37 +161,37 @@ Standards and Guidelines
 
 · Keyboard Navigation
 
-☐ Ensure all interactive elements (e.g., buttons, links) are accessible via the "Tab" key. Example, add a focus outline to clearly show active elements.
+[✓] Ensure all interactive elements (e.g., buttons, links) are accessible via the "Tab" key. Example, add a focus outline to clearly show active elements.
 
 · Alt Text for Images
 
 [✓] Add descriptive alt text for any images in the prototype.
 
-☐ Compatibility.
+[✓] Compatibility.
 
 · Responsive Design
 
-☐Use simple CSS rules to ensure the layout adjusts to different screen sizes
+[✓] Use simple CSS rules to ensure the layout adjusts to different screen sizes
 
 · Browser Testing
 
-☐ Test the prototype in at least two common browsers (e.g., Chrome and Edge).
+[✓] Test the prototype in at least two common browsers (e.g., Chrome and Edge).
 
 [✓] Document any issues or ensure that the prototype runs as expected.
 
 · Device Testing
 
-☐ Ensure the interface works on both desktop and mobile devices.
+[✓] Ensure the interface works on both desktop and mobile devices.
 
-☐ Test by resizing the browser window.
+[✓] Test by resizing the browser window.
 
 ☐ Legal and ethical considerations.
 
 · Data Privacy
 
-☐ If data collection is required, display a simple message explaining why.
+[✓] If data collection is required, display a simple message explaining why.
 
-☐ Only collect data that is required.
+[✓] Only collect data that is required.
 
 · Copyright Compliance
 

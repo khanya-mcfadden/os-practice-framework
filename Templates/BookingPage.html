@@ -29,14 +29,15 @@
                 <label for="courses" style="color: #908E8E;">Select a course:</label>
                 <select id="courses" name="courses" required>
                     <option value="">Select a course</option>
-                    <option value="python">python</option>
-                    <option value="java">java</option>
-                    <option value="website design">website design </option>
+                    {% for course_name  in courses %}
+                    <option value="{{ course_name }}">{{ course_name }}</option>
+                    {% endfor %}
                 </select>
             </li>
             <li>
                 <label for="date" style="color: #908E8E;">Select a date:</label>
                 <input type="date" id="date" name="date" required>
+                <input type="time" id="time" name="time" required>
             </li>
         </ul>
         <button type="submit" style="color: #8f7ad6;">Book Now</button>

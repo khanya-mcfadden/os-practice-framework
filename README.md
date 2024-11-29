@@ -17,6 +17,7 @@ A basic website framework featuring an integrated purchasing system API and book
 ## Prerequisites
 - Web server
 - Database system sqlite
+- sqlite viewer or alternative
 
 ## Installation
 ```bash
@@ -164,11 +165,15 @@ webcolors==24.6.0
 webencodings==0.5.1
 websocket-client==1.8.0
 zipp==3.19.2
+flask
+werkzeug
 
 
 ## License
 This project is licensed under the MIT License.
 
 ## impovments 
-1. the css handerling could be greatly improved 
-2. the validation of data handerling could be better
+1. mail Notifications            
+2. Captcha Implementation         
+3. Accessibility for Screen Readers     
+4. add in google and microsoft login
