@@ -14,7 +14,7 @@ import re
 
 
 app = Flask(__name__)
-app.secret_key = "your_secret_key"
+app.secret_key = "1mads"
 
 
 # Ensure the table is created when the app starts
