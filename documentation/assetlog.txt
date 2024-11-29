@@ -1,8 +1,12 @@
 
 1. images:
-    - Stock images from Google
+    - Stock images of students from Google
     - Company logos taken from respective company websites/pages
-    -personal logo was made with ai logomaker 
+    - personal logo was made with ai logomaker https://ailogomaker.io/app
+
+    - google maps assets was taken from the Google
+    - text has no particular assest location it is standards
+    - all other asssets are standard 
 
 2. coding:
     - Some sidebar HTML and CSS code was sourced from W3Schools tutorials link: https://www.w3schools.com/w3css/w3css_sidebar.asp

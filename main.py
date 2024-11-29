@@ -40,6 +40,7 @@ def init_db():
 def initialize():
     init_db()
 
+
 @app.before_request
 def manage_session():
     session.permanent = True
@@ -58,6 +59,7 @@ def manage_session():
     # Update the last activity timestamp for the session
     session["last_activity"] = datetime.now()
 
+
 @app.context_processor
 def inject_user():
     return {
@@ -69,6 +71,7 @@ def inject_user():
 @app.route("/")
 def index():
     return render_template("index.html")
+
 
 @app.route("/BookingPage", methods=["GET", "POST"])
 def BookingPage_page():
@@ -116,14 +119,16 @@ def BookingPage_page():
     # Fetch available courses from the database
     connection = sqlite3.connect("users.db")
     cursor = connection.cursor()
-    cursor.execute("SELECT course_name FROM courses")  # Adjust table/column names as needed
+    cursor.execute(
+        "SELECT course_name FROM courses"
+    )  # Adjust table/column names as needed
     courses = cursor.fetchall()
     connection.close()
 
     # Pass courses to the template
-    return render_template("BookingPage.html", courses=[course[0] for course in courses])
-
-
+    return render_template(
+        "BookingPage.html", courses=[course[0] for course in courses]
+    )
 
 
 @app.route("/Orderingpage", methods=["GET", "POST"])
@@ -305,15 +310,20 @@ def register():
         if (
             not re.match("^[a-zA-Z0-9@._!;#$%&'()*+,-./:;<=>?@[\]^_`{|}~]+$", username)
             or not re.match("^[a-zA-Z0-9@._!;#$%&'()*+,-./:;<=>?@[\]^_`{|}~]+$", email)
-            or not re.match("^[a-zA-Z0-9@._!;#$%&'()*+,-./:;<=>?@[\]^_`{|}~]+$", password)
+            or not re.match(
+                "^[a-zA-Z0-9@._!;#$%&'()*+,-./:;<=>?@[\]^_`{|}~]+$", password
+            )
         ):
             return "Invalid characters in username, email or password", 400
         # Validate password strength
         if not re.match(
             r"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$",
-            password
+            password,
         ):
-            return "Password must contain at least 8 characters, including uppercase, lowercase, digits, and special characters.", 400
+            return (
+                "Password must contain at least 8 characters, including uppercase, lowercase, digits, and special characters.",
+                400,
+            )
         # Hash the password
         hashed_password = generate_password_hash(password, method="pbkdf2:sha256")
 
@@ -432,14 +442,18 @@ def users_info():
         cursor = connection.cursor()
         cursor.execute("SELECT id, username, email, admin FROM users")
         users = cursor.fetchall()
-        
-        cursor.execute("SELECT course_id, course_name, course_description, course_duration FROM courses")
+
+        cursor.execute(
+            "SELECT course_id, course_name, course_description, course_duration FROM courses"
+        )
         courses = cursor.fetchall()
-        
+
         connection.close()
         return render_template("users_info.html", users=users, courses=courses)
     except sqlite3.Error as e:
         return f"Database error: {str(e)}", 500
+
+
 @app.route("/add_course", methods=["POST"])
 def add_course():
     if "username" not in session or not session.get("admin"):
@@ -475,11 +489,12 @@ def add_course():
         )
         connection.commit()
         connection.close()
-        return redirect(url_for("get_courses"))
+        return redirect("/usersinfo")
     except sqlite3.Error as e:
         connection.close()
-        return f"Failed to add course: {e}", 500#
-    
+        return f"Failed to add course: {e}", 500  
+
+
 @app.route("/set_cookie", methods=["POST"])
 def set_cookie():
     response = make_response(redirect(url_for("index")))

@@ -39,7 +39,7 @@ Date        | Test Name                      | Browser | Test type              
 28/11/2024  |Session Timeout Handling        |edge     |Security Test                     |pending        |Verify the session timeout functionality and ensure it protects user data.
 28/11/2024  |Data Backup and Recovery        |edge     |Recovery Test                     |pending        |Test the data backup and recovery process to ensure data integrity. 
 28/11/2024  |Multi-Browser Compatibility     |edge     |Compatibility Test                |pending        |Ensure the website is ready for testing in  Edge and opera.
-
+29/11/2024  |test adimin panel               |edge     |functional test                   |failular       |admin fail pop up message was not properly regestring the sucsess adding to the data base
 
 
 
