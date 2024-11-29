@@ -42,6 +42,18 @@
     {% block content %}
     <div style="text-align: center; padding: 20px">
       <p>We are glad to have you here. Explore and enjoy your stay!</p>
+      <div style="display: flex; justify-content: center; gap: 20px">
+        <img
+          src="/static/image 1(coding child).png"
+          alt="Image 1"
+          style="width: auto; height: auto"
+        />
+        <img
+          src="/static/image 2(teacher and kids).png"
+          alt="Image 2"
+          style="width: auto; height: auto"
+        />
+      </div>
     </div>
 
     {% if not request.cookies.get('cookie_consent') %}
@@ -60,15 +72,13 @@
         align-items: center;
         justify-content: center;
         z-index: 1000;
-
       "
     >
       <div style="border-radius: 20px">
         <p>
-          We use cookies to improve your experience. 
-          <br>
-          By using our site, you
-          agree to our use of cookies.
+          We use cookies to improve your experience.
+          <br />
+          By using our site, you agree to our use of cookies.
         </p>
         <form method="post" action="/set_cookie">
           <button type="submit" class="btn">Accept</button>
@@ -129,9 +139,6 @@
           };
           const form = document.querySelector("form");
           const submitBtn = document.getElementById("submitBtn");
-
-
-          
         </script>
       </footer>
     </div>
