@@ -51,7 +51,7 @@ def manage_session():
         if last_activity:
             current_time = datetime.now()
             time_difference = current_time - last_activity.replace(tzinfo=None)
-            if time_difference.total_seconds() > 60:  # 1 minute
+            if time_difference.total_seconds() > 1800:  # 30 minute
                 session.clear()
                 return redirect(url_for("login"))
 
@@ -70,7 +70,6 @@ def inject_user():
 def index():
     return render_template("index.html")
 
-
 @app.route("/BookingPage", methods=["GET", "POST"])
 def BookingPage_page():
     if "username" not in session:
@@ -79,8 +78,9 @@ def BookingPage_page():
     if request.method == "POST":
         course = request.form.get("courses")
         date = request.form.get("date")
+        time = request.form.get("time")
 
-        if not course or not date:
+        if not course or not date or not time:
             return "Please fill out all fields", 400
 
         connection = sqlite3.connect("users.db")
@@ -91,8 +91,9 @@ def BookingPage_page():
             """
             CREATE TABLE IF NOT EXISTS bookings (
                 booking_id INTEGER PRIMARY KEY,
-                course TEXT NOT NULL,
+                courses TEXT NOT NULL,
                 date TEXT NOT NULL,
+                time TEXT NOT NULL,
                 username TEXT NOT NULL,
                 FOREIGN KEY (username) REFERENCES users(username)
             )
@@ -102,17 +103,27 @@ def BookingPage_page():
         try:
             # Insert the booking
             cursor.execute(
-                "INSERT INTO bookings (courses, date, username) VALUES (?, ?, ?)",
-                (course, date, session.get("username")),
+                "INSERT INTO bookings (courses, date, time, username) VALUES (?, ?, ?, ?)",
+                (course, date, time, session.get("username")),
             )
             connection.commit()
             connection.close()
             return redirect("/booking_confirm")
-        except sqlite3.Error:
+        except sqlite3.Error as e:
             connection.close()
-            return "Booking failed", 500
+            return f"Booking failed: {e}", 500
 
-    return render_template("BookingPage.html")
+    # Fetch available courses from the database
+    connection = sqlite3.connect("users.db")
+    cursor = connection.cursor()
+    cursor.execute("SELECT course_name FROM courses")  # Adjust table/column names as needed
+    courses = cursor.fetchall()
+    connection.close()
+
+    # Pass courses to the template
+    return render_template("BookingPage.html", courses=[course[0] for course in courses])
+
+
 
 
 @app.route("/Orderingpage", methods=["GET", "POST"])
@@ -419,14 +430,56 @@ def users_info():
     try:
         connection = sqlite3.connect("users.db")
         cursor = connection.cursor()
-        cursor.execute("SELECT username, email FROM users")
+        cursor.execute("SELECT id, username, email, admin FROM users")
         users = cursor.fetchall()
+        
+        cursor.execute("SELECT course_id, course_name, course_description, course_duration FROM courses")
+        courses = cursor.fetchall()
+        
         connection.close()
-        return render_template("users_info.html", users=users)
+        return render_template("users_info.html", users=users, courses=courses)
     except sqlite3.Error as e:
         return f"Database error: {str(e)}", 500
-    return render_template("users_info.html")
+@app.route("/add_course", methods=["POST"])
+def add_course():
+    if "username" not in session or not session.get("admin"):
+        return redirect(url_for("login"))
 
+    course_name = request.form.get("course_name")
+    course_description = request.form.get("course_description")
+    course_duration = request.form.get("courses")
+
+    if not course_name or not course_description or not course_duration:
+        return "Please fill out all fields", 400
+
+    connection = sqlite3.connect("users.db")
+    cursor = connection.cursor()
+
+    # Create courses table if it doesn't exist
+    cursor.execute(
+        """
+        CREATE TABLE IF NOT EXISTS courses (
+            course_id INTEGER PRIMARY KEY AUTOINCREMENT,
+            course_name TEXT NOT NULL,
+            course_description TEXT NOT NULL,
+            course_duration INTEGER NOT NULL
+        )
+    """
+    )
+
+    try:
+        # Insert the new course
+        cursor.execute(
+            "INSERT INTO courses (course_name, course_description, course_duration) VALUES (?, ?, ?)",
+            (course_name, course_description, course_duration),
+        )
+        connection.commit()
+        connection.close()
+        return redirect(url_for("get_courses"))
+    except sqlite3.Error as e:
+        connection.close()
+        return f"Failed to add course: {e}", 500#
+    
 @app.route("/set_cookie", methods=["POST"])
 def set_cookie():
     response = make_response(redirect(url_for("index")))
