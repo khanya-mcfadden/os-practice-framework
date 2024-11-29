@@ -1,3 +1,4 @@
+from datetime import datetime, timedelta
 import sqlite3
 from flask import (
     Flask,
@@ -10,6 +11,7 @@ from flask import (
 )
 from werkzeug.security import generate_password_hash, check_password_hash
 import re
+
 
 app = Flask(__name__)
 app.secret_key = "your_secret_key"
@@ -38,6 +40,23 @@ def init_db():
 def initialize():
     init_db()
 
+@app.before_request
+def manage_session():
+    session.permanent = True
+    app.permanent_session_lifetime = timedelta(minutes=30)
+
+    if "username" in session:
+        # Check if session has expired
+        last_activity = session.get("last_activity")
+        if last_activity:
+            current_time = datetime.now()
+            time_difference = current_time - last_activity.replace(tzinfo=None)
+            if time_difference.total_seconds() > 60:  # 1 minute
+                session.clear()
+                return redirect(url_for("login"))
+
+    # Update the last activity timestamp for the session
+    session["last_activity"] = datetime.now()
 
 @app.context_processor
 def inject_user():
@@ -275,12 +294,15 @@ def register():
         if (
             not re.match("^[a-zA-Z0-9@._!;#$%&'()*+,-./:;<=>?@[\]^_`{|}~]+$", username)
             or not re.match("^[a-zA-Z0-9@._!;#$%&'()*+,-./:;<=>?@[\]^_`{|}~]+$", email)
-            or not re.match(
-                "^[a-zA-Z0-9@._!;#$%&'()*+,-./:;<=>?@[\]^_`{|}~]+$", password
-            )
+            or not re.match("^[a-zA-Z0-9@._!;#$%&'()*+,-./:;<=>?@[\]^_`{|}~]+$", password)
         ):
             return "Invalid characters in username, email or password", 400
-
+        # Validate password strength
+        if not re.match(
+            r"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$",
+            password
+        ):
+            return "Password must contain at least 8 characters, including uppercase, lowercase, digits, and special characters.", 400
         # Hash the password
         hashed_password = generate_password_hash(password, method="pbkdf2:sha256")
 
@@ -399,13 +421,11 @@ def users_info():
         cursor = connection.cursor()
         cursor.execute("SELECT username, email FROM users")
         users = cursor.fetchall()
+        connection.close()
         return render_template("users_info.html", users=users)
     except sqlite3.Error as e:
         return f"Database error: {str(e)}", 500
-    finally:
-        if connection:
-            connection.close()
-
+    return render_template("users_info.html")
 
 @app.route("/set_cookie", methods=["POST"])
 def set_cookie():
