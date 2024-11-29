@@ -17,6 +17,7 @@ A basic website framework featuring an integrated purchasing system API and book
 ## Prerequisites
 - Web server
 - Database system sqlite
+- sqlite viewer or alternative
 
 ## Installation
 ```bash
