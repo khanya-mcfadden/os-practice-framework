@@ -1,2 +1,13 @@
 all user feedback will be stored here before being transfered to a table in the database
 weather css non functional on dark mode toggel
+
+plans for feedback(non technical):
+    service                                                       question                                                           outputs     
+|-----------------------------|-----------------------------------------------------------------------------------------------------|---------|---------------|---------------------|---------------|
+|what i am using for feedback |the question asked                                                                                   |posative |   neutral     |    negative         |     other     |   
+|-----------------------------|-----------------------------------------------------------------------------------------------------|---------|---------------|---------------------|---------------|   
+|microsoft forms              |Did it take more or less time than you expected to find what you were looking for on our website?    |more time|less time      |expected             |               |
+|microsoft forms              |How easy was it for you to find your way through the website?                                        |Very easy|Somewhat easy  |Not easy at all      |               |
+|microsoft forms              |How useful do you find our website's to be?                                                          |Very     |Somewhat       |Not at all           |               |
+|microsoft forms              |How easy or not did you find reading our website to be?                                              |easy     |ok             |difficult            |other feedback |
+
