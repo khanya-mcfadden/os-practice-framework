@@ -13,7 +13,7 @@
         <div class="forecast" id="forecast">
         </div>
     </div>
-    <div class="container" style="max-width: 1000px;">
+    <div class="container" >
         <h1>How to deal with the season: <span id="season"></span></h1>
         <div class="advice-box" id="advice-box"> </div>
     </div>
@@ -123,14 +123,14 @@
     .forecast {
         display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: left;
     }
 
     .weather-card {
         background-color: white;
         padding: 20px;
         border-radius: 10px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 5px #ffffff;
         text-align: center;
     }
 
@@ -155,6 +155,12 @@
         max-width: 600px;
         margin: 20px auto;
         padding: 20px;
+    }
+    .container {
+        max-width: 1000px; 
+        text-align: center;
+        box-shadow: 0 0 5px #ffffff;
+
     }
 </style>
 

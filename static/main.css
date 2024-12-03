@@ -192,6 +192,7 @@ body.dark-mode {
     display: flex;
     justify-content: space-between;
     padding: 10px;
+    box-shadow: 0 0 10px #907ad6;
 }
 
 .navbar a {
