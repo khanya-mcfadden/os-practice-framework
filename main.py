@@ -364,11 +364,7 @@ def health():
     return render_template("health_page.html")
 
 
-# Error handler for 404
-@app.errorhandler(404)
-def page_not_found(_):
-    app.logger.error(f"Page not found: {request.url}")
-    return render_template("404.html"), 404
+
 
 
 @app.route("/theme", methods=["POST"])
@@ -544,7 +540,11 @@ def set_cookie():
     response.set_cookie("cookie_consent", "true", max_age=60 * 60 * 24 * 365)  # 1 year
     return response
 
-
+# Error handler for 404
+@app.errorhandler(404)
+def page_not_found(_):
+    app.logger.error(f"Page not found: {request.url}")
+    return render_template("404.html"), 404
 if __name__ == "__main__":
     initialize()
     app.run(debug=True)
