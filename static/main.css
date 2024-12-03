@@ -2,7 +2,31 @@
 .cookie-consent {
     display: none;
 }
-
+.synth-wave-text a {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 1.2em;
+    text-decoration: none;
+    background: linear-gradient(90deg, #ff00cc, #333399, #00ffcc, #ff00cc);
+    background-size: 400%;
+    color: white;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: colorShift 3s infinite;
+  }
+  
+  @keyframes colorShift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
 .cookie-consent button {
     background-color: #8e6be0;
     border: none;

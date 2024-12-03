@@ -157,10 +157,18 @@
         padding: 20px;
     }
     .container {
-        max-width: 1000px; 
+        max-width: 1000px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50vh;
         text-align: center;
-        box-shadow: 0 0 5px #ffffff;
-
+        box-shadow: 0 4px 30px linear-gradient(135deg, #ff00ff, #00ffff, #ff00ff);
+        background-size: 400% 400%;
+        animation: gradientShift 15s ease infinite;
+        border: 2px solid;
+        border-image: linear-gradient(135deg, #ff00ff, #00ffff, #ff00ff) 1;
+        border-radius: 10px;
     }
 </style>
 

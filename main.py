@@ -359,9 +359,9 @@ def register():
     return render_template("Sign-Up.html")
 
 
-@app.route("/health_page")
+@app.route("/weather_page")
 def health():
-    return render_template("health_page.html")
+    return render_template("weather_page.html")
 
 
 
