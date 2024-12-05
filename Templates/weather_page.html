@@ -8,7 +8,6 @@
 {% block content %}
 
 <body>
-    <div class="navbar"></div>
     <div class="container1" style="display: flex; justify-content: center; align-items: center; min-height: 50px;">
         <div class="forecast" id="forecast">
         </div>
@@ -19,7 +18,7 @@
     </div>
     <script>
         const apiKey = '0f98d01acd0e41818d8124023242111';
-        const apiUrl = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=horsham&days=6&aqi=no`;
+        const apiUrl = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=horsham&days=4&aqi=no`;
 
         fetch(apiUrl)
             .then(response => response.json())
