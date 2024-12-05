@@ -20,27 +20,26 @@ plans for feedback(non technical):
 |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 
 
-plans for feedback(non technical):
-    service                                                       question                                                           outputs     
-|-----------------------------|-----------------------------------------------------------------------------------------------------|---------|---------------|---------------------|---------------|
-|what i am using for feedback |the question asked                                                                                   |posative |   neutral     |    negative         |     other     |   
-|-----------------------------|-----------------------------------------------------------------------------------------------------|---------|---------------|---------------------|---------------|
-|microsoft forms              |Did it take more or less time than you expected to find what you were looking for on our website?    |more time|less time      |expected             |n/a            |
-|microsoft forms              |How easy was it for you to find your way through the website?                                        |Very easy|Somewhat easy  |Not easy at all      |n/a            |
-|microsoft forms              |How useful do you find our website's to be?                                                          |Very     |Somewhat       |Not at all           |n/a            |
-|microsoft forms              |How easy or not did you find reading our website to be?                                              |easy     |ok             |difficult            |other feedback |
-|microsoft forms              |How clear is the content of our website?                                                             |Very easy|Somewhat easy  |Not easy at all      |n/a            |
-|microsoft forms              |How easy was it to find what you are looking for on our website?                                     |Very easy|Somewhat easy  |Not easy at all      |n/a            |
-|microsoft forms              |If given the choice again today, would you still use our product?                                    |yes      |maybe          |no                   |other feedback |
-|microsoft forms              |did we meet your expectation of accessibility on the website                                         |yes      |maybe          |no                   |n/a            |
-|microsoft forms              |What would you change to improve our product?                                                        |6-10     |4-6            |>4                   |n/a            |
-|microsoft forms              |Overall, how would you rate our product?                                                             |6-10     |4-6            |>4                   |n/a            |
-|microsoft forms              |How appealing or not do you find the visual design of the website to be?                             |Very     |Somewhat       |Not at all           |n/a            |
-|microsoft forms              |How would you describe our website from a developers point of view?                                  |n/a      |n/a            |n/a                  |text input     |
-|microsoft forms              |was the database response time fast enough                                                           |yes      |n/a            |no                   |n/a            |
-|microsoft forms              |would this website be good fore commercial use?                                                      |yes      |maybe          |no                   |n/a            |
-|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-
+plans for feedback( technical):
+    service                                                       question                                                          how this will provide good feedback outputs     
+|-----------------------------|-------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|---------|---------------|---------------------|---------------|
+|what i am using for feedback |the question asked                                                                               |                                                                                                                                     |posative |   neutral     |    negative         |     other     |   
+|-----------------------------|-------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|---------|---------------|---------------------|---------------|
+|microsoft forms              |Did it take more or less time than you expected to find what you were looking for on our website?|                                                                                                                                     |more time|less time      |expected             |n/a            |
+|microsoft forms              |How easy was it for you to find your way through the website?                                    |                                                                                                                                     |Very easy|Somewhat easy  |Not easy at all      |n/a            |
+|microsoft forms              |How useful do you find our website's to be?                                                      |                                                                                                                                     |Very     |Somewhat       |Not at all           |n/a            |
+|microsoft forms              |How easy or not did you find reading our website to be?                                          |                                                                                                                                     |easy     |ok             |difficult            |other feedback |
+|microsoft forms              |How clear is the content of our website?                                                         |                                                                                                                                     |Very easy|Somewhat easy  |Not easy at all      |n/a            |
+|microsoft forms              |How easy was it to find what you are looking for on our website?                                 |                                                                                                                                     |Very easy|Somewhat easy  |Not easy at all      |n/a            |
+|microsoft forms              |If given the choice again today, would you still use our product?                                |                                                                                                                                     |yes      |maybe          |no                   |other feedback |
+|microsoft forms              |did we meet your expectation of accessibility on the website                                     |                                                                                                                                     |yes      |maybe          |no                   |n/a            |
+|microsoft forms              |What would you change to improve our product?                                                    |                                                                                                                                     |6-10     |4-6            |>4                   |n/a            |
+|microsoft forms              |Overall, how would you rate our product?                                                         |                                                                                                                                     |6-10     |4-6            |>4                   |n/a            |
+|microsoft forms              |How appealing or not do you find the visual design of the website to be?                         |                                                                                                                                     |Very     |Somewhat       |Not at all           |n/a            |
+|microsoft forms              |How would you describe our website from a developers point of view?                              |                                                                                                                                     |n/a      |n/a            |n/a                  |text input     |
+|microsoft forms              |was the database response time fast enough                                                       |                                                                                                                                     |yes      |n/a            |no                   |n/a            |
+|microsoft forms              |would this website be good fore commercial use?                                                  |                                                                                                                                     |yes      |maybe          |no                   |n/a            |
+|-------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 Testers that have been requested to complete feedback:
 
             name                   Type of Audience:(Technical/Non-technical)                                                           have or have not replied              when the form was sent out  
@@ -60,6 +59,13 @@ Testers that have been requested to complete feedback:
 |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 
 
+
+
+
+
+
+
+
 final set of Testers:
     
                 name             Type of Audience:(Technical/Non-technical)                          course/job                            why they where chosen                       age                           progress
@@ -68,6 +74,7 @@ final set of Testers:
 |-----------------------------|--------------------------------------------------|---------------------------------------------------|----------------------------------|----------------------------------|---------------------------|
 |raheesh                      | technical Audience                               | T-level digital design and production             |              have                |                19                |  un-finised               |
 |zach                         | non-technical Audience(lie)                      | T-level digital design and production             |              have                |                17                |  un-finised               |
+
 
 tester feedback:
      name                                                        question                                                            feedback
