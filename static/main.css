@@ -6,13 +6,13 @@
     font-family: "Arial", sans-serif;
     font-size: 1.2em;
     text-decoration: none;
-    background: linear-gradient(90deg, #ff00cc, #333399, #00ffcc, #ff00cc);
+    background: linear-gradient(90deg, #ff00cc, #333399, #00ffcc,#333399, #ff00cc);
     background-size: 400%;
     color: white;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: colorShift 3s infinite;
+    animation: colorShift 30s infinite; /* Changed speed from 3s to 1.5s */
 }
 
 @keyframes colorShift {
@@ -25,6 +25,13 @@
     100% {
         background-position: 0% 50%;
     }
+}
+
+.gradient-navbar {
+    background: linear-gradient(90deg, #ff00cc, #333399, #00ffcc, #333399, #ff00cc);
+    background-size: 400%;
+    animation: colorShift 30s infinite;
+    height: 5px; /* Added height */
 }
   
 .cookie-consent button {

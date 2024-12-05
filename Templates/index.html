@@ -5,11 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %}Home Page{% endblock %}</title>
     <link rel="stylesheet" href="/static/main.css" />
-    <script>
-      if (localStorage.getItem("theme") === "dark") {
-        document.documentElement.classList.add("dark-mode");
-      }
-    </script>
   </head>
 
   <body>
@@ -44,7 +39,7 @@
       <a href="/login" style="color: #c9c8c8; float: right">Login</a>
       {% endif %}
     </nav>
-    <div class="navbar" style="background: linear-gradient(135deg,#ff00cc, #333399,#03ffff); color: #ffffff;"></div>
+    <div class="gradient-navbar"></div>
 
     {% block content %}
     <div style="text-align: center; padding: 20px">
