@@ -1,120 +1,3 @@
-
-.cookie-consent {
-    display: none;
-}
-.synth-wave-text, .synth-wave-text * {
-    font-size: 1em;  text-decoration: none;
-    background: linear-gradient(90deg, #ff00cc, #333399, #00ffcc,#333399, #ff00cc);
-    background-size: 400%;
-    color: white;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: colorShift 30s infinite; /* Changed speed from 3s to 1.5s */
-}
-
-@keyframes colorShift {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-  }
-
-  .project-card {
-    border: 2px solid #a32cc4;
-    border-radius: 8px;
-    padding: 20px;
-    background-color: white;
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-
-  .project-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  }
-
-  .project-card h3 {
-    color: black;
-    font-size: 1.5rem;
-  }
-
-  .project-card p {
-    font-size: 1.1rem;
-  }
-  .project-card h4 {
-    color: black;
-  }
-
-
-
-.gradient-navbar {
-    background: linear-gradient(90deg, #ff00cc, #333399, #00ffcc, #333399, #ff00cc);
-    background-size: 400%;
-    animation: colorShift 30s infinite;
-    height: 5px; /* Added height */
-}
-  
-.cookie-consent button {
-    background-color: #8e6be0;
-    border: none;
-    border-radius: 4px;
-    color: white;
-    cursor: pointer;
-    padding: 10px 20px;
-    margin-top: 10px;
-}
-
-.dark-mode .cookie-consent div {
-    background-color: #333;
-    color: white;
-}
-.dark-mode .table {
-    width: 100%;
-    border-collapse: collapse;
-    border-left: 100px;
-  }
-.table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.table th,
-.table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-}
-
-.table th {
-    background-color: #f2f2f2;
-    color: #333;
-}
-
-body.dark-mode .table th {
-    background-color: #444;
-    color: #fff;
-}
-
-body.dark-mode .table td {
-    background-color: #333;
-    color: #fff;
-}
-.cookie-consent div {
-    background-color: white;
-
-    color: #333;
-}
 .advice {
     margin: 0 auto;
     text-align: center;
@@ -133,15 +16,31 @@ body.dark-mode {
     color: #ffffff;
 }
 
-.container {
-    background-color: #ffffff;
-    color: #333333;
+body.dark-mode .table td {
+    background-color: #333;
+    color: #fff;
+}
+
+body.dark-mode .table th {
+    background-color: #444;
+    color: #fff;
+}
+
+body.dark-mode .overlay-content {
+    background-color: #333;
+    color: #fff;
+}
+
+body.light-mode .overlay-content {
+    background-color: #fff;
+    color: #000;
 }
 
 .container {
     background: #fff;
     border-radius: 5px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    color: #333333;
     margin: auto;
     margin-bottom: 200px;
     margin-top: 20px;
@@ -151,6 +50,25 @@ body.dark-mode {
 
 .content.dark-mode {
     background-color: #444444;
+}
+
+.cookie-consent {
+    display: none;
+}
+
+.cookie-consent button {
+    background-color: #8e6be0;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    margin-top: 10px;
+    padding: 10px 20px;
+}
+
+.cookie-consent div {
+    background-color: white;
+    color: #333;
 }
 
 .day {
@@ -163,6 +81,51 @@ body.dark-mode {
     width: 50px;
 }
 
+.dark-mode .cookie-consent div {
+    background-color: #333;
+    color: white;
+}
+
+.dark-mode .footer {
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+.dark-mode .h1 {
+    color: #ffffff;
+}
+
+.dark-mode .nav {
+    background-color: #1a1a1a;
+}
+
+.dark-mode .nav a {
+    color: #C9C8C8;
+}
+
+.dark-mode .nav a:hover {
+    background-color: #444444;
+    color: #ffffff;
+}
+
+.dark-mode .table {
+    border-collapse: collapse;
+    border-left: 100px;
+    width: 100%;
+}
+
+.dark-mode .welcome {
+    background-color: #333333;
+}
+
+.dark-mode .welcome h1 {
+    color: #ffffff;
+}
+
+.dark-mode .welcome p {
+    color: #C9C8C8;
+}
+
 .footer {
     background-color: #333333;
     bottom: 0;
@@ -171,6 +134,7 @@ body.dark-mode {
     padding: 10px;
     position: fixed;
     text-align: center;
+    transition: transform 0.3s ease-in-out;
     width: 100%;
 }
 
@@ -191,15 +155,12 @@ body.dark-mode {
     border: 1px solid #ffffff;
 }
 
-.form-group {
-    margin-bottom: 20px;
-}
-.footer {
-    transition: transform 0.3s ease-in-out;
-}
-
 .footer.hidden {
     transform: translateY(100%);
+}
+
+.form-group {
+    margin-bottom: 20px;
 }
 
 .form-group input,
@@ -222,13 +183,26 @@ body.dark-mode {
     margin-bottom: 5px;
 }
 
-.health-advice {
-    border-top: 1px solid #ccc;
-    padding-top: 20px;
+.forecast {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+
+.gradient-navbar {
+    animation: colorShift 30s infinite;
+    background: linear-gradient(90deg, #ff00cc, #333399, #00ffcc, #333399, #ff00cc);
+    background-size: 400%;
+    height: 5px; /* Added height */
 }
 
 .h1 {
     color: #333333;
+}
+
+.health-advice {
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
 }
 
 .main {
@@ -258,10 +232,10 @@ body.dark-mode {
 .navbar {
     align-items: center;
     background-color: #907ad6;
+    box-shadow: 0 0 10px #907ad6;
     display: flex;
     justify-content: space-between;
     padding: 10px;
-    box-shadow: 0 0 10px #907ad6;
 }
 
 .navbar a {
@@ -290,33 +264,82 @@ body.dark-mode {
     width: 500px;
 }
 
-body.dark-mode .overlay-content {
-    background-color: #333;
-    color: #fff;
+.projects-grid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
-body.light-mode .overlay-content {
-    background-color: #fff;
-    color: #000;
+.project-card {
+    background-color: white;
+    border: 2px solid #a32cc4;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card h3 {
+    color: black;
+    font-size: 1.5rem;
+}
+
+.project-card h4 {
+    color: black;
+}
+
+.project-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: scale(1.05);
+}
+
+.project-card p {
+    font-size: 1.1rem;
 }
 
 .sidebar.dark-mode {
     background-color: #333333;
 }
 
-.welcome {
-    background-color: #ffffff;
-    margin-bottom: 20px;
-    padding: 50px;
-    text-align: center;
+.synth-wave-text, .synth-wave-text * {
+    animation: colorShift 30s infinite; /* Changed speed from 3s to 1.5s */
+    background: linear-gradient(90deg, #ff00cc, #333399, #00ffcc, #333399, #ff00cc);
+    background-clip: text;
+    background-size: 400%;
+    color: white;
+    font-size: 1em;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-decoration: none;
 }
 
-.welcome h1 {
-    color: #333333;
+.table {
+    border-collapse: collapse;
+    width: 100%;
 }
 
-.welcome p {
-    color: #666666;
+.table th,
+.table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.table th {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+@keyframes colorShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -347,42 +370,17 @@ body.light-mode .overlay-content {
     }
 }
 
-.dark-mode .footer {
-    background-color: #1a1a1a;
-    color: #ffffff;
+.welcome {
+    background-color: #ffffff;
+    margin-bottom: 20px;
+    padding: 50px;
+    text-align: center;
 }
 
-.dark-mode .h1 {
-    color: #ffffff;
+.welcome h1 {
+    color: #333333;
 }
 
-.dark-mode .nav {
-    background-color: #1a1a1a;
-}
-
-.dark-mode .nav a {
-    color: #C9C8C8;
-}
-
-.dark-mode .nav a:hover {
-    background-color: #444444;
-    color: #ffffff;
-}
-
-.dark-mode .welcome {
-    background-color: #333333;
-}
-
-.dark-mode .welcome h1 {
-    color: #ffffff;
-}
-
-.dark-mode .welcome p {
-    color: #C9C8C8;
-}
-
-.forecast {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px 0;
+.welcome p {
+    color: #666666;
 }
