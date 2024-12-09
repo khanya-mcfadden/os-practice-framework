@@ -8,8 +8,7 @@
   </head>
 
   <body>
-    <div class="welcome ">  
-
+    <div class="welcome">
       <div style="display: flex; align-items: center; justify-content: center">
         <h1>Welcome to my website framework!</h1>
         <img
@@ -21,7 +20,7 @@
       </div>
     </div>
 
-    <nav class="nav" >
+    <nav class="nav">
       <a href="/" style="color: #c9c8c8">Home</a>
       <a href="/about" style="color: #c9c8c8">About</a>
       <a href="/courses" style="color: #c9c8c8">courses</a>
@@ -58,6 +57,31 @@
       </div>
     </div>
 
+    <section id="projects" class="section bg-light">
+      <div class="container" style="max-width: 1200px; margin: bottom">
+        <h2 style="text-align: center">Featured Projects</h2>
+        <div
+          class="projects-grid"
+          style="display: flex; gap: 20px; justify-content: center"
+        >
+          <div class="project-card" style="flex: 1; width: 500px">
+            <h3>weather api</h3>
+            <h4>Build a weather station with Raspberry Pi and Python.</h4>
+          </div>
+          <div class="project-card" style="flex: 1; width: 500px">
+            <h3>learning java</h3>
+            <h4>
+              starting to learn javascript     
+            </h4>
+          </div>
+          <div class="project-card" style="flex: 1; width: 500px">
+            <h3>web development</h3>
+            <h4>learn how to create a stunning web page</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+
     {% if not request.cookies.get('cookie_consent') %}
     <div
       id="cookie-consent"
@@ -90,24 +114,38 @@
     {% endif %} {% endblock %}
     <div class="footer">
       <footer>
-        <section id="themes" style="padding: 5px">
-          <h4 style="margin: 5px 0">Contact Us</h4>
-          <hr style="margin: 5px 0" />
-           Email:
-           <p class="synth-wave-text" >
-           
+        <section id="themes" style="padding: 1px">
+         <h4 style="margin: 1px 0">Contact Us</h4>
+          <hr style="margin: 1px 0" />
+          Email:
+          <p class="synth-wave-text">
             <a href="mailto:khanyamcf@gmail.com">khanyamcf@gmail.com</a>
           </p>
-          <h5 style="margin: 5px; float: right">Toggle Dark/Light Mode</h5>
+            <h5 style="margin: 1px; font-size: 12px">Toggle Dark/Light Mode</h5>
             <button
             class="toggle style"
             onclick="toggleDarkMode()"
-            style="margin-bottom: 1px; float: right"
+            style="margin-bottom: 1px; font-size: 12px"
             >
             Toggle dark mode
             </button>
-        </section>
 
+        <script>
+          const footer = document.querySelector('.footer');
+          let lastScrollTop = 0;
+
+          window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop < lastScrollTop) {
+              footer.classList.remove('hidden');
+            } else {
+              footer.classList.add('hidden');
+            }
+            lastScrollTop = scrollTop;
+          });
+        </script>
+
+        </section>
         <script>
           function toggleDarkMode() {
             var elements = document.querySelectorAll(

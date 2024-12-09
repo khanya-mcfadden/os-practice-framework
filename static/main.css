@@ -3,9 +3,7 @@
     display: none;
 }
 .synth-wave-text, .synth-wave-text * {
-    font-family: "Arial", sans-serif;
-    font-size: 1.2em;
-    text-decoration: none;
+    font-size: 1em;  text-decoration: none;
     background: linear-gradient(90deg, #ff00cc, #333399, #00ffcc,#333399, #ff00cc);
     background-size: 400%;
     color: white;
@@ -26,6 +24,39 @@
         background-position: 0% 50%;
     }
 }
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+
+  .project-card {
+    border: 2px solid #a32cc4;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: white;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .project-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .project-card h3 {
+    color: black;
+    font-size: 1.5rem;
+  }
+
+  .project-card p {
+    font-size: 1.1rem;
+  }
+  .project-card h4 {
+    color: black;
+  }
+
+
 
 .gradient-navbar {
     background: linear-gradient(90deg, #ff00cc, #333399, #00ffcc, #333399, #ff00cc);
@@ -162,6 +193,13 @@ body.dark-mode {
 
 .form-group {
     margin-bottom: 20px;
+}
+.footer {
+    transition: transform 0.3s ease-in-out;
+}
+
+.footer.hidden {
+    transform: translateY(100%);
 }
 
 .form-group input,
