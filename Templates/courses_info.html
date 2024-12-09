@@ -11,7 +11,7 @@
     </head>
 
     <body>
-      <div style="text-align: center">
+      <div style="text-align: center; font-size: 24px;">
         <h1>Welcome to Codderdojo here are our top courses</h1>
       </div>
       <br />
@@ -26,31 +26,23 @@
           <p>basics in python</p>
           <img src="static\image 3(python logo).png" alt="python" />
           <br />
-          <a href="#">edit course...</a>
         </div>
         <div class="course-card" onclick="openOverlay('web-design')">
           <h3>WEB DESIGN</h3>
           <p>beginings into web-design</p>
-            <img src="static\image 4 (html logo.png" alt="python" style="width: 120px; height: auto;" />
+          <img
+            src="static\image 4 (html logo.png"
+            alt="python"
+            style="width: 120px; height: auto"
+          />
           <br />
-          <a href="#">edit course...</a>
         </div>
         <div class="course-card" onclick="openOverlay('javascript')">
           <h3>JavaScript</h3>
           <p>starting to learn javascript</p>
           <img src="static\image 6 (java script logo).png" alt="python" />
           <br />
-          <a href="#">edit course...</a>
         </div>
-        <!-- <div class="course-card" onclick="openOverlay('add-course')">
-            <h3>Add Course</h3> 
-            <a href="#">edit course...</a>
-        </div>
-        <div class="add-course">+</div>
-        <div class="add-course">+</div>
-        <div class="add-course">+</div>
-        <div class="add-course">+</div>
-    </div> -->
       </div>
 
       <div id="overlay" class="overlay">
@@ -68,6 +60,7 @@
       padding: 0;
       background-color: #f0f0f0;
     }
+
 
     .navbar {
       background-color: #907ad6;
@@ -102,14 +95,17 @@
     }
 
     .course-card {
-      background-color: #d5c1ed;
+      background-color: #8f7ad631;
       width: 200px;
       height: 200px;
       margin: 10px;
       padding: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 0 10px #907ad6;
       text-align: center;
       cursor: pointer;
+      margin-top: auto;
+      margin-bottom: 200px;
+      
     }
 
     .course-card h3 {

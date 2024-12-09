@@ -8,7 +8,8 @@
   </head>
 
   <body>
-    <div class="welcome">
+    <div class="welcome ">  
+
       <div style="display: flex; align-items: center; justify-content: center">
         <h1>Welcome to my website framework!</h1>
         <img
@@ -20,11 +21,11 @@
       </div>
     </div>
 
-    <nav class="nav">
+    <nav class="nav" >
       <a href="/" style="color: #c9c8c8">Home</a>
       <a href="/about" style="color: #c9c8c8">About</a>
       <a href="/courses" style="color: #c9c8c8">courses</a>
-      <a href="/health_page" style="color: #c9c8c8">weather</a>
+      <a href="/weather_page" style="color: #c9c8c8">weather</a>
       {% if authenticated %}
       <a href="/Orderingpage" style="color: #c9c8c8">Ordering</a>
       <a href="/BookingPage" style="color: #c9c8c8">Booking</a>
@@ -38,7 +39,8 @@
       <a href="/login" style="color: #c9c8c8; float: right">Login</a>
       {% endif %}
     </nav>
-    <div class="navbar"></div>
+    <div class="gradient-navbar"></div>
+
     {% block content %}
     <div style="text-align: center; padding: 20px">
       <p>We are glad to have you here. Explore and enjoy your stay!</p>
@@ -91,21 +93,21 @@
         <section id="themes" style="padding: 5px">
           <h4 style="margin: 5px 0">Contact Us</h4>
           <hr style="margin: 5px 0" />
-          <p style="margin: 5px 0">
-            Email:
-            <a href="mailto:khanyamcf@gmail.com" style="color: #3f3ffa"
-              >khanyamcf@gmail.com</a
-            >
+           Email:
+           <p class="synth-wave-text" >
+           
+            <a href="mailto:khanyamcf@gmail.com">khanyamcf@gmail.com</a>
           </p>
-          <h5 style="margin: 5px 0">Toggle Dark/Light Mode</h5>
-          <button
-            calss="toggle style"
+          <h5 style="margin: 5px; float: right">Toggle Dark/Light Mode</h5>
+            <button
+            class="toggle style"
             onclick="toggleDarkMode()"
-            style="margin-bottom: 5px"
-          >
+            style="margin-bottom: 1px; float: right"
+            >
             Toggle dark mode
-          </button>
+            </button>
         </section>
+
         <script>
           function toggleDarkMode() {
             var elements = document.querySelectorAll(

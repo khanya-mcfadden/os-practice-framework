@@ -2,7 +2,38 @@
 .cookie-consent {
     display: none;
 }
+.synth-wave-text, .synth-wave-text * {
+    font-family: "Arial", sans-serif;
+    font-size: 1.2em;
+    text-decoration: none;
+    background: linear-gradient(90deg, #ff00cc, #333399, #00ffcc,#333399, #ff00cc);
+    background-size: 400%;
+    color: white;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: colorShift 30s infinite; /* Changed speed from 3s to 1.5s */
+}
 
+@keyframes colorShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.gradient-navbar {
+    background: linear-gradient(90deg, #ff00cc, #333399, #00ffcc, #333399, #ff00cc);
+    background-size: 400%;
+    animation: colorShift 30s infinite;
+    height: 5px; /* Added height */
+}
+  
 .cookie-consent button {
     background-color: #8e6be0;
     border: none;
@@ -17,7 +48,37 @@
     background-color: #333;
     color: white;
 }
+.dark-mode .table {
+    width: 100%;
+    border-collapse: collapse;
+    border-left: 100px;
+  }
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
 
+.table th,
+.table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.table th {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+body.dark-mode .table th {
+    background-color: #444;
+    color: #fff;
+}
+
+body.dark-mode .table td {
+    background-color: #333;
+    color: #fff;
+}
 .cookie-consent div {
     background-color: white;
 
@@ -162,6 +223,7 @@ body.dark-mode {
     display: flex;
     justify-content: space-between;
     padding: 10px;
+    box-shadow: 0 0 10px #907ad6;
 }
 
 .navbar a {

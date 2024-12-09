@@ -8,18 +8,17 @@
 {% block content %}
 
 <body>
-    <div class="navbar"></div>
     <div class="container1" style="display: flex; justify-content: center; align-items: center; min-height: 50px;">
         <div class="forecast" id="forecast">
         </div>
     </div>
-    <div class="container" style="max-width: 1000px;">
+    <div class="container" >
         <h1>How to deal with the season: <span id="season"></span></h1>
         <div class="advice-box" id="advice-box"> </div>
     </div>
     <script>
         const apiKey = '0f98d01acd0e41818d8124023242111';
-        const apiUrl = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=horsham&days=6&aqi=no`;
+        const apiUrl = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=horsham&days=4&aqi=no`;
 
         fetch(apiUrl)
             .then(response => response.json())
@@ -123,14 +122,16 @@
     .forecast {
         display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: left;
     }
 
     .weather-card {
         background-color: white;
+        margin: 10px;
         padding: 20px;
+        width: 300px;
         border-radius: 10px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 5px #ffffff;
         text-align: center;
     }
 
@@ -155,6 +156,19 @@
         max-width: 600px;
         margin: 20px auto;
         padding: 20px;
+    }
+    .container {
+        max-width: 1000px;
+        display: flex;
+        justify-content:space-around;
+        height: 500px;
+        align-items: center;
+        text-align: center;
+        box-shadow: #ffffff;
+        background-size: 400% 400%;
+        animation: gradientShift 15s ease infinite;
+        border: 2px solid;
+        border-radius: 10px;
     }
 </style>
 

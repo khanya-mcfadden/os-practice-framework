@@ -6,13 +6,15 @@
 {% block content %}
 
 <div>
-    <div class="container" style="display: flex; justify-content: center; align-items: center; height: 50vh;">
+    <div class="container" >
         <form action="/login" method="POST">
             <h1>Login</h1>
             <div class="textboxdiv input">
+                <label for="username">Username</label><br>
                 <input type="text" name="username" placeholder="Username" required>
             </div>
             <div class="textboxdiv input">
+                <label for="password">Password</label><br>
                 <input type="password" name="password" placeholder="Password" required>
             </div>
             <input type="submit" value="login" class="loginbtn">
@@ -23,6 +25,28 @@
         </form>
     </div>
 </div>
+<style>
+    .container {
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+        height: 50vh; 
+        text-align: center;
+        box-shadow: 0 4px 30px linear-gradient(135deg, #ff00ff, #00ffff, #ff00ff);
+        background-size: 400% 400%;
+        animation: gradientShift 15s ease infinite;
+        border: 2px solid;
+        border-image: linear-gradient(135deg, #ff00ff, #00ffff, #ff00ff) 1;
+        border-radius: 10px;
+    }
+
+    @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+    
+</style>
 <script>
     // Dark mode functionality
     function toggleDarkMode() {
