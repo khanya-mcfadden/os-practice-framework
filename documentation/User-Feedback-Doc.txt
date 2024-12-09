@@ -27,33 +27,85 @@ plans for feedback(non technical):
 | Microsoft Forms             | How would you rate the website's customer support and help resources?                               |Assesses the availability and helpfulness of support resources.                | 6-10        | 4-6           | <4                  | n/a           |
 |-----------------------------|-----------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 Plans for Feedback (Technical):
     Service                      Question                                                                                  How this will provide good feedback outputs                                       Outputs     
 |-----------------------------|-----------------------------------------------------------------------------------------|--------------------------------------------------------------------------------|-------------|---------------|---------------------|---------------|
 |what i am using for feedback |the question asked                                                                       |how the questions are valuable                                                  |posative     |   neutral     |    negative         |     other     |   
 |-----------------------------|-----------------------------------------------------------------------------------------|--------------------------------------------------------------------------------|-------------|---------------|---------------------|---------------|
+
+
+speed and ease of use
+
 | Microsoft Forms             | Did it take more or less time than expected to find what you were looking for?          | Helps evaluate navigation efficiency and identify user pain points.            | More time   | Less time     | Expected            | n/a           |
-| Microsoft Forms             | How easy was it for you to find your way through the website?                           | Provides insight into the effectiveness of the website structure.              | Very easy   | Somewhat easy | Not easy at all     | n/a           |
 | Microsoft Forms             | How useful do you find the website's content to be?                                     | Highlights areas where content could be improved or expanded.                  | Very        | Somewhat      | Not at all          | n/a           |
 | Microsoft Forms             | How easy or not did you find reading the website to be?                                 | Assesses readability and identifies potential design improvements.             | Easy        | OK            | Difficult           | Other feedback|
 | Microsoft Forms             | How clear is the content of our website?                                                | Ensures that language and messaging are understandable to users.               | Very clear  | Somewhat clear| Not clear           | n/a           |
 | Microsoft Forms             | How easy was it to find what you are looking for on our website?                        | Tests search functionality and organization of content.                        | Very easy   | Somewhat easy | Not easy at all     | n/a           |
 | Microsoft Forms             | If given the choice again today, would you still use our product?                       | Measures overall satisfaction and likelihood of return usage.                  | Yes         | Maybe         | No                  | Other feedback|
-| Microsoft Forms             | Did we meet your expectation of accessibility on the website?                           | Evaluates compliance with accessibility standards.                             | Yes         | Maybe         | No                  | n/a           |
+
+accessibility and visuals questions
+
+| Microsoft Forms             | Did we meet your expectation of readability on the website?                             | Evaluates compliance with accessibility standards.                             | 6-10        | 4-6           | <4                  | if not why    |
+
+| Microsoft Forms             | How appealing or not do you find the visual design of the website to be?                | Identifies strengths and weaknesses in aesthetic appeal.                       | Very        | Somewhat      | Not at all          | n/a           |
+
+
+
+
+genral
 | Microsoft Forms             | What would you change to improve our product?                                           | Gathers qualitative data for targeted improvements.                            | Text input  |               |                     |               |
 | Microsoft Forms             | Overall, how would you rate our product?                                                | Provides a general performance metric for user satisfaction.                   | 6-10        | 4-6           | <4                  | n/a           |
-| Microsoft Forms             | How appealing or not do you find the visual design of the website to be?                | Identifies strengths and weaknesses in aesthetic appeal.                       | Very        | Somewhat      | Not at all          | n/a           |
+
+developers questions
+
 | Microsoft Forms             | How would you describe our website from a developer's point of view?                    | Offers technical insights for backend or code optimization.                    | Text input  |               |                     |               |
 | Microsoft Forms             | Was the database response time fast enough?                                             | Identifies potential performance bottlenecks in the system.                    | Yes         | n/a           | No                  | n/a           |
-| Microsoft Forms             | Would this website be good for commercial use?                                          | Assesses overall readiness for deployment in a commercial context.             | Yes         | Maybe         | No                  | n/a           |
+| Microsoft Forms             | Would you pay to have this website  for commercial use?                                 | Assesses overall readiness for deployment in a commercial context.             | Yes         | Maybe         | No                  | n/a           |
 | Microsoft Forms             | How would you rate the website's security features?                                     | Evaluates the effectiveness of security measures in place.                     | 6-10        | 4-6           | <4                  | n/a           |
 | Microsoft Forms             | How would you rate the website's scalability?                                           | Assesses the ability of the website to handle increased traffic or load.       | 6-10        | 4-6           | <4                  | n/a           |    
-| Microsoft Forms             | How would you rate the website's performance, lack of stutters?                         | Evaluates the speed and responsiveness of the website.                         | 6-10        | 4-6           | <4                  | n/a           | 
-| Microsoft Forms             | How would you rate the usrability of the website?                                       | Assesses the ease of use and overall user experience.                          | 6-10        | 4-6           | <4                  | n/a           |
+| Microsoft Forms             | How would you rate the website's performance, for example a lack of stutters?           | Evaluates the speed and responsiveness of the website.                         | Text input  |               |                     |               |
 | Microsoft Forms             | How would you rate the website's code maintainability?                                  | Assesses how easy it is to update and maintain the website's codebase.         | 6-10        | 4-6           | <4                  | n/a           |
+| Microsoft Forms             | How would you rate the usability of the website?                                        | Assesses the ease of use and overall user experience.                          | 6-10        | 4-6           | <4                  | n/a           |
 | Microsoft Forms             | How would you rate the website's integration with third-party services?                 | Evaluates the effectiveness of API integrations and external service connections.| 6-10        | 4-6           | <4                  | n/a           |
 | Microsoft Forms             | How would you rate the website's error handling and debugging capabilities?             | Identifies the robustness of error handling and ease of debugging issues.      | 6-10        | 4-6           | <4                  | n/a           |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------|---------------|---------------------|---------------|
+
+user questions
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 Testers that have been requested to complete feedback:
