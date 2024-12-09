@@ -23,7 +23,38 @@
                 <input name="password" id="password" type="password" maxlength="20" minlength="8" required>
             </div>
             <button type="submit" id="submitBtn" >Register</button>
-        <!-- <script>
+        <script>
+            function toggleDarkMode() {
+                var elements = document.querySelectorAll(
+                    "body, .sidebar, .content, .cookie-consent, .container, .footer, .form-group, .h1, .nav, .navbar, .overlay-content, .welcome"
+                );
+                elements.forEach((element) => {
+                    element.classList.toggle("dark-mode");
+                });
+
+                var logo = document.getElementById("logo");
+                if (elements[0].classList.contains("dark-mode")) {
+                    localStorage.setItem("theme", "dark");
+                    logo.src = "/static/original Logo white.png";
+                } else {
+                    localStorage.setItem("theme", "light");
+                    logo.src = "/static/original Logo.png";
+                }
+            }
+
+            window.onload = function () {
+                if (localStorage.getItem("theme") === "dark") {
+                    var elements = document.querySelectorAll(
+                        "body, .sidebar, .content, .cookie-consent, .container, .footer, .form-group, .h1, .nav, .navbar, .overlay-content, .welcome"
+                    );
+                    elements.forEach((element) => {
+                        element.classList.add("dark-mode");
+                    });
+                    document.getElementById("logo").src =
+                        "/static/original Logo white.png";
+                }
+            };
+
             const form = document.querySelector('form');
             const submitBtn = document.getElementById('submitBtn');
 
@@ -55,7 +86,7 @@
                     }
                 });
             }
-        </script> -->
+        </script>
         </form>
     </div>
 

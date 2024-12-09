@@ -227,6 +227,15 @@
     
             alert("Cookies have been cleared.");
         }
+        document.querySelector('form[action="/change_password"]').addEventListener('submit', function(event) {
+            var newPassword = document.getElementById('new_password').value;
+            var confirmPassword = document.getElementById('confirm_password').value;
+
+            if (newPassword !== confirmPassword) {
+                event.preventDefault();
+                alert(' password inputs do not match.');
+            }
+        });
     </script>
     {% endblock %}
 </body>
