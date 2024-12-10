@@ -3,7 +3,6 @@
     - Stock images of students from Google
     - Company logos taken from respective company websites/pages
     - personal logo was made with ai logomaker https://ailogomaker.io/app
-
     - google maps assets was taken from the Google
     - text has no particular assest location it is standards
     - all other asssets are standard 
