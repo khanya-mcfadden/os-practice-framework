@@ -8,7 +8,7 @@ plans for feedback(non technical):
 
 
 
-speed and use
+speed and usability
 |-----------------------------|----------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------|-------------|---------------|---------------------|---------------|
 | Microsoft Forms             | Did it take more or less time than expected to find what you were looking for?                                                         | Helps evaluate navigation efficiency and identify user pain points.            | More time   | Less time     | Expected            | n/a           |
 | Microsoft Forms             | How useful do you find the website's content to be?                                                                                    | Highlights areas where content could be improved or expanded.                  | Very        | Somewhat      | Not at all          | n/a           |
