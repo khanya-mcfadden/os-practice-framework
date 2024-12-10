@@ -9,39 +9,37 @@
     <div class="container" style="display: flex; justify-content: center; align-items: center; height: 50vh;">
         <form method="POST" action="/Sign-Up">
             <h2 style="text-align: center;">sign up</h2>
+            
+            <!-- Username Field -->
             <div class="inputbox" style="text-align: center;">
                 <label for="username">Username:</label>
                 <input name="username" id="username" type="text" maxlength="15" minlength="3" required>
             </div>
+            
+            <!-- Email Field -->
             <div class="inputbox">
                 <label for="email">Email</label>
-                <input name="email" id="email" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                    title="Please enter a valid email address with @ and .com" minlength="7" maxlength="50" required>
+                <input name="email" id="email" type="email" 
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" 
+                    title="Please enter a valid email address with @ and .com" 
+                    minlength="7" maxlength="50" required>
             </div>
+            
+            <!-- Password Field -->
             <div class="inputbox">
                 <label for="password">Password:</label>
-                <input name="password" id="password" type="password" maxlength="20" minlength="8" required>
+                <input name="password" id="password" type="password" 
+                    maxlength="20" minlength="8" 
+                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=,.]).{8,}" 
+                    title="Password must contain at least 8 characters, including uppercase, lowercase, digits, and special characters" 
+                    required>
             </div>
-            <button type="submit" id="submitBtn" >Register</button>
+
+            <!-- Submit Button -->
+            <button type="submit" id="submitBtn" disabled>Register</button>
+        </form>
+
         <script>
-            function toggleDarkMode() {
-                var elements = document.querySelectorAll(
-                    "body, .sidebar, .content, .cookie-consent, .container, .footer, .form-group, .h1, .nav, .navbar, .overlay-content, .welcome"
-                );
-                elements.forEach((element) => {
-                    element.classList.toggle("dark-mode");
-                });
-
-                var logo = document.getElementById("logo");
-                if (elements[0].classList.contains("dark-mode")) {
-                    localStorage.setItem("theme", "dark");
-                    logo.src = "/static/original Logo white.png";
-                } else {
-                    localStorage.setItem("theme", "light");
-                    logo.src = "/static/original Logo.png";
-                }
-            }
-
             window.onload = function () {
                 if (localStorage.getItem("theme") === "dark") {
                     var elements = document.querySelectorAll(
@@ -50,20 +48,22 @@
                     elements.forEach((element) => {
                         element.classList.add("dark-mode");
                     });
-                    document.getElementById("logo").src =
-                        "/static/original Logo white.png";
+                    document.getElementById("logo").src = "/static/original Logo white.png";
                 }
             };
 
             const form = document.querySelector('form');
             const submitBtn = document.getElementById('submitBtn');
+            const inputs = form ? form.querySelectorAll('input') : [];
 
-            if (form) {
-                form.addEventListener('input', () => {
-                    const isValid = form.checkValidity();
-                    if (submitBtn) {
-                        submitBtn.disabled = !isValid;
-                    }
+            if (form && submitBtn) {
+                // Listen for input changes in all form fields
+                inputs.forEach(input => {
+                    input.addEventListener('input', () => {
+                        // Check if all inputs are valid
+                        const allValid = Array.from(inputs).every(input => input.checkValidity());
+                        submitBtn.disabled = !allValid; // Enable button only if all inputs are valid
+                    });
                 });
 
                 form.addEventListener('submit', async (e) => {
@@ -87,7 +87,7 @@
                 });
             }
         </script>
-        </form>
+
     </div>
 
     <style>
@@ -104,6 +104,7 @@
             border-radius: 10px;
         }
     </style>
+
     {% endblock %}
 </body>
 
