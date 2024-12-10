@@ -168,7 +168,7 @@
           window.onload = function () {
             if (localStorage.getItem("theme") === "dark") {
               var elements = document.querySelectorAll(
-                "body, .sidebar, .content, .cookie-consent, .container, .footer, .form-group, .h1, .nav, .navbar, .overlay-content, .welcome"
+                "*"
               );
               elements.forEach((element) => {
                 element.classList.add("dark-mode");

@@ -2,6 +2,7 @@ from datetime import datetime, timedelta
 import sqlite3
 from flask import (
     Flask,
+    jsonify,
     make_response,
     redirect,
     render_template,
@@ -539,6 +540,31 @@ def set_cookie():
     response = make_response(redirect(url_for("index")))
     response.set_cookie("cookie_consent", "true", max_age=60 * 60 * 24 * 365)  # 1 year
     return response
+
+@app.route("/search", methods=["GET"])
+def search():
+    if "username" not in session or not session.get("admin"):
+        return redirect(url_for("login"))
+
+    query = request.args.get("q", "").lower()
+    connection = sqlite3.connect("users.db")
+    cursor = connection.cursor()
+
+    # Search users
+    cursor.execute("SELECT id, username, email FROM users WHERE LOWER(username) LIKE ? OR LOWER(email) LIKE ?", 
+                    (f"%{query}%", f"%{query}%"))
+    users = cursor.fetchall()
+
+    # Search courses 
+    cursor.execute("SELECT course_id, course_name, course_description FROM courses WHERE LOWER(course_name) LIKE ? OR LOWER(course_description) LIKE ?",
+                    (f"%{query}%", f"%{query}%"))
+    courses = cursor.fetchall()
+
+    connection.close()
+    return jsonify({
+        "users": users,
+        "courses": courses
+    })
 
 # Error handler for 404
 @app.errorhandler(404)
