@@ -1,4 +1,5 @@
 from datetime import datetime, timedelta
+import os
 import sqlite3
 from flask import (
     Flask,
@@ -7,6 +8,7 @@ from flask import (
     redirect,
     render_template,
     request,
+    send_from_directory,
     session,
     url_for,
 )
@@ -565,6 +567,10 @@ def search():
         "users": users,
         "courses": courses
     })
+    
+@app.route("/favicon.ico")
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, "static"), "favicon.ico")
 
 # Error handler for 404
 @app.errorhandler(404)
