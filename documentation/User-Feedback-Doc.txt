@@ -59,6 +59,120 @@ finale ratings
 
 
 
+Technical Questions
+-----------------------
+These questions focus on the technical aspects of the website, including performance, security, integration, and system reliability.
+
+1. Technical Performance (Questions 7-9)
+   - Strengths: Combines subjective experience with concrete measurements.
+   - Areas for Improvement: More technical specifications can be added.
+   - Implementation: Add server-side monitoring to complete the feedback provided by the users.
+   - Impact: Crucial to retaining user interaction and minimizing abandonment.
+
+2. Security & Data Protection (Questions 23-26)
+   - Strengths: Covers perceived and technical security aspects.
+   - Areas for Improvement: Could have more specific security scenarios.
+   - Implementation: Introduction of security audit questions for technical users.
+   - Impact: Critical to building trust and ensuring compliance.
+
+3. Integration & Performance (Questions 27-30)
+   - Strengths: Thorough coverage of system performance.
+   - Areas for Improvement: More integration scenarios could be added.
+   - Implementation: Consider adding technical performance measures.
+   - Impact: Fundamental to system reliability and scalability.
+
+4. Data Security Questions (from feedback file)
+   - Would you say that the data is stored securely? 
+     - Purpose: Offers insights on backend and security measures.
+   - If the data was not stored securely, what would you recommend to improve it? 
+     - Purpose: Collects user suggestions to enhance data security.
+   - Was the database response time fast enough? 
+     - Purpose: Identifies potential performance bottlenecks.
+   - If the response time was not fast enough, what would you recommend to improve it? 
+     - Purpose: Provides user-driven suggestions for response time enhancements.
+
+5. Security Features Questions (from feedback file)
+   - How would you rate the website's security features? 
+     - Purpose: Measures the effectiveness of security measures.
+   - If you rated security below 5, what could be improved to raise that score? 
+     - Purpose: Gathers feedback on security-related improvements.
+   - Do you feel that your data, particularly your password, was protected? 
+     - Purpose: Evaluates user perception of data protection.
+
+6. Commercial Viability (Questions 15-16)
+   - Could this website be used for commercial purposes? 
+     - Purpose: Assesses readiness for commercial deployment.
+   - If not, please explain why. 
+     - Purpose: Gathers feedback to identify gaps in commercial usability.
+
+
+Non-Technical Questions
+-----------------------
+
+
+
+1. Navigation & User Flow Questions (Questions 1-3)
+   - Strengths: Direct measurement of the experience regarding finding information by the users.
+   - Areas for Improvement: Could include specific timing metrics.
+   - Implementation: Perhaps include heat mapping or user journey tracking.
+   - Impact: Critical because it would prevent bounce rates and improve the retention of users.
+
+2. Content Clarity & Quality (Questions 4-6)
+   - Strengths: Covers both general content and specific functionalities.
+   - Areas for Improvement: Could add questions about specific content sections.
+   - Implementation: Consider A/B testing different content presentations.
+   - Impact: Conversion rates and user satisfaction are directly impacted.
+
+3. Accessibility & Visual Design (Questions 10-14)
+   - Strengths: Covers both functional and aesthetic aspects comprehensively.
+   - Areas of Improvement: Could be more specific accessibility standards.
+   - Implementation: Consider adding automated accessibility testing.
+   - Impact: Necessary for compliance and inclusive user experience.
+
+4. Feature Requests & Error Reporting (Questions 17-19)
+   - Strengths: Captures both desired improvements and current problems.
+   - Areas for Improvement: Would be good to include prioritization mechanisms.
+   - Implementation: Feature voting system could be implemented.
+   - Impact: Very useful for product roadmap planning.
+
+5. User Experience Questions (from feedback file)
+   - How useful do you find the website's content? 
+     - Purpose: Highlights areas for content improvement.
+   - How easy or difficult did you find reading the website? 
+     - Purpose: Assesses readability and potential design improvements.
+   - How clear is the content of our website? 
+     - Purpose: Ensures that language and messaging are understandable.
+   - Did you encounter any broken links or error pages? 
+     - Purpose: Identifies issues with navigation and link integrity.
+
+6. Accessibility & Visuals Questions (from feedback file)
+   - Did we meet your expectation of readability on the website? 
+     - Purpose: Evaluates compliance with accessibility standards.
+   - How would you rate the visuals of the webpage? 
+     - Purpose: Gathers user feedback on visual design.
+   - If you rated visuals below 5, what could be improved? 
+     - Purpose: Collects specific suggestions to improve readability.
+   - How appealing or not do you find the visual design of the website? 
+     - Purpose: Identifies aesthetic strengths and weaknesses.
+
+7. General Questions (from feedback file)
+   - What do you like most about our product? 
+     - Purpose: Identifies the most appreciated features and areas of strength.
+   - What would you change to improve our product? 
+     - Purpose: Collects user suggestions for targeted improvements.
+   - Overall, how would you rate our product? 
+     - Purpose: Provides a general performance metric for user satisfaction.
+
+---
+
+ Summary of Key Differences
+| Category         | Technical Questions                                              | Non-Technical Questions                                    |
+|------------------|------------------------------------------------------------------|------------------------------------------------------------|
+| Focus            | Performance, security, integration, and system reliability       | Usability, aesthetics, accessibility, and content clarity  |
+| Key Topics       | Technical performance, database security, server-side monitoring | Navigation, content clarity, visual appeal, readability    |
+| Examples         | "Is the database response time fast enough?"                     | "How clear is the content of our website?"                 |
+| Implementation   | Server monitoring, technical audit tools                         | A/B testing, accessibility enhancements                    |
+|------------------|------------------------------------------------------------------|------------------------------------------------------------|
 
 
 
