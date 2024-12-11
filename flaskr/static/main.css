@@ -302,6 +302,7 @@ body.light-mode .overlay-content {
     border-image: linear-gradient(135deg, #ff00ff, #00ffff, #ff00ff) 1;
 }
 
+
 .synth-wave-text, .synth-wave-text * {
     animation: colorShift 30s infinite; /* Changed speed from 3s to 1.5s */
     background: linear-gradient(90deg, #ff00cc, #333399, #00ffcc, #333399, #ff00cc);
