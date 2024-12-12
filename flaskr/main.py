@@ -12,6 +12,7 @@ from flask import (
     session,
     url_for,
 )
+import requests
 from werkzeug.security import generate_password_hash, check_password_hash
 import re
 
@@ -572,11 +573,31 @@ def search():
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'), 'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
+@app.route("/weather_page")
+def weather_page():
+    return render_template("weather_page.html")
+
+
+@app.route("/weather_data")
+def get_weather_data():
+    api_key = '0f98d01acd0e41818d8124023242111'
+    url = f'https://api.weatherapi.com/v1/forecast.json?key={api_key}&q=horsham&days=4&aqi=no'
+    try:
+        response = requests.get(url)
+        response.raise_for_status()  # Raises an HTTPError if the status is 4xx, 5xx
+        return jsonify(response.json())
+    except requests.exceptions.RequestException as e:
+        return jsonify({"error": "Failed to fetch weather data", "details": str(e)})
+
+
+
 # Error handler for 404
 @app.errorhandler(404)
 def page_not_found(_):
     app.logger.error(f"Page not found: {request.url}")
     return render_template("404.html"), 404
+
+
 if __name__ == "__main__":
     initialize()
     app.run(debug=True, host="0.0.0.0")
