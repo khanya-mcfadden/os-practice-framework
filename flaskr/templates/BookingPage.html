@@ -1,82 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
-
-{% extends "index.html" %}
-{% block title %}Booking page{% endblock %}
-
+{% extends "index.html" %} {% block title %}Booking Page{% endblock %} 
 {% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Page</title>
+    <style>
+        form {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            margin: 0 auto; /* Center the form */
+        }
+
+        h1 {
+            color: #908E8E;
+        }
+
+        p {
+            color: #908E8E;
+        }
+
+        label {
+            color: #908E8E;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        select,
+        input[type="date"],
+        input[type="time"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box; /* Ensure padding is included in width */
+        }
+
+        button {
+            color: #fff;
+            background-color: #8f7ad6a3;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%; /* Make button full width on mobile */
+            box-sizing: border-box; /* Ensure padding is included in width */
+        }
+
+        button:hover {
+            background-color: #7a68c1;
+        }
+
+        @media (max-width: 600px) {
+            form {
+            padding: 15px;
+            }
+
+            button {
+            padding: 10px;
+            }
+        }
+
+    </style>
+</head>
 
 <body>
-    <form method="POST" action="/BookingPage" style="font-family: Arial, sans-serif;
-        padding: 100px; 
-        box-sizing: border-box;
-        min-height: 100px;
-        max-width: 100%;
-        text-align: center;
-        position: absolute;
-        height: 500px;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        display: flex;
-        justify-content: center;
-        align-items: center;">
-        <h1 style="color: #908E8E;">Book a courses!</h1>
-        <p style="color: #908E8E;">Welcome to our booking page! Please select a course and date to make a reservation:
-        </p>
-        <ul>
+    <form method="POST" action="/BookingPage">
+        <h1>Book a course!</h1>
+        <p>Welcome to our booking page! Please select a course and date to make a reservation:</p>
+        <ul style="list-style: none; padding: 0;">
             <li>
-                <label for="courses" style="color: #908E8E;">Select a course:</label>
+                <label for="courses">Select a course:</label>
                 <select id="courses" name="courses" required>
                     <option value="">Select a course</option>
-                    {% for course_name  in courses %}
+                    {% for course_name in courses %}
                     <option value="{{ course_name }}">{{ course_name }}</option>
                     {% endfor %}
                 </select>
             </li>
             <li>
-                <label for="date" style="color: #908E8E;">Select a date:</label>
+                <label for="date">Select a date:</label>
                 <input type="date" id="date" name="date" required>
                 <input type="time" id="time" name="time" required>
             </li>
         </ul>
-        <button type="submit" style="color: #8f7ad6;">Book Now</button>
+        <button type="submit">Book Now</button>
     </form>
-    {% endblock %}
 
-<script>
-    const form = document.querySelector('form');
+    <script>
+        const form = document.querySelector('form');
 
-    if (form) {
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const course = document.getElementById('courses').value;
-            const date = document.getElementById('date').value;
+        if (form) {
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const course = document.getElementById('courses').value;
+                const date = document.getElementById('date').value;
 
-            if (!course || !date) {
-                alert('Please fill in all fields before submitting.');
-                return;
-            }
+                if (!course || !date) {
+                    alert('Please fill in all fields before submitting.');
+                    return;
+                }
 
-            const formAction = form.getAttribute('action');
-            const response = await fetch(formAction, {
-                method: 'POST',
-                body: new FormData(form)
+                const formAction = form.getAttribute('action');
+                const response = await fetch(formAction, {
+                    method: 'POST',
+                    body: new FormData(form)
+                });
+
+                if (!response.ok) {
+                    const message = await response.text();
+                    const overlay = document.createElement('div');
+                    overlay.style.cssText = 'position:fixed; top:20px; left:50%; transform:translateX(-50%); background:rgba(255,0,0,0.8); color:white; padding:15px; border-radius:5px; z-index:1000;';
+                    overlay.textContent = message;
+                    document.body.appendChild(overlay);
+                    setTimeout(() => overlay.remove(), 3000);
+                } else {
+                    window.location.href = '/ordering_confirm';
+                }
             });
-
-            if (!response.ok) {
-                const message = await response.text();
-                const overlay = document.createElement('div');
-                overlay.style.cssText = 'position:fixed; top:20px; left:50%; transform:translateX(-50%); background:rgba(255,0,0,0.8); color:white; padding:15px; border-radius:5px; z-index:1000;';
-                overlay.textContent = message;
-                document.body.appendChild(overlay);
-                setTimeout(() => overlay.remove(), 3000);
-            } else {
-                window.location.href = '/ordering_confirm';
-            }
-        });
-    }
-</script>
+        }
+    </script>
 </body>
 
 </html>
+{% endblock %}

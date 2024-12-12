@@ -292,7 +292,6 @@ def login():
 
     return render_template("login.html")
 
-
 @app.route("/Sign-Up", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -321,7 +320,7 @@ def register():
             return "Invalid characters in username, email or password", 400
         # Validate password strength
         if not re.match(
-            r"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$",
+            r"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=,.])[A-Za-z\d@#$%^&+=,.]{8,}$",
             password,
         ):
             return (

@@ -1,3 +1,44 @@
+html {
+    font-size: 16px;
+}
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 10px;
+        margin: 10px auto;
+    }
+
+    .welcome {
+        padding: 20px;
+    }
+
+    .overlay-content {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .footer {
+        padding: 5px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    html {
+        font-size: 14px;
+    }
+
+    .nav a {
+        padding: 10px 8px;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
+.main {
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
 .advice {
     margin: 0 auto;
     text-align: center;
@@ -9,6 +50,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    padding-bottom: 120px; 
 }
 
 body.dark-mode {
@@ -229,6 +271,61 @@ body.light-mode .overlay-content {
     color: black;
 }
 
+/* Responsive design */
+@media screen and (max-width: 768px) {
+    .nav a {
+        display: none; /* Hide normal nav links */
+    }
+
+    .responsive-link {
+        display: none; /* Hide the links that will go into the dropdown */
+    }
+
+    .nav-toggle {
+        display: block; /* Show the hamburger icon */
+        float: right;
+        background-color: #333;
+        color: #C9C8C8;
+        font-size: 30px;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+    }
+
+    .nav-toggle:hover {
+        background-color: #ddd;
+        color: black;
+    }
+
+    .dropdown-menu {
+        display: none; /* Hidden by default */
+        position: absolute;
+        top: 100%; /* Positions below the nav bar */
+        right: 0;
+        background-color: #333333;
+        width: 100%; /* Full width for mobile */
+    }
+
+    .dropdown-menu a {
+        float: none;
+        color: #C9C8C8;
+        padding: 14px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: block; /* Full width links */
+    }
+
+    .dropdown-menu a:hover {
+        background-color: #444;
+        color: white;
+    }
+}
+
+/* When dropdown is active, show the links */
+.dropdown-active {
+    display: block !important;
+}
+
 .navbar {
     align-items: center;
     background-color: #907ad6;
@@ -394,3 +491,24 @@ h2 {
 .dark-mode .h2 {
     color: #ffffff;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
