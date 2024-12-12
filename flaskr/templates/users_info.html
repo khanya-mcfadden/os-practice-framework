@@ -185,6 +185,31 @@ body.dark-mode h2 {
         </script>
       </form>
     </div>
+    <div class="bookings_info" >
+      <h2>Here is the information of all courses:</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>booking id</th>
+            <th>courses </th>
+            <th>username</th>
+            <th>date</th>
+            <th>time</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for booking in booking %}
+          <tr>
+            <td>{{ bookings[0] }}</td>
+            <td>{{ bookings[1] }}</td>
+            <td>{{ bookings[2] }}</td>
+            <td>{{ bookings[3] }}</td>
+            <td>{{ bookings[4] }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
 
     <div class="course_info courses">
       <h2>Here is the information of all courses:</h2>
