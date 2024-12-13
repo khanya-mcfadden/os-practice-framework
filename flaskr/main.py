@@ -133,6 +133,8 @@ def BookingPage_page():
     return render_template(
         "BookingPage.html", courses=[course[0] for course in courses]
     )
+
+
 @app.route("/unfinishedpagepage", methods=["GET", "POST"])
 def unfinishedpage_page():
     return render_template("unfinished.html")
