@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>{% block title %}Home Page{% endblock %}</title>
+  <link rel="stylesheet" href="/static/main.css" />
+</head>
+ 
+<body>
+  <div class="welcome">
+    <div style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap; padding: 10px">
+      <h1 style="text-align: center; margin: 10px">Welcome to my website framework!</h1>
+      <img id="logo" src="/static/original Logo.png" alt="comp website Logo"
+        style="margin: 10px; width: 80px; max-width: 100%; height: auto" />
+    </div>
+  </div>
+
+  <nav class="nav">
+    <div class="nav-left"></div>
+    <a href="/" style="color: #c9c8c8">Home</a>
+    <a href="/about" style="color: #c9c8c8">About</a>
+    <a href="/courses" style="color: #c9c8c8">courses</a>
+    <a href="/weather_page" style="color: #c9c8c8">weather</a>
+    <a href="/Orderingpage" style="color: #c9c8c8">Ordering</a>
+    <a href="/BookingPage" style="color: #c9c8c8">Booking</a>
+    {% if authenticated %}
+
+    <a href="/profile" style="color: #c9c8c8; float: right">Profile</a>
+
+    {% if admin %}
+    <a href="/usersinfo" style="color: #c9c8c8; float: right">User Info</a>
+    <a href="/test" style="color: #c9c8c8; float: right">Test</a>
+    {% endif %} {% else %}
+    <a href="/Sign-Up" style="color: #c9c8c8; float: right">Sign Up</a>
+    <a href="/login" style="color: #c9c8c8; float: right">Login</a>
+    {% endif %}
+  </nav>
+  <div class="gradient-navbar"></div>
+
+  {% block content %}
+  <div style="text-align: center; padding: 20px">
+    <p>We are glad to have you here. Explore and enjoy your stay!</p>
+    <div style="display: flex; justify-content: center; gap: 20px">
+      <img src="/static/image 1(coding child).png" alt="Image 1" style="width: auto; height: auto" />
+      <img src="/static/image 2(teacher and kids).png" alt="Image 2" style="width: auto; height: auto" />
+    </div>
+  </div>
+
+  <section id="projects" class="section bg-light">
+    <div class="container" style="max-width: 1200px; margin: bottom">
+      <h2 style="text-align: center">Featured Projects</h2>
+      <div class="projects-grid" style="display: flex; gap: 20px; justify-content: center">
+        <div class="project-card" style="flex: 1; width: 500px">
+          <h3>weather api</h3>
+          <h4>Build a weather station with Raspberry Pi and Python.</h4>
+        </div>
+        <div class="project-card" style="flex: 1; width: 500px">
+          <h3>learning java</h3>
+          <h4>
+            starting to learn javascript
+          </h4>
+        </div>
+        <div class="project-card" style="flex: 1; width: 500px">
+          <h3>web development</h3>
+          <h4>learn how to create a stunning web page</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {% if not request.cookies.get('cookie_consent') %}
+  <div id="cookie-consent" class="cookie-consent" style="
+        text-align: center;
+        position: fixed;
+        top: 0;
+        left: -50%;
+        width: 200%;
+        height: 100%;
+        display: flex;
+        backdrop-filter: blur(10px);
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+      ">
+    <div style="border-radius: 20px">
+      <p>
+        We use cookies to improve your experience.
+        <br />
+        By using our site, you agree to our use of cookies.
+      </p>
+      <form method="post" action="/set_cookie">
+        <button type="submit" class="btn">Accept</button>
+      </form>
+    </div>
+  </div>
+  {% endif %} {% endblock %}
+  <div class="footer">
+    <footer>
+      <section id="themes" style="padding: 1px">
+        <h4 style="margin: 1px 0">Contact Us</h4>
+        <hr style="margin: 1px 0" />
+        Email:
+        <p class="synth-wave-text">
+          <a href="mailto:khanyamcf@gmail.com">khanyamcf@gmail.com</a>
+        </p>
+        <h5 style="margin: 1px; font-size: 12px">Toggle Dark/Light Mode</h5>
+        <button class="toggle style" onclick="toggleDarkMode()" style="margin-bottom: 1px; font-size: 12px">
+          Toggle dark mode
+        </button>
+
+        <script>
+          const footer = document.querySelector('.footer');
+          let lastScrollTop = 0;
+
+          window.addEventListener('scroll', function () {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop < lastScrollTop) {
+              footer.classList.remove('hidden');
+            } else {
+              footer.classList.add('hidden');
+            }
+            lastScrollTop = scrollTop;
+          });
+        </script>
+
+      </section>
+      <script>
+        function toggleDarkMode() {
+          var elements = document.querySelectorAll(
+            "body, .sidebar, .content, .cookie-consent, .container, .footer, .form-group, .h1, .nav, .navbar, .overlay-content, .welcome"
+          );
+          elements.forEach((element) => {
+            element.classList.toggle("dark-mode");
+          });
+
+          var logo = document.getElementById("logo");
+          if (elements[0].classList.contains("dark-mode")) {
+            localStorage.setItem("theme", "dark");
+            logo.src = "/static/original Logo white.png";
+          } else {
+            localStorage.setItem("theme", "light");
+            logo.src = "/static/original Logo.png";
+          }
+        }
+
+        window.onload = function () {
+          if (localStorage.getItem("theme") === "dark") {
+            var elements = document.querySelectorAll(
+              "*"
+            );
+            elements.forEach((element) => {
+              element.classList.add("dark-mode");
+            });
+            document.getElementById("logo").src =
+              "/static/original Logo white.png";
+          }
+        };
+        const form = document.querySelector("form");
+        const submitBtn = document.getElementById("submitBtn");
+        
+      </script>
+    </footer>
+  </div>
+</body>
+
+</html>

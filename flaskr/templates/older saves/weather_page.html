@@ -16,9 +16,10 @@
         <h1>How to deal with the season: <span id="season"></span></h1>
         <div class="advice-box" id="advice-box"> </div>
     </div>
+    
     <script>
         const apiKey = '0f98d01acd0e41818d8124023242111';
-        const apiUrl = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=horsham&days=4&aqi=no`;
+        const apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=horsham&days=4&aqi=no`;
 
         fetch(apiUrl)
             .then(response => response.json())
@@ -162,6 +163,7 @@
         display: flex;
         justify-content:space-around;
         height: 500px;
+        margin-bottom: 30px;
         align-items: center;
         text-align: center;
         box-shadow: #ffffff;

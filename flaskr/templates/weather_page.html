@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% extends "index.html" %}
+    <title>{% block title %}Weather Page{% endblock %}</title>
+</head>
+{% block content %}
+
+<body>
+    <div class="container1" style="display: flex; justify-content: center; align-items: center; min-height: 50px;">
+        <div class="forecast" id="forecast">
+        </div>
+    </div>
+    <div class="container">
+        <h1>How to deal with the season: <span id="season"></span></h1>
+        <div class="advice-box" id="advice-box"> </div>
+    </div>
+    <script>
+        fetch('/weather_data')
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    console.error('Error fetching weather data:', data.details);
+                    document.getElementById('forecast').innerHTML = '<p>Failed to load weather data</p>';
+                    return;
+                }
+                const forecastContainer = document.getElementById('forecast');
+                forecastContainer.innerHTML = data.forecast.forecastday.map((day, index) => {
+                    const date = new Date(day.date);
+                    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                    const formattedDate = index === 0 ? 'Today' : date.toLocaleDateString('en-US', options);
+                    return `
+                        <div class="weather-card">
+                            <h2>${data.location.name} - ${formattedDate}</h2>
+                            <img src="${day.day.condition.icon}" alt="Weather Icon">
+                            <p>${day.day.condition.text}</p>
+                            <p>Max Temp: ${day.day.maxtemp_c}&deg;C</p>
+                            <p>Min Temp: ${day.day.mintemp_c}&deg;C</p>
+                        </div>
+                    `;
+                }).join('');
+            })
+            .catch(error => {
+                console.error('Error fetching weather data:', error);
+                document.getElementById('forecast').innerHTML = '<p>Failed to load weather data</p>';
+            });
+
+        const advice = {
+            winter: [
+                "Stay Warm: Dress in layers to keep warm and protect against the cold.",
+                "Hydrate: Drink plenty of water to stay hydrated, as indoor heating can cause dehydration.",
+                "Moisturize: Use moisturizers to prevent dry skin caused by cold weather and indoor heating.",
+                "Get Vaccinated: Ensure you are up-to-date with flu vaccinations to protect against seasonal flu."
+            ],
+            spring: [
+                "Allergy Management: Keep windows closed during high pollen days and take antihistamines if needed.",
+                "Stay Active: Take advantage of the mild weather to engage in outdoor activities like walking or cycling."
+            ],
+            summer: [
+                "Stay Hydrated: Drink plenty of water to stay hydrated in the heat.",
+                "Sun Protection: Wear sunscreen, hats, and sunglasses to protect against harmful UV rays."
+            ],
+            autumn: [
+                "Layer Up: Dress in layers to adjust to fluctuating temperatures.",
+                "Boost Immunity: Eat a diet rich in vitamins to strengthen your immune system for the cold season."
+            ]
+        };
+
+        function getSeason() {
+            const month = new Date().getMonth();
+            if (month >= 2 && month <= 4) return 'spring';
+            if (month >= 5 && month <= 7) return 'summer';
+            if (month >= 8 && month <= 10) return 'autumn';
+            return 'winter';
+        }
+
+        function displayAdvice() {
+            const season = getSeason();
+            document.getElementById('season').textContent = season;
+            const seasonAdvice = advice[season] || ["No advice available for this season."];
+            document.getElementById('advice-box').innerHTML = seasonAdvice.map(item => `<p>${item}</p>`).join('');
+        }
+
+        displayAdvice();
+    </script>
+
+    <style>
+        .forecast {
+            display: flex;
+            justify-content: center;
+            align-items: left;
+        }
+
+        .weather-card {
+            background-color: white;
+            margin: 10px;
+            padding: 20px;
+            width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 0 5px #ffffff;
+            text-align: center;
+        }
+
+        .weather-card img {
+            width: 80px;
+            height: 80px;
+            margin: 10px auto;
+        }
+
+        .weather-card h2 {
+            margin: 0;
+            color: #333;
+        }
+
+        .weather-card p {
+            margin: 10px 0;
+            color: #666;
+        }
+
+        .container1 {
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            display: flex;
+            justify-content: space-around;
+            height: 500px;
+            margin-bottom: 30px;
+            align-items: center;
+            text-align: center;
+            box-shadow: #ffffff;
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            border: 2px solid;
+            border-radius: 10px;
+        }
+    </style>
+
+</body>
+{% endblock %}
+
+</html>

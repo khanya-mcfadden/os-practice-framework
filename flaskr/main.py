@@ -1,14 +1,18 @@
 from datetime import datetime, timedelta
+import os
 import sqlite3
 from flask import (
     Flask,
+    jsonify,
     make_response,
     redirect,
     render_template,
     request,
+    send_from_directory,
     session,
     url_for,
 )
+import requests
 from werkzeug.security import generate_password_hash, check_password_hash
 import re
 
@@ -131,8 +135,14 @@ def BookingPage_page():
     )
 
 
+@app.route("/unfinishedpagepage", methods=["GET", "POST"])
+def unfinishedpage_page():
+    return render_template("unfinished.html")
+
 @app.route("/Orderingpage", methods=["GET", "POST"])
 def Orderingpage_page():
+    if "username" not in session:
+        return redirect(url_for("login"))
     return render_template("Orderingpage.html")
 
 
@@ -288,7 +298,6 @@ def login():
 
     return render_template("login.html")
 
-
 @app.route("/Sign-Up", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -317,7 +326,7 @@ def register():
             return "Invalid characters in username, email or password", 400
         # Validate password strength
         if not re.match(
-            r"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$",
+            r"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=,.])[A-Za-z\d@#$%^&+=,.]{8,}$",
             password,
         ):
             return (
@@ -540,11 +549,60 @@ def set_cookie():
     response.set_cookie("cookie_consent", "true", max_age=60 * 60 * 24 * 365)  # 1 year
     return response
 
+@app.route("/search", methods=["GET"])
+def search():
+    if "username" not in session or not session.get("admin"):
+        return redirect(url_for("login"))
+
+    query = request.args.get("q", "").lower()
+    connection = sqlite3.connect("users.db")
+    cursor = connection.cursor()
+
+    # Search users
+    cursor.execute("SELECT id, username, email FROM users WHERE LOWER(username) LIKE ? OR LOWER(email) LIKE ?", 
+                    (f"%{query}%", f"%{query}%"))
+    users = cursor.fetchall()
+
+    # Search courses 
+    cursor.execute("SELECT course_id, course_name, course_description FROM courses WHERE LOWER(course_name) LIKE ? OR LOWER(course_description) LIKE ?",
+                    (f"%{query}%", f"%{query}%"))
+    courses = cursor.fetchall()
+
+    connection.close()
+    return jsonify({
+        "users": users,
+        "courses": courses
+    })
+    
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'), 'favicon.ico', mimetype='image/vnd.microsoft.icon')
+
+@app.route("/weather_page")
+def weather_page():
+    return render_template("weather_page.html")
+
+
+@app.route("/weather_data")
+def get_weather_data():
+    api_key = '0f98d01acd0e41818d8124023242111'
+    url = f'https://api.weatherapi.com/v1/forecast.json?key={api_key}&q=horsham&days=4&aqi=no'
+    try:
+        response = requests.get(url)
+        response.raise_for_status()  # Raises an HTTPError if the status is 4xx, 5xx
+        return jsonify(response.json())
+    except requests.exceptions.RequestException as e:
+        return jsonify({"error": "Failed to fetch weather data", "details": str(e)})
+
+
+
 # Error handler for 404
 @app.errorhandler(404)
 def page_not_found(_):
     app.logger.error(f"Page not found: {request.url}")
     return render_template("404.html"), 404
+
+
 if __name__ == "__main__":
     initialize()
-    app.run(debug=True)
+    app.run(debug=True, host="0.0.0.0")

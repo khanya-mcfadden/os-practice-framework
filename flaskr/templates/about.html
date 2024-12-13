@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+{% extends "index.html" %}
+{% block title %}about-page{% endblock %}
+<html lang="en">
+{% block content %}
+
+<div class="content-container">
+    <div class="about-us">
+        <h2>About Us</h2>
+        <p>Welcome to this page. This would normally describe the company. but currently this is just a framework for
+            development so I'll give a short description of why I made it</p>
+    </div>
+    <div class="sidebar">
+        <h3>
+            <p>if you want to go to provide customer feedback</p>
+            <br>
+            <iframe width="640px" height="150px" click here
+                src="https://forms.office.com/Pages/ResponsePage.aspx?id=CdDIyR-2JUOW3P06doIHq_QNFVgP94xDloBOCNpImkBUNDEyT0NaTTVYRU9XMUVEQzkwRDZNVlVLTC4u&embed=true"
+                frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh"
+                allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
+            <p>you want to go to provide developer feedback</p>
+            <br>
+
+            <iframe width="640px" height="150px" click here
+                src="https://forms.office.com/Pages/ResponsePage.aspx?id=CdDIyR-2JUOW3P06doIHq_QNFVgP94xDloBOCNpImkBUMVNZTkFOUFhXU1VYUEhISVpDQk1WV1pQUi4u&embed=true"
+                frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh"
+                allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
+        </h3>
+
+        <!-- <h3>
+            <p>you want to go to provide developer feedback</p>
+            <br>
+            <iframe width="640px" height="480px" click here
+                src="https://forms.office.com/Pages/ResponsePage.aspx?id=CdDIyR-2JUOW3P06doIHq_QNFVgP94xDloBOCNpImkBUMVNZTkFOUFhXU1VYUEhISVpDQk1WV1pQUi4u&embed=true"
+                frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh"
+                allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
+        </h3> -->
+    </div>
+</div>
+
+<div class="map-container">
+    <iframe class="map-iframe"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2445.1131191753!2d0.12095979999999999!3d52.204991799999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d870962fa784a9%3A0x403c6bd21aef027!2s7%20Lion%20Yard%2C%20Cambridge%20CB2%203NA!5e0!3m2!1sen!2suk!4v1732194601170!5m2!1sen!2suk"
+        loading="lazy">
+    </iframe>
+</div>
+
+<script>
+    document.querySelector('.map-container').classList.add('loaded');
+</script>
+
+
+
+<!-- map css -->
+<style>
+    .map-container {
+        margin: 3rem auto;
+        margin-bottom: 50px;
+        max-width: 800px;
+        overflow: hidden;
+        position: relative;
+        border-radius: 16px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        background: linear-gradient(to bottom, #ffffff, #f8f9fa);
+        padding: 1rem;
+    }
+
+    .dark-mode .map-container {
+        background: linear-gradient(to bottom, #333333, #222222);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .map-iframe {
+        width: 100%;
+        height: 500px;
+        border-radius: 12px;
+        transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        transform: translateY(20px);
+        opacity: 0;
+        border: 2px solid #e5e7eb;
+    }
+
+    .dark-mode .map-iframe {
+        border: 2px solid #444444;
+        filter: brightness(0.8) contrast(1.2);
+    }
+
+    .map-container.loaded .map-iframe {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .content-container {
+        display: flex;
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: 3rem auto;
+        padding-left: 25px;
+    }
+</style>
+
+
+<!-- about us css -->
+<style>
+    .about-us {
+        text-align: center;
+        padding: 4rem 2rem;
+        background-color: #ffffff;
+        color: #333333;
+        border-radius: 16px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+        flex: 1;
+        margin-right: 1rem;
+    }
+
+    .about-us h2 {
+        font-size: 2.5rem;
+        color: #333333;
+        margin-bottom: 50px;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+    }
+
+    .about-us p {
+        font-size: 1.125rem;
+        color: #333333;
+        line-height: 1.8;
+        max-width: 600px;
+        margin: 0 auto;
+        letter-spacing: 0.01em;
+    }
+
+    .dark-mode .about-us {
+        background-color: #333333;
+        color: #ffffff;
+    }
+
+    .dark-mode .about-us h2 {
+        color: #ffffff;
+    }
+
+    .dark-mode .about-us p {
+        color: #ffffff;
+    }
+</style>
+
+<!-- sidebar css -->
+<style>
+    .sidebar {
+        width: 300px;
+        /* Increased from 200px to 300px */
+        background-color: #f5f5f5;
+        padding: 20px;
+        border-radius: 50px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+    }
+
+    .sidebar h3 {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .sidebar p {
+        margin: 10px 0;
+    }
+
+    .sidebar a {
+        text-decoration: none;
+        color: blueviolet;
+    }
+
+    .dark-mode .sidebar a {
+        color: #ffffff;
+    }
+
+    .sidebar .dark-mode {
+        background-color: #333333;
+        border-image: linear-gradient(135deg, #ff00ff, #00ffff, #ff00ff) 1;
+    }
+</style>
+
+</html>
+{% endblock %}

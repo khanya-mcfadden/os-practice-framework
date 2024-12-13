@@ -1,0 +1,514 @@
+html {
+    font-size: 16px;
+}
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 10px;
+        margin: 10px auto;
+    }
+
+    .welcome {
+        padding: 20px;
+    }
+
+    .overlay-content {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .footer {
+        padding: 5px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    html {
+        font-size: 14px;
+    }
+
+    .nav a {
+        padding: 10px 8px;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
+.main {
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.advice {
+    margin: 0 auto;
+    text-align: center;
+    width: 18%;
+}
+
+body {
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 120px; 
+}
+
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+body.dark-mode .table td {
+    background-color: #333;
+    color: #fff;
+}
+
+body.dark-mode .table th {
+    background-color: #444;
+    color: #fff;
+}
+
+body.dark-mode .overlay-content {
+    background-color: #333;
+    color: #fff;
+}
+
+body.light-mode .overlay-content {
+    background-color: #fff;
+    color: #000;
+}
+
+.container {
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    color: #333333;
+    margin: auto;
+    margin-bottom: 200px;
+    margin-top: 20px;
+    max-width: 450px;
+    padding: 20px;
+}
+
+.content.dark-mode {
+    background-color: #444444;
+}
+
+.cookie-consent {
+    display: none;
+}
+
+.cookie-consent button {
+    background-color: #8e6be0;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    margin-top: 10px;
+    padding: 10px 20px;
+}
+
+.cookie-consent div {
+    background-color: white;
+    color: #333;
+}
+
+.day {
+    text-align: center;
+    width: 18%;
+}
+
+.day img {
+    height: 50px;
+    width: 50px;
+}
+
+.dark-mode .cookie-consent div {
+    background-color: #333;
+    color: white;
+}
+
+.dark-mode .footer {
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+.dark-mode .h1 {
+    color: #ffffff;
+}
+
+.dark-mode .nav {
+    background-color: #1a1a1a;
+}
+
+.dark-mode .nav a {
+    color: #C9C8C8;
+}
+
+.dark-mode .nav a:hover {
+    background-color: #444444;
+    color: #ffffff;
+}
+
+.dark-mode .table {
+    border-collapse: collapse;
+    border-left: 100px;
+    width: 100%;
+}
+
+.dark-mode .welcome {
+    background-color: #333333;
+}
+
+.dark-mode .welcome h1 {
+    color: #ffffff;
+}
+
+.dark-mode .welcome p {
+    color: #C9C8C8;
+}
+
+.footer {
+    background-color: #333333;
+    bottom: 0;
+    color: #ffffff;
+    left: 0;
+    padding: 10px;
+    position: fixed;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+    width: 100%;
+}
+
+.footer a {
+    color: #C9C8C8;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: #ffffff;
+}
+
+.footer h4 {
+    margin: 10px 0;
+}
+
+.footer hr {
+    border: 1px solid #ffffff;
+}
+
+.footer.hidden {
+    transform: translateY(100%);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group input,
+.form-group select {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    color: #333333;
+    padding: 8px;
+    width: 100%;
+}
+
+.form-group input::placeholder {
+    color: #aaaaaa;
+}
+
+.form-group label {
+    color: #333333;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.forecast {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+
+.gradient-navbar {
+    animation: colorShift 30s infinite;
+    background: linear-gradient(90deg, #ff00cc, #333399, #00ffcc, #333399, #ff00cc);
+    background-size: 400%;
+    height: 5px; /* Added height */
+}
+
+.h1 {
+    color: #333333;
+}
+
+.health-advice {
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+}
+
+.main {
+    margin-left: 160px;
+    padding: 0px 10px;
+}
+
+.nav {
+    background-color: #333333;
+    overflow: hidden;
+}
+
+.nav a {
+    color: #C9C8C8;
+    display: block;
+    float: left;
+    padding: 14px 16px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.nav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+    .nav a {
+        display: none; /* Hide normal nav links */
+    }
+
+    .responsive-link {
+        display: none; /* Hide the links that will go into the dropdown */
+    }
+
+    .nav-toggle {
+        display: block; /* Show the hamburger icon */
+        float: right;
+        background-color: #333;
+        color: #C9C8C8;
+        font-size: 30px;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+    }
+
+    .nav-toggle:hover {
+        background-color: #ddd;
+        color: black;
+    }
+
+    .dropdown-menu {
+        display: none; /* Hidden by default */
+        position: absolute;
+        top: 100%; /* Positions below the nav bar */
+        right: 0;
+        background-color: #333333;
+        width: 100%; /* Full width for mobile */
+    }
+
+    .dropdown-menu a {
+        float: none;
+        color: #C9C8C8;
+        padding: 14px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: block; /* Full width links */
+    }
+
+    .dropdown-menu a:hover {
+        background-color: #444;
+        color: white;
+    }
+}
+
+/* When dropdown is active, show the links */
+.dropdown-active {
+    display: block !important;
+}
+
+.navbar {
+    align-items: center;
+    background-color: #907ad6;
+    box-shadow: 0 0 10px #907ad6;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.navbar a {
+    color: black;
+    font-size: 18px;
+    margin: 0 15px;
+    text-decoration: none;
+}
+
+.navbar .logo {
+    align-items: center;
+    display: flex;
+}
+
+.navbar .logo img {
+    height: 50px;
+    margin-right: 10px;
+}
+
+.overlay-content {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    position: relative;
+    width: 500px;
+}
+
+.projects-grid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.project-card {
+    background-color: white;
+    border: 2px solid #a32cc4;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card h3 {
+    color: black;
+    font-size: 1.5rem;
+}
+
+.project-card h4 {
+    color: black;
+}
+
+.project-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: scale(1.05);
+}
+
+.project-card p {
+    font-size: 1.1rem;
+}
+
+.sidebar.dark-mode {
+    background-color: #333333;
+    border-image: linear-gradient(135deg, #ff00ff, #00ffff, #ff00ff) 1;
+}
+
+
+.synth-wave-text, .synth-wave-text * {
+    animation: colorShift 30s infinite; /* Changed speed from 3s to 1.5s */
+    background: linear-gradient(90deg, #ff00cc, #333399, #00ffcc, #333399, #ff00cc);
+    background-clip: text;
+    background-size: 400%;
+    color: white;
+    font-size: 1em;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-decoration: none;
+}
+
+.table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.table th,
+.table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.table th {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+@keyframes colorShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .container {
+        background-color: #333333;
+        color: #ffffff;
+    }
+
+    .form-group input,
+    .form-group select {
+        background-color: #444444;
+        border-color: #555555;
+        color: #ffffff;
+    }
+
+    .form-group label {
+        color: #ffffff;
+    }
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+    .sidenav a {
+        font-size: 18px;
+    }
+}
+
+.welcome {
+    background-color: #ffffff;
+    margin-bottom: 20px;
+    padding: 50px;
+    text-align: center;
+}
+
+.welcome h1 {
+    color: #333333;
+}
+
+.welcome p {
+    color: #666666;
+}
+
+h2 {
+    color: #333333;
+}
+
+.dark-mode .h2 {
+    color: #ffffff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
