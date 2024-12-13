@@ -37,7 +37,20 @@
                     pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=,.]).{8,}" 
                     title="Password must contain at least 8 characters, including uppercase, lowercase, digits, and special characters" 
                     required>
+                <br>
+                <input type="checkbox" id="showPassword" onclick="togglePassword()"> Show Password
             </div>
+
+            <script>
+                function togglePassword() {
+                    var passwordField = document.getElementById("password");
+                    if (passwordField.type === "password") {
+                        passwordField.type = "text";
+                    } else {
+                        passwordField.type = "password";
+                    }
+                }
+            </script>
 
             <!-- Submit Button -->
             <button type="submit" id="submitBtn" >Register</button>

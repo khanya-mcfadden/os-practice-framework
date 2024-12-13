@@ -15,9 +15,21 @@
             </div>
             <div class="textboxdiv input">
                 <label for="password">Password</label><br>
-                <input type="password" name="password" placeholder="Password" required>
+                <input type="password" name="password" id="password" placeholder="Password" required>
+                <br>
+                <input type="checkbox" id="showPassword" onclick="togglePasswordVisibility()"> Show Password
             </div>
             <input type="submit" value="login" class="loginbtn">
+<script>
+    function togglePasswordVisibility() {
+        var passwordField = document.getElementById('password');
+        if (passwordField.type === 'password') {
+            passwordField.type = 'text';
+        } else {
+            passwordField.type = 'password';
+        }
+    }
+</script>
             <div>
                 <br>
                 <a href="/Sign-Up" style="color: #907AD6;">Don't have an account? Register</a>
