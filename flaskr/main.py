@@ -139,6 +139,8 @@ def unfinishedpage_page():
 
 @app.route("/Orderingpage", methods=["GET", "POST"])
 def Orderingpage_page():
+    if "username" not in session:
+        return redirect(url_for("login"))
     return render_template("Orderingpage.html")
 
 
