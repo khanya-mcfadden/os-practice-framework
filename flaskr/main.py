@@ -326,12 +326,12 @@ def register():
             return "Invalid characters in username, email or password", 400
         # Validate password strength
         if not re.match(
-            r"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=,.])[A-Za-z\d@#$%^&+=,.]{8,}$",
+            r"^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_\-+=<>?.,]).{8,}$",
             password,
         ):
             return (
-                "Password must contain at least 8 characters, including uppercase, lowercase, digits, and special characters.",
-                400,
+            "Password must contain at least 8 characters, including uppercase, lowercase, digits, and special characters.",
+            400,
             )
         # Hash the password
         hashed_password = generate_password_hash(password, method="pbkdf2:sha256")
