@@ -354,6 +354,7 @@ final set of Testers:
 |-----------------------------|--------------------------------------------------|---------------------------------------------------|----------------------------------|----------------------------------|---------------------------|
 |raheesh                      | technical Audience                               | T-level digital design and production             |              have                |                19                |  un-finised               |
 |zach                         | non-technical Audience(lie)                      | T-level digital design and production             |              have                |                17                |  un-finised               |
+|theo                         | technical                                        | T-level digital design amd production
 
 
 tester feedback:
