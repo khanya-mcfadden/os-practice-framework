@@ -451,8 +451,11 @@ Security Features:
 |zach/shane|while another rated it 3, suggesting "Don't put API keys in plain text."                  | Implement stronger security practices, such as encrypting sensitive data like API keys. |
 
 Error Handling and Debugging:
-|   user   |------------------------------------response----------------------------------------------|------------------------------------evaluation-------------------------------------------|
-| average  | ranged from 2 to 6. Users found the debugging process inadequate.                        | Enhance error logs and user-friendly error messages.                                    |
+|   user   |------------------------------------response----------------------------------------------|------------------------------------evaluation-----------------------------------------------------------------------------------------|
+| average  | ranged from 2 to 6. Users found the debugging process inadequate.                        | Enhance error logs and user-friendly error messages due to users encountering issues and not knowing how to fix or deal with them     |
+
+
+
 
 Integration with Third-Party Services:
 |   user   |------------------------------------response----------------------------------------------|------------------------------------evaluation-------------------------------------------|
