@@ -23,10 +23,12 @@ A basic website framework featuring an integrated purchasing system API and book
 ```bash
 # Cloning the repository
 git clone [repository-url]
+or
+download form the code tab in the git reposotory
 ```
 
 ## Usage
-1. after getting your hands on copy of the reposotry go to the file called maiun.py
+1. after getting your hands on copy of the reposotry go to the file called main.py
 2. in your prefered debugger run the main .py file 
 3. in the terminal there should be a temporary link to go to the website
 4. to end the process simply end the termianl that you where working in
@@ -34,7 +36,8 @@ git clone [repository-url]
 ## Contributing
 1. Fork the project
 2. Create feature branch
-3. Submit pull request
+3. Submit pull requests
+4. i am fine with people using my code just give credits 
 
 ## requierments and dependancys 
 flask
