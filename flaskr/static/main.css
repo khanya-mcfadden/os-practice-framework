@@ -309,29 +309,3 @@ input:hover {
         padding: 10px;
     }
 }
-
- Color List
-------------------
-body{
-/* Grayscale Colors */
-color: #ffffff;    /* White */
-color: #f9f9f9;    /* Off-white */
-color: #ddd;       /* Light gray */
-color: #ccc;       /* Light gray */
-color: #C9C8C8;    /* Light gray */
-color: #908E8E;    /* Gray */
-color: #444444;    /* Dark gray */
-color: #333333;    /* Darker gray */
-color: #1a1a1a;    /* Very dark gray */
-
-/* Purple Colors */
-color: #b4a8e4;    /* Light purple */
-color: #907ad6;    /* Purple */
-color: #8f7ad6a3;  /* Semi-transparent purple */
-color: #7a68c1;    /* Dark purple */
-color: #a32cc4;    /* Purple */
-
-/* Gradient Colors */
-color: #ff00ff;    /* Magenta - used in gradient */
-color: #00ffff;    /* Cyan - used in gradient */
-}
