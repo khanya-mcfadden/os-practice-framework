@@ -283,19 +283,27 @@ These questions focus on the technical aspects of the website, including perform
 
 2. Security & Data Protection (Questions 23-26)
 ----------------------------------------------
-   - Strengths: Covers perceived and technical security aspects.
-   - Areas for Improvement: Could have more specific security scenarios.
-   - Implementation: Introduction of security audit questions for technical users.
-   - Impact: Critical to building trust and ensuring compliance.
+   - Strengths: 
+      Covers perceived and technical security aspects.
+   - Areas for Improvement: 
+      Could have more specific security scenarios.
+   - Implementation: 
+      Introduction of security audit questions for technical users.
+   - Impact: 
+      Critical to building trust and ensuring compliance.
 
 
 
 3. Integration & Performance (Questions 27-30)
 ----------------------------------------------
-   - Strengths: Thorough coverage of system performance.
-   - Areas for Improvement: More integration scenarios could be added.
-   - Implementation: Consider adding technical performance measures.
-   - Impact: Fundamental to system reliability and scalability.
+   - Strengths: 
+      Thorough coverage of system performance.
+   - Areas for Improvement: 
+      More integration scenarios could be added.
+   - Implementation: 
+      Consider adding technical performance measures.
+   - Impact: 
+      Fundamental to system reliability and scalability.
 
 
 
