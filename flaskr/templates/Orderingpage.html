@@ -42,9 +42,10 @@
     
 </style>
 <body>
-    <h1 >Place Your Order</h1>
-    <form action="/Order" method="POST">
-        <!-- Customer Information -->
+
+    <form action="/Order" method="POST" style=" margin: 30px auto;">
+        <!-- Customer Information -->    
+        <h1>Place Your Order</h1>
         <div class="form-group">
             <label for="name">Full Name</label>
             <input type="text" id="name" name="name" placeholder="Enter your full name" required>
@@ -58,7 +59,7 @@
             <input type="text" id="address" name="address" placeholder="Enter your delivery address" required>
         </div>
         <!-- Product Selection -->
-        <div class="form-group">
+        <div class="form-group" style="color: #C9C8C8;">
             <label for="product">Select Product</label>
             <select id="product" name="product" required>
                 <option value="coffee">coffee </option>

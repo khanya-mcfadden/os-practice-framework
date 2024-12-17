@@ -197,6 +197,7 @@ button {
 button:hover {
     background-color: #7a68c1;
 }
+
 .inputbox{
     color: #fff;
     border: none;
@@ -208,7 +209,7 @@ button:hover {
 }
 input {
     color: #fff;
-    background-color: #C9C8C8;
+    background-color: #ffffff;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
