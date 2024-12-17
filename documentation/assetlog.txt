@@ -2,7 +2,8 @@
 1. images:
     - Stock images of students from Google
     - Company logos taken from respective company websites/pages
-    - personal logo was made with ai logomaker https://ailogomaker.io/app
+    - personal logo currantly used was made with ai logomaker https://ailogomaker.io/app#
+    - other logos where made with https://www.remove.bg/upload, https://looka.com/editor/206441161, https://www.craiyon.com/image/_jRCm7J_S52DSr4fgWxwmw, https://turbologo.com/?msockid=0dd8e2a1203568d1290ff7be218e6933, https://chatgpt.com/g/g-9i7ARxKhj-logo/c/67615bf6-2090-8005-b926-d64787709ff5
     - google maps assets was taken from the Google
     - text has no particular assest location it is standards
     - all other asssets are standard 
