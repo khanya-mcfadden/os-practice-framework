@@ -204,16 +204,14 @@ Testers that have been requested to complete feedback:
 |-----------------------------|--------------------------------------------------|---------------------------------------------------|----------------------------------|----------------------------------|
 |name of tester               |what the Audience of the feedback falls into      |                                                   | if they have or have not  replied| when the form was sent out       | 
 |-----------------------------|--------------------------------------------------|---------------------------------------------------|----------------------------------|----------------------------------|
-|tula                         | technical Audience                               |                                                   |              have not            |                                  |
-|theo                         | technical Audience                               |                                                   |              have not            |                                  |
-|raheesh                      | technical Audience                               |                                                   |              have                |                                  |
-|zach                         | non-technical Audience(lie)                      |                                                   |              have                |                                  |
-|luke                         | technical Audience                               |                                                   |              have not            |                                  |
-|gramps                       | non-technical Audience                           |                                                   |              have not            |                                  |
-|fin                          | non-technical Audience                           |                                                   |              have not            |                                  |
-|abbie                        | non-technical Audience                           |                                                   |              have not            |                                  |
-|joel                         | non-technical Audience                           |                                                   |              have not            |                                  |
-|Bonizewe                     | non-technical Audience                           |                                                   |              have not            |                                  |
+|theo                         | technical Audience                               |                                                   |              have                |  13/12/2024                      |
+|raheesh                      | technical Audience                               |                                                   |              have                |  13/12/2024                      |
+|zach                         | technical Audience                               |                                                   |              have                |  13/12/2024                      |
+|luke                         | technical Audience                               |                                                   |              have                |  13/12/2024                      |
+|shane                        | non-technical Audience                           |                                                   |              have                |  13/12/2024                      |
+|lee                          | non-technical Audience                           |                                                   |              have not            |  n/a                             |
+|ben                          | non-technical Audience                           |                                                   |              have not            |  n/a                             |
+|jess                         | non-technical Audience                           |                                                   |              have not            |  n/a                             |
 |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 
 
@@ -230,9 +228,10 @@ final set of Testers:
 |-----------------------------|--------------------------------------------------|---------------------------------------------------|----------------------------------|----------------------------------|---------------------------|
 |name of tester               |what the Audience of the feedback falls into      |what the tester dose for a living/learning         | why that tester was chosen       | the age of the tester            | the progress of the tester|
 |-----------------------------|--------------------------------------------------|---------------------------------------------------|----------------------------------|----------------------------------|---------------------------|
-|raheesh                      | technical Audience                               | T-level digital design and production             |              have                |                19                |  un-finised               |
-|zach                         | non-technical Audience(lie)                      | T-level digital design and production             |              have                |                17                |  un-finised               |
-|theo                         | technical                                        | T-level digital design amd production
+|raheesh                      | technical Audience                               | T-level digital design and production             |    technical experience          |                19                |  un-finised               |
+|zach                         | technical Audience                               | T-level digital design and production             |    technical experience          |                17                |     finised               |
+|theo                         | technical Audience                               | T-level digital design and production             |    technical experience          |                17                |  un-finised               |
+|shane                        | technical Audience                               | T-level digital design and production             |    technical experience          |                17                |     finised               |
 
 
 tester feedback:
