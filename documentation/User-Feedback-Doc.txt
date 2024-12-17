@@ -418,75 +418,101 @@ evaluation of Non-Technical Questions
      - Purpose: Provides a general performance metric for user satisfaction.
 
 
- Summary of Key Differences
-| Category         | Technical Questions                                              | Non-Technical Questions                                    |
-|------------------|------------------------------------------------------------------|------------------------------------------------------------|
-| Focus            | Performance, security, integration, and system reliability       | Usability, aesthetics, accessibility, and content clarity  |
-| Key Topics       | Technical performance, database security, server-side monitoring | Navigation, content clarity, visual appeal, readability    |
-| Examples         | "Is the database response time fast enough?"                     | "How clear is the content of our website?"                 |
-| Implementation   | Server monitoring, technical audit tools                         | A/B testing, accessibility enhancements                    |
-|------------------|------------------------------------------------------------------|------------------------------------------------------------|
-
-
-
 
 Detailed Question Analysis & Impact Assessment
 --------------------------------------------------------------------------------
 
 1. Navigation & User Flow Questions (Questions 1-3)
-- Strengths: Direct measurement of the experience regarding finding information by the users.
-- Areas for improvement: Could include specific timing metrics
-- Implementation: Perhaps include heat mapping or user journey tracking
-- Impact: Critical because it would prevent bounce rates and improve the retention of users.
+- Strengths: 
+    Direct measurement of the experience regarding finding information by the users.
+- Areas for improvement: 
+    Could include specific timing metrics
+- Implementation: 
+    Perhaps include heat mapping or user journey tracking
+- Impact: 
+    Critical because it would prevent bounce rates and improve the retention of users.
 
 2. Content Clarity & Quality (Questions 4-6)
-- Strengths: Covers both general content and specific functionalities
-- Areas for improvement: Could add questions about specific content sections
-- Implementation: Consider A/B testing different content presentations
-- Impact: Conversion rates, user satisfaction are impacted directly.
+- Strengths: 
+    Covers both general content and specific functionalities
+- Areas for improvement: 
+    Could add questions about specific content sections
+- Implementation: 
+    Consider A/B testing different content presentations
+- Impact:
+    Conversion rates, user satisfaction are impacted directly.
 
 3. Technical Performance (Questions 7-9)
-- Strengths: It combines subjective experience with concrete measurements.
-- Areas for Improvement: More technical specifications can be added.
-- Implementation: Add server-side monitoring to complete the feedback provided by the users.
-- Impact: Crucial to retaining user interaction and minimizing abandonment.
+- Strengths: 
+    It combines subjective experience with concrete measurements.
+- Areas for Improvement: 
+    More technical specifications can be added.
+- Implementation: 
+    Add server-side monitoring to complete the feedback provided by the users.
+- Impact: 
+    Crucial to retaining user interaction and minimizing abandonment.
 
 4. Accessibility & Visual Design (Questions 10-14)
-- Strengths: It covers both functional and aesthetic aspects comprehensively.
-- Areas of improvement: Could be specific accessibility standards
-- Implementation: Consider adding automated accessibility testing
-- Impact: Necessary for compliance and inclusive user experience
+- Strengths:
+     It covers both functional and aesthetic aspects comprehensively.
+- Areas of improvement:
+    Could be specific accessibility standards
+- Implementation: 
+    Consider adding automated accessibility testing
+- Impact: 
+    Necessary for compliance and inclusive user experience
 
 5. Commercial Viability (Questions 15-16)
-- Strengths: Direct assessment of business potential
-- Areas of improvement: Business metrics could be more specific
-- Implementation: Add questions about ROI and market comparisons
-- Impact: It is very critical in business planning and market positioning.
+- Strengths:
+    Direct assessment of business potential
+- Areas of improvement: 
+    Business metrics could be more specific
+- Implementation: 
+    Add questions about ROI and market comparisons
+- Impact: 
+    It is very critical in business planning and market positioning.
 
 6. Feature Requests & Error Reporting (Questions 17-19)
-- Strengths: Captures both desired improvements and current problems.
-- Areas of improvement: Would be good to include prioritization mechanisms
-- Implementation: Feature voting system could be implemented
-- Impact: Very useful for product roadmap planning
+- Strengths: 
+    Captures both desired improvements and current problems.
+- Areas of improvement: 
+    Would be good to include prioritization mechanisms
+- Implementation: 
+    Feature voting system could be implemented
+- Impact:
+    Very useful for product roadmap planning
 
 7. Security & Data Protection (Questions 23-26)
-- Strengths: Covers perceived and technical security aspects.
-- Areas for improvement: Could have more specific security scenarios.
-- Implementation: Introduction of security audit questions for technical users
-- Impact: Critical to building trust and ensuring compliance
+- Strengths: 
+    Covers perceived and technical security aspects.
+- Areas for improvement: 
+    Could have more specific security scenarios.
+- Implementation:
+    Introduction of security audit questions for technical users
+- Impact: 
+    Critical to building trust and ensuring compliance
 
 8. Integration & Performance (Questions 27-30)
-- Strengths: Thorough coverage of system performance
-- Areas for improvement: More integration scenarios could be added.
-- Implementation: Consider adding technical performance measures.
-- Impact: Fundamental to system reliability and scalability
+- Strengths:
+    Thorough coverage of system performance
+- Areas for improvement: 
+    More integration scenarios could be added.
+- Implementation:
+    Consider adding technical performance measures.
+- Impact:
+    Fundamental to system reliability and scalability
 
 Overall Assessment:
-- Distribution: Well-balanced between technical and non-technical issues
-- Coverage: Comprehensive across all major website aspects
-- Response Options: Good mix of quantitative and qualitative feedback
-- Actionability: High potential for concrete improvements
-- Missing Elements: Could be more questions about demographics and user context.
+- Distribution:
+    Well-balanced between technical and non-technical issues
+- Coverage: 
+    Comprehensive across all major website aspects
+- Response Options:
+    Good mix of quantitative and qualitative feedback
+- Actionability:
+    High potential for concrete improvements
+- Missing Elements:
+    Could be more questions about demographics and user context.
 
 Recommendations for Enhancement:
 1. Add user demographic questions
