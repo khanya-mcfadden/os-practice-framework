@@ -212,3 +212,19 @@ body .overlay-content {
     position: relative;
     width: 500px;
 }
+.container {
+    max-width: 1000px;
+    margin-top: 500px;
+    display: flex;
+    justify-content: space-around;
+    height: 500px;
+    margin: 0 auto;  /* This centers the container horizontally */
+    margin-bottom: 30px;
+    align-items: center;
+    text-align: center;
+    box-shadow: #ffffff;
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    border: 2px solid;
+    border-radius: 10px;
+}

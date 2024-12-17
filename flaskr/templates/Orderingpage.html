@@ -126,32 +126,6 @@
     </div>
 </body>
 <script>
-    function toggleDarkMode() {
-        var elements = document.querySelectorAll('body, .sidebar, .content');
-        elements.forEach(element => {
-            element.classList.toggle("dark-mode");
-        });
-
-        var logo = document.getElementById('logo');
-        if (elements[0].classList.contains("dark-mode")) {
-            localStorage.setItem("theme", "dark");
-            logo.src = "/static/original Logo white.png";
-        } else {
-            localStorage.setItem("theme", "light");
-            logo.src = "/static/original Logo.png";
-        }
-    }
-
-    window.onload = function () {
-        if (localStorage.getItem("theme") === "dark") {
-            var elements = document.querySelectorAll('body, .sidebar, .content');
-            elements.forEach(element => {
-                element.classList.add("dark-mode");
-            });
-            document.getElementById('logo').src = "/static/original Logo white.png";
-        }
-    }
-
     document.addEventListener('DOMContentLoaded', function () {
         const form = document.querySelector('form');
         const submitBtn = document.getElementById('submitBtn');
