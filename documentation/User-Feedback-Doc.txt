@@ -270,10 +270,14 @@ These questions focus on the technical aspects of the website, including perform
 
 1. Technical Performance (Questions 7-9)
 ----------------------------------------------
-   - Strengths: Combines subjective experience with concrete measurements.
-   - Areas for Improvement: More technical specifications can be added.
-   - Implementation: Add server-side monitoring to complete the feedback provided by the users.
-   - Impact: Crucial to retaining user interaction and minimizing abandonment.
+   - Strengths: 
+      Combines subjective experience with concrete measurements.
+   - Areas for Improvement: 
+      More technical specifications can be added.
+   - Implementation: 
+      Add server-side monitoring to complete the feedback provided by the users.
+   - Impact: 
+      Crucial to retaining user interaction and minimizing abandonment.
 
 
 
@@ -339,10 +343,14 @@ evaluation of Non-Technical Questions
 
 1. Navigation & User Flow Questions (Questions 1-3)
 ------------------------------------------------------
-   - Strengths: Direct measurement of the experience regarding finding information by the users.
-   - Areas for Improvement: Could include specific timing metrics.
-   - Implementation: Perhaps include heat mapping or user journey tracking.
-   - Impact: Critical because it would prevent bounce rates and improve the retention of users.
+   - Strengths: 
+      Direct measurement of the experience regarding finding information by the users.
+   - Areas for Improvement: 
+      Could include specific timing metrics.
+   - Implementation: 
+      Perhaps include heat mapping or user journey tracking.
+   - Impact:
+      Critical because it would prevent bounce rates and improve the retention of users.
 
 
 
@@ -350,20 +358,28 @@ evaluation of Non-Technical Questions
 
 2. Content Clarity & Quality (Questions 4-6)
 ------------------------------------------------
-   - Strengths: Covers both general content and specific functionalities.
-   - Areas for Improvement: Could add questions about specific content sections.
-   - Implementation: Consider A/B testing different content presentations.
-   - Impact: Conversion rates and user satisfaction are directly impacted.
+   - Strengths: 
+      Covers both general content and specific functionalities.
+   - Areas for Improvement: 
+      Could add questions about specific content sections.
+   - Implementation: 
+      Consider A/B testing different content presentations.
+   - Impact: 
+      Conversion rates and user satisfaction are directly impacted.
 
 
 
 
 3. Accessibility & Visual Design (Questions 10-14)
 -----------------------------------------------------
-   - Strengths: Covers both functional and aesthetic aspects comprehensively.
-   - Areas of Improvement: Could be more specific accessibility standards.
-   - Implementation: Consider adding automated accessibility testing.
-   - Impact: Necessary for compliance and inclusive user experience.
+   - Strengths:
+      Covers both functional and aesthetic aspects comprehensively.
+   - Areas of Improvement: 
+      Could be more specific accessibility standards.
+   - Implementation:
+      Consider adding automated accessibility testing.
+   - Impact:
+      Necessary for compliance and inclusive user experience.
 
 
 
@@ -371,10 +387,14 @@ evaluation of Non-Technical Questions
 
 4. Feature Requests & Error Reporting (Questions 17-19)
 ---------------------------------------------------------------------
-   - Strengths: Captures both desired improvements and current problems.
-   - Areas for Improvement: Would be good to include prioritization mechanisms.
-   - Implementation: Feature voting system could be implemented.
-   - Impact: Very useful for product roadmap planning.
+   - Strengths: 
+      Captures both desired improvements and current problems.
+   - Areas for Improvement:
+      Would be good to include prioritization mechanisms.
+   - Implementation: 
+      Feature voting system could be implemented.
+   - Impact: 
+      Very useful for product roadmap planning.
 
 
 
@@ -419,6 +439,13 @@ evaluation of Non-Technical Questions
 
 
 
+
+
+
+
+
+
+
 Detailed Question Analysis & Impact Assessment
 --------------------------------------------------------------------------------
 
@@ -432,6 +459,10 @@ Detailed Question Analysis & Impact Assessment
 - Impact: 
     Critical because it would prevent bounce rates and improve the retention of users.
 
+
+
+
+
 2. Content Clarity & Quality (Questions 4-6)
 - Strengths: 
     Covers both general content and specific functionalities
@@ -441,6 +472,10 @@ Detailed Question Analysis & Impact Assessment
     Consider A/B testing different content presentations
 - Impact:
     Conversion rates, user satisfaction are impacted directly.
+    
+
+
+
 
 3. Technical Performance (Questions 7-9)
 - Strengths: 
@@ -452,6 +487,10 @@ Detailed Question Analysis & Impact Assessment
 - Impact: 
     Crucial to retaining user interaction and minimizing abandonment.
 
+
+
+
+
 4. Accessibility & Visual Design (Questions 10-14)
 - Strengths:
      It covers both functional and aesthetic aspects comprehensively.
@@ -461,6 +500,10 @@ Detailed Question Analysis & Impact Assessment
     Consider adding automated accessibility testing
 - Impact: 
     Necessary for compliance and inclusive user experience
+
+
+
+
 
 5. Commercial Viability (Questions 15-16)
 - Strengths:
@@ -472,6 +515,10 @@ Detailed Question Analysis & Impact Assessment
 - Impact: 
     It is very critical in business planning and market positioning.
 
+
+
+
+
 6. Feature Requests & Error Reporting (Questions 17-19)
 - Strengths: 
     Captures both desired improvements and current problems.
@@ -481,6 +528,10 @@ Detailed Question Analysis & Impact Assessment
     Feature voting system could be implemented
 - Impact:
     Very useful for product roadmap planning
+
+
+
+
 
 7. Security & Data Protection (Questions 23-26)
 - Strengths: 
@@ -492,6 +543,10 @@ Detailed Question Analysis & Impact Assessment
 - Impact: 
     Critical to building trust and ensuring compliance
 
+
+
+
+
 8. Integration & Performance (Questions 27-30)
 - Strengths:
     Thorough coverage of system performance
@@ -501,6 +556,10 @@ Detailed Question Analysis & Impact Assessment
     Consider adding technical performance measures.
 - Impact:
     Fundamental to system reliability and scalability
+
+
+
+
 
 Overall Assessment:
 - Distribution:
@@ -514,6 +573,10 @@ Overall Assessment:
 - Missing Elements:
     Could be more questions about demographics and user context.
 
+
+
+
+
 Recommendations for Enhancement:
 1. Add user demographic questions
 2. Device/browser data collection
@@ -524,53 +587,39 @@ Recommendations for Enhancement:
 
 
 
-
-
 Technical Feedback
 
-Security Features:
+    Security Features:
 |   user   |------------------------------------response----------------------------------------------|------------------------------------evaluation-------------------------------------------|
 |   theo   |One user rated the website's security as 8, mentioning "Good practice,"                   | Implement stronger security practices, such as encrypting sensitive data like API keys. |
 |zach/shane|while another rated it 3, suggesting "Don't put API keys in plain text."                  | Implement stronger security practices, such as encrypting sensitive data like API keys. |
-
-Error Handling and Debugging:
+    Error Handling and Debugging:
 |   user   |------------------------------------response----------------------------------------------|------------------------------------evaluation-----------------------------------------------------------------------------------------|
 | average  | ranged from 2 to 6. Users found the debugging process inadequate.                        | Enhance error logs and user-friendly error messages due to users encountering issues and not knowing how to fix or deal with them     |
-
-
-Integration with Third-Party Services:
+    Integration with Third-Party Services:
 |   user   |------------------------------------response----------------------------------------------|------------------------------------evaluation-------------------------------------------|
 | average  | ranged from 6 to 7. Users appreciated integration efforts.issues with forms and api key  | Optimize third-party connections for seamless functionality.                            |
 
 
 
-
-
-
 Non-Technical Feedback
 |----------------------|
-
-Usability and Navigation:
+    Usability and Navigation:
 |   user   |------------------------------------response----------------------------------------------|------------------------------------evaluation-------------------------------------------|
 | Users    | "More time than expected" was the common response to navigation ease.                    | Simplify the navigation flow and improve booking visibility.                            |
-
-Visual Design:
+    Visual Design:
 |   user   |------------------------------------response----------------------------------------------|------------------------------------evaluation-------------------------------------------|
 | Users    | Comments highlight inconsistent layouts and complicated designs.                         | Streamline and unify the website layout.                                                |
-
-Positive Aspects:
+    Positive Aspects:
 |   user   |------------------------------------response----------------------------------------------|------------------------------------evaluation-------------------------------------------|
 | Users    | appreciated the "3 websites in one" feature but felt it needed better execution.         | Form functionalities were noticed but labeled as broken.                                |
-
-General Improvements Suggested:
+    General Improvements Suggested:
 |   user   |------------------------------------response----------------------------------------------|------------------------------------evaluation-------------------------------------------|
 | Users    | Enhance design and layout for better usability.                                          | Focus on specific areas instead of overloading the website with multiple functionalities.|
-
-Overall Ratings:
+    Overall Ratings:
 |   user   |------------------------------------response----------------------------------------------|------------------------------------evaluation-------------------------------------------|
 | Ratings  | Security: 3-8, Integration: 6-7, Product Recommendation: 1-5, Overall Rating: 4-7        | Address security flaws, invest in UI/UX redesign, and streamline functionalities.       |
-
-Action Items:
+    Action Items:
 |   user   |------------------------------------response----------------------------------------------|------------------------------------evaluation-------------------------------------------|
 | Actions  | Address security flaws and educate developers on secure coding practices.                | Invest in UI/UX redesign to simplify navigation and enhance aesthetics.                 |
 | Actions  | Streamline functionalities to focus on core features.                                    |                                                                                         |
