@@ -1,82 +1,19 @@
-.h2 {
-    color: #ffffff;
-}
-
-.sidebar {
-    background-color: #333333;
-    border-image: linear-gradient(135deg, #ff00ff, #00ffff, #ff00ff) 1;
-}
-
-
- .cookie-consent div {
-    background-color: #333;
-    color: white;
-}
-
- .footer {
-    background-color: #1a1a1a;
-    color: #ffffff;
-}
-
- .h1 {
-    color: #ffffff;
-}
-
- .nav {
-    background-color: #1a1a1a;
-}
-
- .nav a {
-    color: #C9C8C8;
-}
-
- .nav a:hover {
-    background-color: #444444;
-    color: #ffffff;
-}
-
- .table {
-    border-collapse: collapse;
-    border-left: 100px;
-    width: 100%;
-}
-
- .welcome {
-    background-color: #333333;
-}
-
- .welcome h1 {
-    color: #ffffff;
-}
-
- .welcome p {
-    color: #C9C8C8;
-}
-
-.content {
-    background-color: #444444;
-}
-
+/* Base styles */
 body {
     background-color: #444444;
     color: #ffffff;
 }
 
-body .table td {
-    background-color: #333;
-    color: #fff;
+/* Typography */
+.h1, .h2, .welcome h1 {
+    color: #ffffff;
 }
 
-body .table th {
-    background-color: #444;
-    color: #fff;
+h1, p {
+    color: #908E8E;
 }
 
-body .overlay-content {
-    background-color: #333;
-    color: #fff;
-}
-
+/* Navigation */
 .navbar {
     align-items: center;
     background-color: #907ad6;
@@ -102,6 +39,7 @@ body .overlay-content {
     height: 50px;
     margin-right: 10px;
 }
+
 .nav {
     background-color: #333333;
     overflow: hidden;
@@ -121,62 +59,38 @@ body .overlay-content {
     color: black;
 }
 
-/* Responsive design */
-@media screen and (max-width: 768px) {
-    .nav a {
-        display: none; /* Hide normal nav links */
-    }
-
-    .responsive-link {
-        display: none; /* Hide the links that will go into the dropdown */
-    }
-
-    .nav-toggle {
-        display: block; /* Show the hamburger icon */
-        float: right;
-        background-color: #333;
-        color: #C9C8C8;
-        font-size: 30px;
-        padding: 10px;
-        border: none;
-        cursor: pointer;
-    }
-
-    .nav-toggle:hover {
-        background-color: #ddd;
-        color: black;
-    }
-
-    .dropdown-menu {
-        display: none; /* Hidden by default */
-        position: absolute;
-        top: 100%; /* Positions below the nav bar */
-        right: 0;
-        background-color: #333333;
-        width: 100%; /* Full width for mobile */
-    }
-
-    .dropdown-menu a {
-        float: none;
-        color: #C9C8C8;
-        padding: 14px 20px;
-        text-align: center;
-        text-decoration: none;
-        display: block; /* Full width links */
-    }
-
-    .dropdown-menu a:hover {
-        background-color: #444;
-        color: white;
-    }
+/* Layout Components */
+.sidebar {
+    background-color: #333333;
+    border-image: linear-gradient(135deg, #ff00ff, #00ffff, #ff00ff) 1;
 }
 
+.content {
+    background-color: #444444;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    height: 500px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    box-shadow: #ffffff;
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    border: 2px solid;
+    border-radius: 10px;
+}
+
+/* Projects Section */
 .projects-grid {
     display: grid;
     gap: 20px;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
-
 .project-card {
     background-color: #ffffff;
     border: 2px solid #a32cc4;
@@ -185,25 +99,94 @@ body .overlay-content {
     text-align: center;
     transition: transform 0.3s, box-shadow 0.3s;
 }
-
-.project-card h3 {
-    color: black;
-    font-size: 1.5rem;
-}
-
-.project-card h4 {
-    color: black;
-}
-
 .project-card:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transform: scale(1.05);
 }
-
+.project-card h3 {
+    color: black;
+    font-size: 1.5rem;
+}
+.project-card h4 {
+    color: black;
+}
 .project-card p {
     font-size: 1.1rem;
 }
 
+
+/* Table Styles */
+.table {
+    border-collapse: collapse;
+    border-left: 100px;
+    width: 100%;
+}
+body .table td {
+    background-color: #333;
+    color: #fff;
+}
+body .table th {
+    background-color: #444;
+    color: #fff;
+}
+
+
+
+/* Forms */
+form {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    margin: 0 auto;
+}
+label {
+    color: #908E8E;
+    display: block;
+    margin-bottom: 5px;
+}
+select,
+input[type="date"],
+input[type="time"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+button {
+    color: #fff;
+    background-color: #8f7ad6a3;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+}
+button:hover {
+    background-color: #7a68c1;
+}
+
+/* Utility Classes */
+.welcome {
+    background-color: #333333;
+}
+.welcome p {
+    color: #C9C8C8;
+}
+.cookie-consent div {
+    background-color: #333;
+    color: white;
+}
+.footer {
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
 .overlay-content {
     background-color: #fff;
     border-radius: 5px;
@@ -212,19 +195,56 @@ body .overlay-content {
     position: relative;
     width: 500px;
 }
-.container {
-    max-width: 1000px;
-    margin-top: 500px;
-    display: flex;
-    justify-content: space-around;
-    height: 500px;
-    margin: 0 auto;  /* This centers the container horizontally */
-    margin-bottom: 30px;
-    align-items: center;
-    text-align: center;
-    box-shadow: #ffffff;
-    background-size: 400% 400%;
-    animation: gradientShift 15s ease infinite;
-    border: 2px solid;
-    border-radius: 10px;
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    .nav a {
+        display: none;
+    }
+    .responsive-link {
+        display: none;
+    }
+    .nav-toggle {
+        display: block;
+        float: right;
+        background-color: #333;
+        color: #C9C8C8;
+        font-size: 30px;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+    }
+    .nav-toggle:hover {
+        background-color: #ddd;
+        color: black;
+    }
+    .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: #333333;
+        width: 100%;
+    }
+    .dropdown-menu a {
+        float: none;
+        color: #C9C8C8;
+        padding: 14px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: block;
+    }
+    .dropdown-menu a:hover {
+        background-color: #444;
+        color: white;
+    }
+}
+@media (max-width: 600px) {
+    form {
+        padding: 15px;
+    }
+
+    button {
+        padding: 10px;
+    }
 }
