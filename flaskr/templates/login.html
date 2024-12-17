@@ -39,16 +39,18 @@
 </div>
 <style>
     .container {
-        display: flex; 
-        justify-content: center; 
-        align-items: center; 
-        height: 50vh; 
+        max-width: 500px;
+        display: flex;
+        justify-content: space-around;
+        height: 500px;
+        margin: 0 auto;  /* This centers the container horizontally */
+        margin-bottom: 30px;
+        align-items: center;
         text-align: center;
-        box-shadow: 0 4px 30px linear-gradient(135deg, #ff00ff, #00ffff, #ff00ff);
+        box-shadow: #ffffff;
         background-size: 400% 400%;
         animation: gradientShift 15s ease infinite;
         border: 2px solid;
-        border-image: linear-gradient(135deg, #ff00ff, #00ffff, #ff00ff) 1;
         border-radius: 10px;
     }
 
@@ -60,33 +62,7 @@
     
 </style>
 <script>
-    // Dark mode functionality
-    function toggleDarkMode() {
-        var elements = document.querySelectorAll('body, .sidebar, .content');
-        elements.forEach(element => {
-            element.classList.toggle("dark-mode");
-        });
 
-        var logo = document.getElementById('logo');
-        if (elements[0].classList.contains("dark-mode")) {
-            localStorage.setItem("theme", "dark");
-            logo.src = "/static/original Logo white.png";
-        } else {
-            localStorage.setItem("theme", "light");
-            logo.src = "/static/original Logo.png";
-        }
-    }
-
-    // Form handling and dark mode initialization
-    window.onload = function() {
-        // Dark mode initialization
-        if (localStorage.getItem("theme") === "dark") {
-            var elements = document.querySelectorAll('body, .sidebar, .content');
-            elements.forEach(element => {
-                element.classList.add("dark-mode");
-            });
-            document.getElementById('logo').src = "/static/original Logo white.png";
-        }
 
         // Form handling
         const form = document.querySelector('form');
@@ -120,7 +96,7 @@
                 }
             });
         }
-    }
+
 </script>
 {% endblock %}
 
