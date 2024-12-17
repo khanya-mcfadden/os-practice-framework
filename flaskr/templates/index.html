@@ -98,19 +98,33 @@
   </div>
   {% endif %} {% endblock %}
   <div class="footer">
-    <footer>
+    <footer id="footer" style="position: fixed; bottom: -100%; left: 0; width: 100%; transition: bottom 0.3s; background-color: inherit;">
       <section id="themes" style="padding: 1px">
-        <h4 style="margin: 1px 0">Contact Us</h4>
-        <hr style="margin: 1px 0" />
-        Email:
-        <p class="synth-wave-text">
-          <a href="mailto:khanyamcf@gmail.com">khanyamcf@gmail.com</a>
-        </p>
-        <h5 style="margin: 1px; font-size: 12px">Toggle Dark/Light Mode</h5>
-        <button class="toggle style" onclick="toggleDarkMode()" style="margin-bottom: 1px; font-size: 12px">
-          Toggle dark mode
-        </button>
-
+      <h4 style="margin: 1px 0">Contact Us</h4>
+      <hr style="margin: 1px 0" />
+      Email:
+      <p class="synth-wave-text">
+        <a href="mailto:khanyamcf@gmail.com">khanyamcf@gmail.com</a>
+      </p>
+      <h5 style="margin: 1px; font-size: 12px">Toggle Dark/Light Mode</h5>
+      <button class="toggle style" onclick="toggleDarkMode()" style="margin-bottom: 1px; font-size: 12px">
+        Toggle dark mode
+      </button>
+      </section>
+    </footer>
+    <script>
+      window.onscroll = function() {
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 100) {
+        document.getElementById('footer').style.bottom = '0';
+      } else {
+        document.getElementById('footer').style.bottom = '-100%';
+      }
+      };
+    </script>
+  </div>
+</body>
+</html>
+<!-- script for hiding footer when scrolling down 
         <script>
           const footer = document.querySelector('.footer');
           let lastScrollTop = 0;
@@ -124,46 +138,41 @@
             }
             lastScrollTop = scrollTop;
           });
-        </script>
+        </script> -->
 
-      </section>
-      <script>
-        function toggleDarkMode() {
-          var elements = document.querySelectorAll(
-            "body, .sidebar, .content, .cookie-consent, .container, .footer, .form-group, .h1, .nav, .navbar, .overlay-content, .welcome"
-          );
-          elements.forEach((element) => {
-            element.classList.toggle("dark-mode");
-          });
+<!-- darkmode script no longer in use
+<script>
+  function toggleDarkMode() {
+    var elements = document.querySelectorAll(
+      "body, .sidebar, .content, .cookie-consent, .container, .footer, .form-group, .h1, .nav, .navbar, .overlay-content, .welcome"
+    );
+    elements.forEach((element) => {
+      element.classList.toggle("dark-mode");
+    });
 
-          var logo = document.getElementById("logo");
-          if (elements[0].classList.contains("dark-mode")) {
-            localStorage.setItem("theme", "dark");
-            logo.src = "/static/original Logo white.png";
-          } else {
-            localStorage.setItem("theme", "light");
-            logo.src = "/static/original Logo.png";
-          }
-        }
+    var logo = document.getElementById("logo");
+    if (elements[0].classList.contains("dark-mode")) {
+      localStorage.setItem("theme", "dark");
+      logo.src = "/static/original Logo white.png";
+    } else {
+      localStorage.setItem("theme", "light");
+      logo.src = "/static/original Logo.png";
+    }
+  }
 
-        window.onload = function () {
-          if (localStorage.getItem("theme") === "dark") {
-            var elements = document.querySelectorAll(
-              "*"
-            );
-            elements.forEach((element) => {
-              element.classList.add("dark-mode");
-            });
-            document.getElementById("logo").src =
-              "/static/original Logo white.png";
-          }
-        };
-        const form = document.querySelector("form");
-        const submitBtn = document.getElementById("submitBtn");
-        
-      </script>
-    </footer>
-  </div>
-</body>
-
-</html>
+  window.onload = function () {
+    if (localStorage.getItem("theme") === "dark") {
+      var elements = document.querySelectorAll(
+        "*"
+      );
+      elements.forEach((element) => {
+        element.classList.add("dark-mode");
+      });
+      document.getElementById("logo").src =
+        "/static/original Logo white.png";
+    }
+  };
+  const form = document.querySelector("form");
+  const submitBtn = document.getElementById("submitBtn");
+  
+</script> -->
