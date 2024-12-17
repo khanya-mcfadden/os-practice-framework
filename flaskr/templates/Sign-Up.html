@@ -6,13 +6,12 @@
 {% block content %}
 
 <body>
-    <div class="container" style="display: flex; justify-content: center; align-items: center; height: 50vh;">
-        <form method="POST" action="/Sign-Up">
-            <h2 style="text-align: center;">sign up</h2>
-            <h3 style="text-align: center;">We are glad to have you here. currantly ther is about half a second to a second delay on sign up</h3>
+        <form method="POST" action="/Sign-Up" >
+            <h1>sign up</h1>
+            <h3>We are glad to have you here. currantly ther is about half a second to a second delay on sign up</h3>
             
             <!-- Username Field -->
-            <div class="inputbox" style="text-align: center;">
+            <div class="inputbox" >
                 <label for="username">Username:</label>
                 <br>
                 <input name="username" id="username" type="text" maxlength="15" minlength="3" required>
@@ -38,7 +37,7 @@
                     title="Password must contain at least 8 characters, including uppercase, lowercase, digits, and special characters" 
                     required>
                 <br>
-                <input type="checkbox" id="showPassword" onclick="togglePassword()"> Show Password
+                <h5><input type="checkbox" id="showPassword" onclick="togglePassword()"> Show Password</h5>
             </div>
 
             <script>
@@ -57,22 +56,6 @@
         </form>
 
 
-    </div>
-
-    <style>
-        .container {
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            height: 50vh; 
-            text-align: center;
-            background-size: 400% 400%;
-            animation: gradientShift 15s ease infinite;
-            border: 2px solid;
-            border-image: linear-gradient(135deg, #ff00ff, #00ffff, #ff00ff) 1;
-            border-radius: 10px;
-        }
-    </style>
 
     {% endblock %}
 </body>

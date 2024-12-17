@@ -5,13 +5,30 @@ body {
 }
 
 /* Typography */
-.h1, .h2, .welcome h1 {
+.h1,
+.h2,
+.welcome h1 {
     color: #ffffff;
 }
 
-h1, p {
+h1,
+p {
     color: #908E8E;
 }
+
+h2 {
+    color: #908E8E;
+}
+
+h3 {
+    color: #908E8E;
+}
+
+h5 {
+    color: #908E8E;
+}
+
+
 
 /* Navigation */
 .navbar {
@@ -78,9 +95,7 @@ h1, p {
     justify-content: space-around;
     align-items: center;
     text-align: center;
-    box-shadow: #ffffff;
     background-size: 400% 400%;
-    animation: gradientShift 15s ease infinite;
     border: 2px solid;
     border-radius: 10px;
 }
@@ -91,6 +106,7 @@ h1, p {
     gap: 20px;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
+
 .project-card {
     background-color: #ffffff;
     border: 2px solid #a32cc4;
@@ -99,17 +115,21 @@ h1, p {
     text-align: center;
     transition: transform 0.3s, box-shadow 0.3s;
 }
+
 .project-card:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transform: scale(1.05);
 }
+
 .project-card h3 {
     color: black;
     font-size: 1.5rem;
 }
+
 .project-card h4 {
     color: black;
 }
+
 .project-card p {
     font-size: 1.1rem;
 }
@@ -121,10 +141,12 @@ h1, p {
     border-left: 100px;
     width: 100%;
 }
+
 body .table td {
     background-color: #333;
     color: #fff;
 }
+
 body .table th {
     background-color: #444;
     color: #fff;
@@ -141,13 +163,15 @@ form {
     width: 100%;
     max-width: 400px;
     text-align: center;
-    margin: 0 auto;
+    margin: 30px auto;
 }
+
 label {
     color: #908E8E;
     display: block;
     margin-bottom: 5px;
 }
+
 select,
 input[type="date"],
 input[type="time"] {
@@ -158,6 +182,7 @@ input[type="time"] {
     border-radius: 5px;
     box-sizing: border-box;
 }
+
 button {
     color: #fff;
     background-color: #8f7ad6a3;
@@ -168,25 +193,54 @@ button {
     width: 100%;
     box-sizing: border-box;
 }
+
 button:hover {
     background-color: #7a68c1;
 }
+.inputbox{
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+}
+input {
+    color: #fff;
+    background-color: #C9C8C8;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input:hover {
+    background-color: #b4a8e4;
+}
+
 
 /* Utility Classes */
 .welcome {
     background-color: #333333;
 }
+
 .welcome p {
     color: #C9C8C8;
 }
+
 .cookie-consent div {
     background-color: #333;
     color: white;
 }
+
 .footer {
     background-color: #1a1a1a;
     color: #ffffff;
 }
+
 .overlay-content {
     background-color: #fff;
     border-radius: 5px;
@@ -201,9 +255,11 @@ button:hover {
     .nav a {
         display: none;
     }
+
     .responsive-link {
         display: none;
     }
+
     .nav-toggle {
         display: block;
         float: right;
@@ -214,10 +270,12 @@ button:hover {
         border: none;
         cursor: pointer;
     }
+
     .nav-toggle:hover {
         background-color: #ddd;
         color: black;
     }
+
     .dropdown-menu {
         display: none;
         position: absolute;
@@ -226,6 +284,7 @@ button:hover {
         background-color: #333333;
         width: 100%;
     }
+
     .dropdown-menu a {
         float: none;
         color: #C9C8C8;
@@ -234,11 +293,13 @@ button:hover {
         text-decoration: none;
         display: block;
     }
+
     .dropdown-menu a:hover {
         background-color: #444;
         color: white;
     }
 }
+
 @media (max-width: 600px) {
     form {
         padding: 15px;

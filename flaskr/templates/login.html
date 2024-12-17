@@ -6,96 +6,85 @@
 {% block content %}
 
 <div>
-    <div class="container" >
-        <form action="/login" method="POST">
-            <h1>Login</h1>
-            <div class="textboxdiv input">
-                <label for="username">Username</label><br>
-                <input type="text" name="username" placeholder="Username" required>
-            </div>
-            <div class="textboxdiv input">
-                <label for="password">Password</label><br>
-                <input type="password" name="password" id="password" placeholder="Password" required>
-                <br>
-                <input type="checkbox" id="showPassword" onclick="togglePasswordVisibility()"> Show Password
-            </div>
-            <input type="submit" value="login" class="loginbtn">
-<script>
-    function togglePasswordVisibility() {
-        var passwordField = document.getElementById('password');
-        if (passwordField.type === 'password') {
-            passwordField.type = 'text';
-        } else {
-            passwordField.type = 'password';
-        }
-    }
-</script>
-            <div>
-                <br>
-                <a href="/Sign-Up" style="color: #907AD6;">Don't have an account? Register</a>
-            </div>
-        </form>
-    </div>
+    <form action="/login" method="POST" >
+        <h1>Login</h1>
+        <div class="textboxdiv input">
+            <label for="username">Username</label><br>
+            <input type="text" name="username" placeholder="Username" required>
+        </div>
+        <div class="textboxdiv input">
+            <label for="password">Password</label><br>
+            <input type="password" name="password" id="password" placeholder="Password" required>
+            <br>
+            <h5><input type="checkbox" id="showPassword" onclick="togglePassword()"> Show Password</h5>       
+         </div>
+        <input type="submit" value="login" class="loginbtn">
+        <script>
+            function togglePasswordVisibility() {
+                var passwordField = document.getElementById('password');
+                if (passwordField.type === 'password') {
+                    passwordField.type = 'text';
+                } else {
+                    passwordField.type = 'password';
+                }
+            }
+        </script>
+        <div>
+            <br>
+            <a href="/Sign-Up" style="color: #907AD6;">Don't have an account? Register</a>
+        </div>
+    </form>
 </div>
 <style>
-    .container {
-        max-width: 500px;
-        display: flex;
-        justify-content: space-around;
-        height: 500px;
-        margin: 0 auto;  /* This centers the container horizontally */
-        margin-bottom: 30px;
-        align-items: center;
-        text-align: center;
-        box-shadow: #ffffff;
-        background-size: 400% 400%;
-        animation: gradientShift 15s ease infinite;
-        border: 2px solid;
-        border-radius: 10px;
-    }
-
     @keyframes gradientShift {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
     }
-    
 </style>
 <script>
 
 
-        // Form handling
-        const form = document.querySelector('form');
-        const submitBtn = document.getElementById('submitBtn');
+    // Form handling
+    const form = document.querySelector('form');
+    const submitBtn = document.getElementById('submitBtn');
 
-        if (form) {
-            form.addEventListener('input', () => {
-                const isValid = form.checkValidity();
-                if (submitBtn) {
-                    submitBtn.disabled = !isValid;
-                }
+    if (form) {
+        form.addEventListener('input', () => {
+            const isValid = form.checkValidity();
+            if (submitBtn) {
+                submitBtn.disabled = !isValid;
+            }
+        });
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formAction = form.getAttribute('action');
+            const response = await fetch(formAction, {
+                method: 'POST',
+                body: new FormData(form)
             });
 
-            form.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                const formAction = form.getAttribute('action');
-                const response = await fetch(formAction, {
-                    method: 'POST',
-                    body: new FormData(form)
-                });
-
-                if (!response.ok) {
-                    const message = await response.text();
-                    const overlay = document.createElement('div');
-                    overlay.style.cssText = 'position:fixed; top:20px; left:50%; transform:translateX(-50%); background:rgba(255,0,0,0.8); color:white; padding:15px; border-radius:5px; z-index:1000;';
-                    overlay.textContent = message;
-                    document.body.appendChild(overlay);
-                    setTimeout(() => overlay.remove(), 3000);
-                } else {
-                    window.location.href = '/';
-                }
-            });
-        }
+            if (!response.ok) {
+                const message = await response.text();
+                const overlay = document.createElement('div');
+                overlay.style.cssText = 'position:fixed; top:20px; left:50%; transform:translateX(-50%); background:rgba(255,0,0,0.8); color:white; padding:15px; border-radius:5px; z-index:1000;';
+                overlay.textContent = message;
+                document.body.appendChild(overlay);
+                setTimeout(() => overlay.remove(), 3000);
+            } else {
+                window.location.href = '/';
+            }
+        });
+    }
 
 </script>
 {% endblock %}
