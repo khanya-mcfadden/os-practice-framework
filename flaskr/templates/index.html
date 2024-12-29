@@ -104,8 +104,7 @@
   {% endif %} {% endblock %}
 
   <div class="footer">
-    <footer id="footer"
-      style="position: fixed; bottom: -100%; left: 0; width: 100%; transition: bottom 0.3s; background-color: inherit;">
+    <footer id="footer">
       <section id="themes" style="padding: 1px">
         <h4 style="margin: 1px 0">Contact Us</h4>
         <hr style="margin: 1px 0" />
@@ -116,15 +115,7 @@
 
       </section>
     </footer>
-    <script>
-      window.onscroll = function () {
-        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 100) {
-          document.getElementById('footer').style.bottom = '0';
-        } else {
-          document.getElementById('footer').style.bottom = '-100%';
-        }
-      };
-    </script>
+
   </div>
 </body>
 
