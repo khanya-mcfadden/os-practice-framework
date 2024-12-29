@@ -131,3 +131,6 @@ tasks:
 
 currant issuse: 
     - had to fix nav bar issues as they were not loading properly when a norm user is logged 
+
+29/11/2024
+[] wanted to fix css to revamp website first need to redo the footer
